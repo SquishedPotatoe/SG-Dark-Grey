@@ -15,6 +15,6 @@ Install [Stylus](https://add0n.com/stylus.html) for either [Firefox](https://add
 
 📦 [Install the usercss](https://github.com/SquishedPotatoe/SG-Dark-Grey/raw/master/SG-Dark-Grey.user.css) which supports automatic updates and customization.<br>
 📦 [Install manually from GitHub](https://github.com/SquishedPotatoe/SG-Dark-Grey/raw/master/SG-Dark-Grey.css) with no customization. The style is in Mozilla format.<br>
-📦 [Install script](https://github.com/SquishedPotatoe/SG-Dark-Grey/raw/master/SG-Dark-Grey.js)  which supports automatic updates but no customization.<br>
+📦 [Install script](https://github.com/SquishedPotatoe/SG-Dark-Grey/raw/master/SG-Dark-Grey.user.js)  which supports automatic updates but no customization.<br>
 
 
