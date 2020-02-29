@@ -5,7 +5,7 @@
 // @description    Dark Grey style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 // @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 // @homepageURL    https://github.com/SquishedPotatoe/SG-Dark-Grey
-// @updateURL      https://github.com/SquishedPotatoe/SG-Dark-Grey/raw/master/SG-Dark-Grey.js
+// @updateURL      https://github.com/SquishedPotatoe/SG-Dark-Grey/raw/master/SG-Dark-Grey.user.js
 // @supportURL     https://github.com/SquishedPotatoe/SG-Dark-Grey/issues
 // @include        *://www.steamgifts.com/*
 // @include        *://www.steamtrades.com/*
