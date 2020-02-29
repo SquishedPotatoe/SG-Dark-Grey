@@ -1,352 +1,242 @@
-/* ==UserStyle==
-@name           SG Dark Grey
-@namespace      SG Dark Grey v2.2.1
-@version        2.2.1
-@description    Dark Grey style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
-@author         SquishedPotatoe (https://github.com/SquishedPotatoe)
-@homepageURL    https://github.com/SquishedPotatoe/SG-Dark-Grey
-@updateURL      https://github.com/SquishedPotatoe/SG-Dark-Grey/raw/master/SG-Dark-Grey.user.css
-@supportURL     https://github.com/SquishedPotatoe/SG-Dark-Grey/issues
-@license        CC-BY-SA-4.0
-@preprocessor   less
-@var color body-bg-color "Body Background" hsla(60, 4%, 14%, 1)
-@var select body-bg-image "Body Background Image" {
-    "None": "'none'",
-    "Custom": "@body-bg-image-custom top center/cover no-repeat fixed"
-}
-@var text body-bg-image-custom "Custom Image, include url()" "url()"
+// ==UserScript==
+// @name           SG Dark Grey
+// @namespace      SG Dark Grey v2.2.1
+// @version        2.2.1
+// @description    Dark Grey style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
+// @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
+// @homepageURL    https://github.com/SquishedPotatoe/SG-Dark-Grey
+// @updateURL      https://github.com/SquishedPotatoe/SG-Dark-Grey/raw/master/SG-Dark-Grey.js
+// @supportURL     https://github.com/SquishedPotatoe/SG-Dark-Grey/issues
+// @include        *://www.steamgifts.com/*
+// @include        *://www.steamtrades.com/*
+// @include        *://www.sgtools.info/*
+// @license        CC-BY-SA-4.0
+// @grant          GM.info
+// @run-at         document-start
+// @noframes
+// ==/UserScript==
 
-@var select body-bg-image-gpu "Background Image Use GPU" {
-  "No": "'no'",
-  "Yes": "'yes'"
-}
-@var range body-bg-image-blur "Background Image Blur" [0, 0, 5, 0.005, "px"]
-@var number body-bg-image-brightness "Background Image Brightness" [1, 0, 10, 0.005]
-@var number body-bg-image-opacity "Background Image Opacity" [1, 0, 1, 0.005]
-@var number body-bg-image-saturation "Background Image Saturation" [1, 0, 10, 0.005]
-@var number button-hover-brightness "Button Hover Brightness" [1.25, 0, 10, 0.005]
-@var color chart-bg-color "Chart Background" hsla(60, 2%, 16%, 0.65)
-@var color chart-border-color "Chart Border" hsla(0, 0%, 0%, 0.35)
-@var color chart-head-bg-color "Chart Head Background" hsla(60, 4%, 21%, 1)
-@var color chart-head-border-color "Chart Head Border" hsla(0, 0%, 0%, 0.6)
-@var color chart-head-txt-color "Chart Head Text" #8f9fb3
-@var color chart-row-bg-color "Chart Row Background" hsla(60, 3%, 17%, 0.8)
-@var color chart-row-txt-color "Chart Row text" hsla(0, 0%, 63%, 0.95)
-@var color code-bg-color "Code Background" hsla(60, 3%, 16%, 1)
-@var color code-border-color "Code Border" hsla(0, 0%, 0%, 0.45)
-@var color code-txt-color "Code text" #b7b776
-@var color content-bg-color "Content Background" hsla(60, 4%, 9%, 0.3)
-@var color content-border-color "Content Border" hsla(0, 0%, 0%, 0.4)
-@var color content-inner-bg-color "Content Inner Background" hsla(60, 12%, 0%, 0.1)
-@var color content-inner-border-color "Content Inner Border" hsla(0, 0%, 0%, 0.5)
-@var color featured-bg-color "Featured Background" hsla(210, 47%, 18%, 0.5)
-@var color featured-border-color "Featured Border" hsla(0, 0%, 0%, 0.8)
-@var color general-txt-color "General Text" hsla(0, 0%, 65%, 0.95)
-@var color giveaway-columns-bg-color "Giveaway Columns Background" hsla(0, 0%, 100%, 0.06)
-@var color green-buttons-bg-color "Green Buttons" hsla(92, 30%, 36%, 1)
-@var color green-buttons-border-color "Green Buttons Border" hsla(0, 0%, 0%, 1)
-@var color green-icons-txt-color "Green Icons/Text" hsla(90, 39%, 47%, 0.8)
-@var number grid-brightness "Grid Brightness" [0.7, 0, 10, 0.005]
-@var number grid-hover-brightness "Grid Hover Brightness" [0.9, 0, 10, 0.005]
-@var color grid-popout-bg-color "Grid Popout Background" hsla(0, 0%, 20%, 1)
-@var color grid-popout-border-color "Grid Popout Border"  #000
-@var color group-bg-color "Group Background" hsla(113, 35%, 40%, 1)
-@var color group-border-color "Group Border" hsla(0, 0%, 0%, 0.5)
-@var color header-footer-bg-color "Header/Footer Background" hsla(210, 25%, 24%, 1)
-@var color header-footer-border-color "Header/Footer Border" hsla(0, 0%, 0%, 0.7)
-@var color headings-size1-txt-color "Headings Size 1 Text" hsla(0, 0%, 68%, 1)
-@var color headings-size2-txt-color "Headings Size 2 Text" hsla(0, 0%, 68%, 1)
-@var color headings-size3-txt-color "Headings Size 3 Text" hsla(0, 0%, 68%, 1)
-@var color headings-txt-color "Headings Text" #8f9fb3
-@var color image-bg-color "Image Background" hsla(0, 0%, 25%, 1)
-@var color image-border-color "Image Border" hsla(0, 0%, 0%, 0.65)
-@var number image-brightness "Image Brightness" [0.8, 0, 10, 0.005]
-@var color input-bg-color "Input Background" hsla(0, 0%, 20%, 1)
-@var color input-border-color "Input Border" hsla(0, 0%, 0%, 0.7)
-@var color invite-bg-color "Invite Background" hsla(0, 0%, 50%, 1)
-@var color invite-border-color "Invite Border" hsla(0, 0%, 0%, 1)
-@var color invite-txt-color "Invite Text" hsla(0, 0%, 85%, 1)
-@var color link-txt-color "Link Text" hsla(201, 43%, 57%, 0.85)
-@var color list-txt-color "List Text" #d84141
-@var color modal-bg-color "Modal Background" hsla(0, 0%, 18%, 1)
-@var color nav-button-bg-color "Nav Button Background" hsla(207, 32%, 33%, 1)
-@var number nav-button-hover-brightness "Nav Button Hover Brightness" [1.25, 0, 10, 0.005]
-@var number nav-button-hover-saturate "Nav Button Hover Saturation" [1.5, 0, 10, 0.005]
-@var color nav-dropdown-bg-color "Nav Dropdown Background" hsla(0, 0%, 25%, 1)
-@var color nav-dropdown-border-color "Nav Dropdown border" #000
-@var color nav-txt-color "Nav Text" hsla(0, 0%, 80%, 0.9)
-@var select page-width "Page Width" {
-  "100%": "100%",
-  "Fixed": "1400px"
-}
-@var color pageheading-bg-color "Pageheading Background" hsla(0, 0%, 23%, 1)
-@var color pageheading-border-color "Pageheading Border" hsla(0, 0%, 0%, 0.7)
-@var color pageheading-txt-color "Pageheading Text" hsla(202, 62%, 67%, 0.9)
-@var color pinned-bg-color "Pinned Background" hsla(208, 28%, 18%, 1)
-@var color pinned-border-color "Pinned border" hsla(0, 0%, 0%, 0.45)
-@var color poll-bg-color "Poll Background" hsla(60, 4%, 9%, 0.3)
-@var color poll-heading-bg-color "Poll Heading Background" hsla(0, 0%, 19%, 1)
-@var color poll-heading-border-color "Poll Heading Border" hsla(0, 0%, 0%, 0.6)
-@var color poll-row-txt-color "Poll Row Text" #a4a4a4
-@var color quote-bg-color "Quote Background" hsla(0, 0%, 0%, 0.18)
-@var color quote-border-color "Quote Border" hsla(60, 2%, 50%, 0.64)
-@var color quote-txt-color "Quote Text" hsla(0, 0%, 63%, 0.95)
-@var color red-buttons-bg-color "Red Buttons" hsla(0, 44%, 45%, 1)
-@var color red-buttons-border-color "Red Buttons Border" hsla(0, 0%, 0%, 1)
-@var color red-icons-txt-color "Red Icons/Text" hsla(0, 70%, 55%, 0.95)
-@var color reply-bg-color "Reply Background" hsla(210, 8%, 16%, 0.8)
-@var color reply-border-color "Reply Border" hsla(0, 0%, 0%, 0.65)
-@var number row-hover-color "Row Hover Brightness" [1.2, 0, 10, 0.005]
-@var color scrollbar-thumb "Scrollbar thumb" hsla(0, 0%, 15%, 1)
-@var color scrollbar-track "Scrollbar track" hsla(0, 0%, 10%, 1)
-@var color secondary-txt-color "Secondary Text" hsl(210, 6%, 50%)
-@var color separator-dark-color "Seperator Dark" hsla(60, 2%, 4%, 1)
-@var color separator-hover-color "Seperator Hover" hsla(200, 20%, 30%, 0.8)
-@var color separator-light-color "Seperator Light" hsla(0, 0%, 100%, 0.1)
-@var color shadow-color "Shadow color" #000
-@var number shadow-opacity "Shadow Opacity" [0, -1, 1, 0.05]
-@var color sidebar-bg-color "Sidebar Background" hsla(60, 6%, 9%, 0.33)
-@var color sidebar-border-color "Sidebar Border" hsla(0, 0%, 0%, 0.4)
-@var color sidebar-link-txt-color "Sidebar Link Text" hsla(202, 62%, 67%, 0.9)
-@var color silver-buttons-bg-color "Silver buttons" hsla(0, 0%, 43%, 1)
-@var color silver-buttons-border-color "Silver buttons Border" hsla(0, 0%, 0%, 0.9)
-@var color spoiler-bg-color "Spoiler Background" hsla(60, 2%, 21%, 1)
-@var color tableheading-bg-color "Tableheading Background" hsla(0, 0%, 19%, 1)
-@var color tableheading-border-color "Tableheading Border" hsla(0, 0%, 0%, 0.8)
-@var number text-shadow-opacity "Text Shadow Opacity" [0, -1, 1, 0.05]
-@var color text-shadow-color "Text Shadow color" #000
-@var color trade-have-bg-color "Trade Have Background" hsla(0, 20%, 31%, 0.37)
-@var color trade-want-bg-color "Trade Want Background" hsla(184, 17%, 33%, 0.37)
-@var color tooltip-bg-color "Tooltip Background" hsla(0, 0%, 17%, 1)
-@var color tooltip-border-color "Tooltip Border" hsla(0, 0%, 0%, 1)
-@var color tooltip-txt-color "Tooltip Text" hsl(0, 0%, 65%)
-@var color visited-txt-color "Visited Link" hsla(90, 35%, 50%, 0.9)
-@var color whitelist-bg-color "Whitelist Background" hsla(185, 30%, 40%, 1)
-@var color whitelist-border-color "Whitelist Border" hsla(0, 0%, 0%, 0.5)
-@var color yellow-buttons-bg-color "Yellow Buttons" hsla(62, 68%, 32%, 1)
-@var color yellow-buttons-border-color "Yellow Buttons Border" hsla(0, 0%, 0%, 1)
-==/UserStyle== */
-@-moz-document domain("steamgifts.com"), domain("steamtrades.com"), domain("sgtools.info") {
-/* SG Dark Grey v2.2.1  2020-02-29 */
-
-:root {
-  --SGSP-body-bg-color: @body-bg-color;
-  --SGSP-body-bg-image: @body-bg-image;
-  --SGSP-button-hover-brightness: brightness(@button-hover-brightness);
-  --SGSP-chart-bg-color: @chart-bg-color;
-  --SGSP-chart-border-color: @chart-border-color;
-  --SGSP-chart-head-bg-color: @chart-head-bg-color;
-  --SGSP-chart-head-border-color: @chart-head-border-color;
-  --SGSP-chart-head-txt-color: @chart-head-txt-color;
-  --SGSP-chart-row-bg-color: @chart-row-bg-color;
-  --SGSP-chart-row-txt-color: @chart-row-txt-color;
-  --SGSP-code-bg-color: @code-bg-color;
-  --SGSP-code-border-color: @code-border-color;
-  --SGSP-code-txt-color: @code-txt-color;
-  --SGSP-content-bg-color: @content-bg-color;
-  --SGSP-content-border-color: @content-border-color;
-  --SGSP-content-inner-bg-color: @content-inner-bg-color;
-  --SGSP-content-inner-border-color: @content-inner-border-color;
-  --SGSP-featured-bg-color: @featured-bg-color;
-  --SGSP-featured-border-color: @featured-border-color;
-  --SGSP-featured-giveaway-bg-gradient: linear-gradient(to right, var(--SGSP-body-bg-color) 2%, hsla(0, 0%, 0%, 0) 25%, hsla(0, 0%, 0%, 0) 85%, var(--SGSP-body-bg-color) 98%);
-  --SGSP-featured-home-bg-gradient: linear-gradient(to right, var(--SGSP-body-bg-color) 2%, hsla(0, 0%, 0%, 0) 25%, hsla(0, 0%, 0%, 0) 85%, var(--SGSP-body-bg-color) 98%);
-  --SGSP-featured-user-bg-gradient: linear-gradient(to right, var(--SGSP-body-bg-color) 2%, hsla(0, 0%, 0%, 0) 25%, hsla(0, 0%, 0%, 0) 85%, var(--SGSP-body-bg-color) 98%);
-  --SGSP-general-txt-color: @general-txt-color;
-  --SGSP-giveaway-columns-bg-color: linear-gradient(@giveaway-columns-bg-color 0, darken(@giveaway-columns-bg-color, 55%) 100%);
-  --SGSP-giveaway-columns-border-color: fadein(@content-border-color, 30%);
-  --SGSP-giveaway-columns-boxshadow-color: hsla(0, 0%, 100%, 0.05);
-  --SGSP-green-buttons-bg-color: linear-gradient(@green-buttons-bg-color 0%, spin(saturate(darken(@green-buttons-bg-color, 19%), 14%), 4%) 100%);
-  --SGSP-green-buttons-border-color: @green-buttons-border-color;
-  --SGSP-green-buttons-txt-color: spin(saturate(lighten(fade(@green-buttons-bg-color, 90%), 44%), 16%), 2%);
-  --SGSP-green-icons-txt-color: @green-icons-txt-color;
-  --SGSP-grid-brightness: brightness(@grid-brightness);
-  --SGSP-grid-hover-brightness: brightness(@grid-hover-brightness);
-  --SGSP-grid-popout-bg-color: @grid-popout-bg-color;
-  --SGSP-grid-popout-border-color: @grid-popout-border-color;
-  --SGSP-group-bg-color: linear-gradient(@group-bg-color 0%, spin(saturate(darken(@group-bg-color, 20%), 5%), 3%) 100%);
-  --SGSP-group-border-color: @group-border-color;
-  --SGSP-group-txt-color: saturate(lighten(@group-bg-color, 20%), 5%);
-  --SGSP-header-footer-bg-color: linear-gradient(@header-footer-bg-color 0%, darken(@header-footer-bg-color, 7%) 100%);
-  --SGSP-header-footer-border-color: @header-footer-border-color;
-  --SGSP-headings-size1-txt-color: @headings-size1-txt-color;
-  --SGSP-headings-size2-txt-color: @headings-size2-txt-color;
-  --SGSP-headings-size3-txt-color: @headings-size3-txt-color;
-  --SGSP-headings-txt-color: @headings-txt-color;
-  --SGSP-image-bg-color: @image-bg-color;
-  --SGSP-image-border-color: @image-border-color;
-  --SGSP-image-brightness: brightness(@image-brightness);
-  --SGSP-image-filters: blur(@body-bg-image-blur) brightness(@body-bg-image-brightness) opacity(@body-bg-image-opacity) saturate(@body-bg-image-saturation);
-  --SGSP-input-bg-color: @input-bg-color;
-  --SGSP-input-border-color: @input-border-color;
-  --SGSP-invite-bg-color: linear-gradient(lighten(@invite-bg-color, 11%) 0%, @invite-bg-color 50%, darken(@invite-bg-color, 19%) 100%);
-  --SGSP-invite-border-color: @invite-border-color;
-  --SGSP-invite-txt-color: @invite-txt-color;
-  --SGSP-link-txt-color: @link-txt-color;
-  --SGSP-list-txt-color: @list-txt-color;
-  --SGSP-modal-bg-color: @modal-bg-color;
-  --SGSP-nav-button-bg-color: linear-gradient(@nav-button-bg-color 0%, saturate(darken(@nav-button-bg-color, 10%), 2%) 100%);
-  --SGSP-nav-button-hover-brightness: brightness(@nav-button-hover-brightness);
-  --SGSP-nav-button-hover-saturate: saturate(@nav-button-hover-saturate);
-  --SGSP-nav-dropdown-bg-color: linear-gradient(@nav-dropdown-bg-color 0%, darken(@nav-dropdown-bg-color, 4%) 100%);
-  --SGSP-nav-dropdown-border-color: @nav-dropdown-border-color;
+function addCss() {
+  var css = `/* SG Dark Grey v2.2.1  2020-02-29 */
+ :root {
+  --SGSP-body-bg-color: #252522;
+  --SGSP-body-bg-image: "none";
+  --SGSP-button-hover-brightness: brightness(1.25);
+  --SGSP-chart-bg-color: rgba(42, 42, 40, 0.65);
+  --SGSP-chart-border-color: rgba(0, 0, 0, 0.35);
+  --SGSP-chart-head-bg-color: #383833;
+  --SGSP-chart-head-border-color: rgba(0, 0, 0, 0.6);
+  --SGSP-chart-head-txt-color: #8f9fb3;
+  --SGSP-chart-row-bg-color: rgba(45, 45, 42, 0.8);
+  --SGSP-chart-row-txt-color: rgba(161, 161, 161, 0.95);
+  --SGSP-code-bg-color: #2a2a28;
+  --SGSP-code-border-color: rgba(0, 0, 0, 0.45);
+  --SGSP-code-txt-color: #b7b776;
+  --SGSP-content-bg-color: rgba(24, 24, 22, 0.3);
+  --SGSP-content-border-color: rgba(0, 0, 0, 0.4);
+  --SGSP-content-inner-bg-color: rgba(0, 0, 0, 0.1);
+  --SGSP-content-inner-border-color: rgba(0, 0, 0, 0.5);
+  --SGSP-featured-bg-color: rgba(24, 46, 67, 0.5);
+  --SGSP-featured-border-color: rgba(0, 0, 0, 0.8);
+  --SGSP-featured-giveaway-bg-gradient: linear-gradient(to right, var(--SGSP-body-bg-color) 2%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 85%, var(--SGSP-body-bg-color) 98%);
+  --SGSP-featured-home-bg-gradient: linear-gradient(to right, var(--SGSP-body-bg-color) 2%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 85%, var(--SGSP-body-bg-color) 98%);
+  --SGSP-featured-user-bg-gradient: linear-gradient(to right, var(--SGSP-body-bg-color) 2%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 85%, var(--SGSP-body-bg-color) 98%);
+  --SGSP-general-txt-color: rgba(166, 166, 166, 0.95);
+  --SGSP-giveaway-columns-bg-color: linear-gradient(rgba(255, 255, 255, 0.06) 0, rgba(115, 115, 115, 0.06) 100%);
+  --SGSP-giveaway-columns-border-color: rgba(0, 0, 0, 0.7);
+  --SGSP-giveaway-columns-boxshadow-color: rgba(255, 255, 255, 0.05);
+  --SGSP-green-buttons-bg-color: linear-gradient(#5a7740 0%, #283e18 100%);
+  --SGSP-green-buttons-border-color: #000000;
+  --SGSP-green-buttons-txt-color: rgba(201, 227, 181, 0.9);
+  --SGSP-green-icons-txt-color: rgba(120, 167, 73, 0.8);
+  --SGSP-grid-brightness: brightness(0.7);
+  --SGSP-grid-hover-brightness: brightness(0.9);
+  --SGSP-grid-popout-bg-color: #333333;
+  --SGSP-grid-popout-border-color: #000000;
+  --SGSP-group-bg-color: linear-gradient(#4b8a42 0%, #21471f 100%);
+  --SGSP-group-border-color: rgba(0, 0, 0, 0.5);
+  --SGSP-group-txt-color: #7ac270;
+  --SGSP-header-footer-bg-color: linear-gradient(#2e3d4d 0%, #212b36 100%);
+  --SGSP-header-footer-border-color: rgba(0, 0, 0, 0.7);
+  --SGSP-headings-size1-txt-color: #adadad;
+  --SGSP-headings-size2-txt-color: #adadad;
+  --SGSP-headings-size3-txt-color: #adadad;
+  --SGSP-headings-txt-color: #8f9fb3;
+  --SGSP-image-bg-color: #404040;
+  --SGSP-image-border-color: rgba(0, 0, 0, 0.65);
+  --SGSP-image-brightness: brightness(0.8);
+  --SGSP-image-filters: blur(0px) brightness(1) opacity(1) saturate(1);
+  --SGSP-input-bg-color: #333333;
+  --SGSP-input-border-color: rgba(0, 0, 0, 0.7);
+  --SGSP-invite-bg-color: linear-gradient(#9c9c9c 0%, #808080 50%, #4f4f4f 100%);
+  --SGSP-invite-border-color: #000000;
+  --SGSP-invite-txt-color: #d9d9d9;
+  --SGSP-link-txt-color: rgba(98, 159, 192, 0.85);
+  --SGSP-list-txt-color: #d84141;
+  --SGSP-modal-bg-color: #2e2e2e;
+  --SGSP-nav-button-bg-color: linear-gradient(#39576f 0%, #273d4f 100%);
+  --SGSP-nav-button-hover-brightness: brightness(1.25);
+  --SGSP-nav-button-hover-saturate: saturate(1.5);
+  --SGSP-nav-dropdown-bg-color: linear-gradient(#404040 0%, #363636 100%);
+  --SGSP-nav-dropdown-border-color: #000000;
   --SGSP-nav-dropdown-hover-bg-color: var(--SGSP-nav-button-bg-color);
-  --SGSP-nav-txt-color: @nav-txt-color;
-  --SGSP-page-width: @page-width;
-  --SGSP-pageheading-bg-color: linear-gradient(@pageheading-bg-color 0%, darken(@pageheading-bg-color, 5%) 100%);
-  --SGSP-pageheading-border-color: @pageheading-border-color;
-  --SGSP-pageheading-txt-color: @pageheading-txt-color;
-  --SGSP-pinned-bg-color: linear-gradient(@pinned-bg-color 0%, darken(desaturate(@pinned-bg-color, 8%), 4%) 100%);
-  --SGSP-pinned-border-color: @pinned-border-color;
-  --SGSP-poll-bg-color: @poll-bg-color;
+  --SGSP-nav-txt-color: rgba(204, 204, 204, 0.9);
+  --SGSP-page-width: 100%;
+  --SGSP-pageheading-bg-color: linear-gradient(#3b3b3b 0%, #2e2e2e 100%);
+  --SGSP-pageheading-border-color: rgba(0, 0, 0, 0.7);
+  --SGSP-pageheading-txt-color: rgba(119, 185, 223, 0.9);
+  --SGSP-pinned-bg-color: linear-gradient(#212f3b 0%, #1d242b 100%);
+  --SGSP-pinned-border-color: rgba(0, 0, 0, 0.45);
+  --SGSP-poll-bg-color: rgba(24, 24, 22, 0.3);
   --SGSP-poll-border-color: var(--SGSP-content-border-color);
-  --SGSP-poll-heading-bg-color: @poll-heading-bg-color;
-  --SGSP-poll-heading-border-color: @poll-heading-border-color;
+  --SGSP-poll-heading-bg-color: #303030;
+  --SGSP-poll-heading-border-color: rgba(0, 0, 0, 0.6);
   --SGSP-poll-heading-txt-color: var(--SGSP-headings-txt-color);
-  --SGSP-poll-row-txt-color: @poll-row-txt-color;
-  --SGSP-quote-bg-color: @quote-bg-color;
-  --SGSP-quote-border-color: @quote-border-color;
-  --SGSP-quote-txt-color: @quote-txt-color;
-  --SGSP-red-buttons-bg-color: linear-gradient(@red-buttons-bg-color 0%, saturate(darken(@red-buttons-bg-color, 21%), 30%) 100%);
-  --SGSP-red-buttons-border-color: @red-buttons-border-color;
-  --SGSP-red-buttons-txt-color: saturate(lighten(@red-buttons-bg-color, 35%), 24%);
-  --SGSP-red-icons-txt-color: @red-icons-txt-color;
-  --SGSP-red-suspension-bot-bg-color: linear-gradient(saturate(darken(@red-buttons-bg-color, 10%), 11%) 18%, saturate(darken(@red-buttons-bg-color, 21%), 30%) 100%);
-  --SGSP-red-suspension-top-bg-color: linear-gradient(@red-buttons-bg-color 0%, saturate(darken(@red-buttons-bg-color, 10%), 11%) 80%, saturate(darken(@red-buttons-bg-color, 21%), 30%) 200%);
-  --SGSP-reply-bg-color: @reply-bg-color;
-  --SGSP-reply-border-color: @reply-border-color;
-  --SGSP-row-hover-color: brightness(@row-hover-color);
-  --SGSP-scrollbar-bg-color: @scrollbar-track;
-  --SGSP-scrollbar-hover-bg-color: lighten(@scrollbar-thumb, 9%);
-  --SGSP-scrollbar-thumb-bg-color: @scrollbar-thumb;
-  scrollbar-color: @scrollbar-thumb @scrollbar-track;
-  --SGSP-secondary-txt-color: @secondary-txt-color;
-  --SGSP-separator-dark-color: @separator-dark-color;
-  --SGSP-separator-hover-color: @separator-hover-color;
-  --SGSP-separator-light-color: @separator-light-color;
+  --SGSP-poll-row-txt-color: #a4a4a4;
+  --SGSP-quote-bg-color: rgba(0, 0, 0, 0.18);
+  --SGSP-quote-border-color: rgba(130, 130, 125, 0.64);
+  --SGSP-quote-txt-color: rgba(161, 161, 161, 0.95);
+  --SGSP-red-buttons-bg-color: linear-gradient(#a54040 0%, #6a1010 100%);
+  --SGSP-red-buttons-border-color: #000000;
+  --SGSP-red-buttons-txt-color: #efa9a9;
+  --SGSP-red-icons-txt-color: rgba(221, 60, 60, 0.95);
+  --SGSP-red-suspension-bot-bg-color: linear-gradient(#8a2828 18%, #6a1010 100%);
+  --SGSP-red-suspension-top-bg-color: linear-gradient(#a54040 0%, #8a2828 80%, #6a1010 200%);
+  --SGSP-reply-bg-color: rgba(38, 41, 44, 0.8);
+  --SGSP-reply-border-color: rgba(0, 0, 0, 0.65);
+  --SGSP-row-hover-color: brightness(1.2);
+  --SGSP-scrollbar-bg-color: #1a1a1a;
+  --SGSP-scrollbar-hover-bg-color: #3d3d3d;
+  --SGSP-scrollbar-thumb-bg-color: #262626;
+  scrollbar-color: #262626 #1a1a1a;
+  --SGSP-secondary-txt-color: #788087;
+  --SGSP-separator-dark-color: #0a0a0a;
+  --SGSP-separator-hover-color: rgba(61, 82, 92, 0.8);
+  --SGSP-separator-light-color: rgba(255, 255, 255, 0.1);
   --SGSP-sgtool-content-bg-color: var(--SGSP-content-bg-color);
   --SGSP-sgtool-total-bg-color: var(--SGSP-pinned-bg-color);
-  --SGSP-sidebar-bg-color: @sidebar-bg-color;
-  --SGSP-sidebar-border-color: @sidebar-border-color;
+  --SGSP-sidebar-bg-color: rgba(24, 24, 22, 0.33);
+  --SGSP-sidebar-border-color: rgba(0, 0, 0, 0.4);
   --SGSP-sidebar-link-bg-color: var(--SGSP-pageheading-bg-color);
   --SGSP-sidebar-link-border-color: var(--SGSP-pageheading-border-color);
-  --SGSP-sidebar-link-txt-color: @sidebar-link-txt-color;
-  --SGSP-silver-buttons-bg-color: linear-gradient(@silver-buttons-bg-color 0%, darken(@silver-buttons-bg-color, 18%) 100%);
-  --SGSP-silver-buttons-border-color: @silver-buttons-border-color;
-  --SGSP-silver-buttons-txt-color: lighten(@silver-buttons-bg-color, 29%);
-  --SGSP-spoiler-bg-color: @spoiler-bg-color;
-  --SGSP-tableheading-bg-color: @tableheading-bg-color;
-  --SGSP-tableheading-border-color: @tableheading-border-color;
-  --SGSP-trade-have-bg-color: @trade-have-bg-color;
-  --SGSP-trade-have-border-color: lighten(saturate(@trade-have-bg-color, 40%), 40%);
-  --SGSP-trade-have-title-color: lighten(saturate(fadein(@trade-have-bg-color, 30%), 44%), 37%);
-  --SGSP-trade-want-bg-color: @trade-want-bg-color;
-  --SGSP-trade-want-border-color: lighten(saturate(@trade-want-bg-color, 36%), 30%);
-  --SGSP-trade-want-title-color: lighten(saturate(fadein(@trade-want-bg-color, 30%), 43%), 28%);
-  --SGSP-tooltip-bg-color: @tooltip-bg-color;
-  --SGSP-tooltip-border-color: @tooltip-border-color;
-  --SGSP-tooltip-txt-color: @tooltip-txt-color;
-  --SGSP-visited-txt-color: @visited-txt-color;
-  --SGSP-whitelist-bg-color: linear-gradient(@whitelist-bg-color 0%, saturate(darken(@whitelist-bg-color, 20%), 14%) 100%);
-  --SGSP-whitelist-border-color: @whitelist-border-color;
-  --SGSP-whitelist-txt-color: saturate(lighten(@whitelist-bg-color, 20%), 10%);
-  --SGSP-yellow-buttons-bg-color: linear-gradient(@yellow-buttons-bg-color 0%, saturate(darken(@yellow-buttons-bg-color, 14%), 27%) 100%);
-  --SGSP-yellow-buttons-border-color: @yellow-buttons-border-color;
-  --SGSP-yellow-buttons-txt-color: desaturate(lighten(fade(@yellow-buttons-bg-color, 95%), 43%), 23%);
-  --esgst-discussion-highlight-bg-color: hsla(95, 69%, 37%, 0.15);
-  --esgst-group-highlight-bg-color: hsla(95, 69%, 37%, 0.15);
-  --esgst-inner-panel-bg-color: fade(darken(@grid-popout-bg-color, 11%), 30%);
-  --esgst-inner-panel-border-color: fade(@grid-popout-border-color, 40%);
+  --SGSP-sidebar-link-txt-color: rgba(119, 185, 223, 0.9);
+  --SGSP-silver-buttons-bg-color: linear-gradient(#6e6e6e 0%, #404040 100%);
+  --SGSP-silver-buttons-border-color: rgba(0, 0, 0, 0.9);
+  --SGSP-silver-buttons-txt-color: #b8b8b8;
+  --SGSP-spoiler-bg-color: #373734;
+  --SGSP-tableheading-bg-color: #303030;
+  --SGSP-tableheading-border-color: rgba(0, 0, 0, 0.8);
+  --SGSP-trade-have-bg-color: rgba(95, 63, 63, 0.37);
+  --SGSP-trade-have-border-color: rgba(225, 137, 137, 0.37);
+  --SGSP-trade-have-title-color: rgba(226, 121, 121, 0.67);
+  --SGSP-trade-want-bg-color: rgba(70, 97, 98, 0.37);
+  --SGSP-trade-want-border-color: rgba(111, 204, 211, 0.37);
+  --SGSP-trade-want-title-color: rgba(96, 207, 215, 0.67);
+  --SGSP-tooltip-bg-color: #2b2b2b;
+  --SGSP-tooltip-border-color: #000000;
+  --SGSP-tooltip-txt-color: #a6a6a6;
+  --SGSP-visited-txt-color: rgba(128, 172, 83, 0.9);
+  --SGSP-whitelist-bg-color: linear-gradient(#478085 0%, #1d4649 100%);
+  --SGSP-whitelist-border-color: rgba(0, 0, 0, 0.5);
+  --SGSP-whitelist-txt-color: #70bbc2;
+  --SGSP-yellow-buttons-bg-color: linear-gradient(#85891a 0%, #575a02 100%);
+  --SGSP-yellow-buttons-border-color: #000000;
+  --SGSP-yellow-buttons-txt-color: rgba(218, 220, 163, 0.95);
+  --esgst-discussion-highlight-bg-color: rgba(83, 159, 29, 0.15);
+  --esgst-group-highlight-bg-color: rgba(83, 159, 29, 0.15);
+  --esgst-inner-panel-bg-color: rgba(23, 23, 23, 0.3);
+  --esgst-inner-panel-border-color: rgba(0, 0, 0, 0.4);
   --esgst-lpv-arrow-selected: var(--esgst-lpv-button);
   --esgst-lpv-bar-hover-projected: var(--esgst-lpv-bar-projected);
   --esgst-lpv-bar-hover: var(--esgst-lpv-bar);
-  --esgst-lpv-bar-projected: hsla(180, 79%, 29%, 1);
+  --esgst-lpv-bar-projected: #108484;
   --esgst-lpv-bar-selected-projected: var(--esgst-lpv-bar-projected);
   --esgst-lpv-bar-selected: var(--esgst-lpv-bar);
-  --esgst-lpv-bar: hsla(100, 75%, 24%, 1);
+  --esgst-lpv-bar: #2e6b0f;
   --esgst-lpv-button-hover: var(--esgst-lpv-button);
   --esgst-lpv-button-selected-hover: var(--esgst-lpv-button);
   --esgst-lpv-button-selected: var(--esgst-lpv-button);
-  --esgst-lpv-button: var(--SGSP-nav-button-bg-color)!important;
-  --esgst-modal-bg-color: fade(@modal-bg-color, 80%);
-  --SGSP-ts-1: @ts-1;
-  --SGSP-ts-2: @ts-2;
-  --SGSP-ts-3: @ts-3;
-  --SGSP-ts-4: @ts-4;
-  --SGSP-ts-5: @ts-5;
-  --SGSP-ts-6: @ts-6;
-  --SGSP-ts-7: @ts-7;
-  --SGSP-ts-8: @ts-8;
-  --SGSP-ts-9: @ts-9;
-  --SGSP-ts-10: @ts-10;
-  --SGSP-ts-11: @ts-11;
-  --SGSP-ts-12: @ts-12;
-  --SGSP-ts-13: @ts-13;
-  --SGSP-ts-14: @ts-14;
-  --SGSP-ts-15: @ts-15;
-  --SGSP-ts-16: @ts-16;
-  --SGSP-ts-17: @ts-17;
-  --SGSP-ts-18: @ts-18;
-  --SGSP-ts-19: @ts-19;
-  --SGSP-ts-20: @ts-20;
-  --SGSP-ts-21: @ts-21;
-  --SGSP-ts-22: @ts-22;
-  --SGSP-ts-23: @ts-23;
-  --SGSP-ts-24: @ts-24;
-  --SGSP-ts-25: @ts-25;
-  --SGSP-ts-26: @ts-26;
-  --SGSP-ts-27: @ts-27;
-  --SGSP-ts-28: @ts-28;
-  --SGSP-ts-29: @ts-29;
-  --SGSP-ts-30: @ts-30;
-  --SGSP-ts-31: @ts-31;
-  --SGSP-ts-32: @ts-32;
-  --SGSP-ts-33: @ts-33;
-  --SGSP-ts-34: @ts-34;
-  --SGSP-ts-35: @ts-35;
-  --SGSP-ts-36: @ts-36;
-  --SGSP-ts-37: @ts-37;
-  --SGSP-ts-38: @ts-38;
-  --SGSP-ts-39: @ts-39;
-  --SGSP-ts-40: @ts-40;
-  --SGSP-ts-41: @ts-41;
-  --SGSP-ts-42: @ts-42;
-  --SGSP-ts-43: @ts-43;
-  --SGSP-ts-44: @ts-44;
-  --SGSP-ts-45: @ts-45;
-  --SGSP-ts-46: @ts-46;
-  --SGSP-ts-47: @ts-47;
-  --SGSP-ts-48: @ts-48;
-  --SGSP-ts-49: @ts-49;
-  --SGSP-ts-50: @ts-50;
-  --SGSP-ts-51: @ts-51;
-  --SGSP-ts-52: @ts-52;
-  --SGSP-ts-53: @ts-53;
-  --SGSP-ts-54: @ts-54;
-  --SGSP-ts-55: @ts-55;
-  --SGSP-ts-56: @ts-56;
-  --SGSP-ts-57: @ts-57;
-  --SGSP-ts-58: @ts-58;
-  --SGSP-ts-59: @ts-59;
-  --SGSP-ts-60: @ts-60;
-  --SGSP-ts-61: @ts-61;
-  --SGSP-ts-62: @ts-62;
-  --SGSP-ts-63: @ts-63;
-  --SGSP-ts-64: @ts-64;
-  --SGSP-ts-65: @ts-65;
-  --SGSP-ts-66: @ts-66;
-  --SGSP-ts-67: @ts-67;
-  --SGSP-ts-68: @ts-68;
-  --SGSP-ts-69: @ts-69;
-  --SGSP-ts-70: @ts-70;
-  --SGSP-ts-71: @ts-71;
-  --SGSP-ts-72: @ts-72;
-  --SGSP-ts-73: @ts-73;
-  --SGSP-ts-74: @ts-74;
-  --SGSP-ts-75: @ts-75;
-  --SGSP-ts-76: @ts-76;
-  --SGSP-ts-77: @ts-77;
+  --esgst-lpv-button: var(--SGSP-nav-button-bg-color) !important;
+  --esgst-modal-bg-color: rgba(46, 46, 46, 0.8);
+  --SGSP-ts-1: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-2: 0 0 3px #000000;
+  --SGSP-ts-3: -1px 1px rgba(0, 0, 0, 0.99), 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-4: 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000;
+  --SGSP-ts-5: 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000, 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000, 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000;
+  --SGSP-ts-6: 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000, 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000, 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000;
+  --SGSP-ts-7: 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000, 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000;
+  --SGSP-ts-8: 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000;
+  --SGSP-ts-9: 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000;
+  --SGSP-ts-10: 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000, 1px 1px #000000;
+  --SGSP-ts-11: 0 2px #000000, 0 -2px #000000, 2px 0 #000000, -2px 0 #000000;
+  --SGSP-ts-12: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-13: 1px 1px rgba(0, 0, 0, 0.99), 0 1px rgba(0, 0, 0, 0.99), 1px 0 rgba(0, 0, 0, 0.99), 0 -1px rgba(0, 0, 0, 0.99), -1px 0 rgba(0, 0, 0, 0.99);
+  --SGSP-ts-14: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-15: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-16: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-17: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-18: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-19: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-20: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-21: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-22: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-23: 1px 1px rgba(0, 0, 0, 0.99), 1px 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-24: -1px 1px rgba(0, 0, 0, 0.99), 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-25: -1px 1px rgba(0, 0, 0, 0.99), 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-26: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-27: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-28: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-29: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-30: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-31: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-32: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-33: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-34: 1px 1px rgba(0, 0, 0, 0.7), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-35: 1px 1px rgba(0, 0, 0, 0.7), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-36: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-37: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-38: 1px 1px #000000, 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-39: 1px 1px rgba(0, 0, 0, 0.7);
+  --SGSP-ts-40: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-41: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-42: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-43: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-44: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-45: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-46: 1px 1px rgba(0, 0, 0, 0.99), 0 1px rgba(0, 0, 0, 0.99), 1px 0 rgba(0, 0, 0, 0.99), 0 -1px rgba(0, 0, 0, 0.99), -1px 0 rgba(0, 0, 0, 0.99);
+  --SGSP-ts-47: 1px 1px rgba(0, 0, 0, 0.99), 0 1px rgba(0, 0, 0, 0.99), 1px 0 rgba(0, 0, 0, 0.99), 0 -1px rgba(0, 0, 0, 0.99), -1px 0 rgba(0, 0, 0, 0.99);
+  --SGSP-ts-48: 1px 1px rgba(0, 0, 0, 0.99), 1px 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-49: 1px 1px rgba(0, 0, 0, 0.99), -1px -1px rgba(0, 0, 0, 0.99), -1px 0 rgba(0, 0, 0, 0.99), 0 -1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-50: 1px 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-51: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-52: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-53: 1px 1px rgba(0, 0, 0, 0.99), 1px 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-54: 1px 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-55: 1px 1px #000000, 0 0 1px #000000;
+  --SGSP-ts-56: -1px 1px rgba(0, 0, 0, 0.99), 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-57: -1px 1px rgba(0, 0, 0, 0.99), 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-58: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-59: -1px 1px rgba(0, 0, 0, 0.99), 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-60: 0 1px rgba(0, 0, 0, 0.6), 0 -1px rgba(0, 0, 0, 0.6), 1px 0 rgba(0, 0, 0, 0.6), -1px 0 rgba(0, 0, 0, 0.6);
+  --SGSP-ts-61: 0 1px rgba(0, 0, 0, 0.8), 0 -1px rgba(0, 0, 0, 0.8), 1px 0 rgba(0, 0, 0, 0.8), -1px 0 rgba(0, 0, 0, 0.8);
+  --SGSP-ts-62: 1px 1px rgba(0, 0, 0, 0.99), 0 1px rgba(0, 0, 0, 0.99), 1px 0 rgba(0, 0, 0, 0.99), 0 -1px rgba(0, 0, 0, 0.99), -1px 0 rgba(0, 0, 0, 0.99);
+  --SGSP-ts-63: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-64: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-65: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-66: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-67: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-68: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-69: 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000, 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000, 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000;
+  --SGSP-ts-70: 1px 1px rgba(0, 0, 0, 0.8);
+  --SGSP-ts-71: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-72: -1px 1px rgba(0, 0, 0, 0.99), 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-73: 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000, 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000, 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000;
+  --SGSP-ts-74: 0 1px #000000, 0 -1px #000000, 1px 0 #000000, -1px 0 #000000;
+  --SGSP-ts-75: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-76: 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
+  --SGSP-ts-77: 1px 1px rgba(0, 0, 0, 0.99), 1px 1px 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99), 0 0 1px rgba(0, 0, 0, 0.99);
 }
+
 html, [data-esgst-action] {
     background-color: var(--SGSP-body-bg-color)!important;
 }
@@ -394,7 +284,7 @@ body {
     height: 27px!important;
 }
 .author_avatar.is_icon {
-    color: fade(saturate(lighten(@red-icons-txt-color, 5%), 10%), 90%);
+    color: rgba(235, 72, 72, 0.9);
     background-color: var(--SGSP-image-bg-color);
 }
 .align-button-container > .comment__submit-button + .comment__submit-button {
@@ -412,7 +302,7 @@ a.featured__column.featured__column--group {
 }
 blockquote {
     margin: 0.8em -1000px 0.75em 1em;
-    max-width: ~"calc(100% - 90px)";
+    max-width: calc(100% - 90px);
     padding: 0.6em 2.3em!important;
     position: relative;
     quotes: "“" "”" "“" "”";
@@ -443,7 +333,7 @@ blockquote::after {
     text-shadow: var(--SGSP-ts-41);
 }
 .chart__subheading__green {
-    color: saturate(fade(@green-icons-txt-color, 100%), 10%);
+    color: #78b33d;
 }
 .chart:nth-of-type(even):not(#cvChartContainer), #charts, div#GaFormRealCV, div#GaFormRules, div#GaFormMisc, div#GaFormAdvanced, .creatorTools, .modTools, .cmGame.notFound {
     background-color: var(--SGSP-content-inner-bg-color);
@@ -463,7 +353,7 @@ blockquote::after {
     text-shadow: var(--SGSP-ts-22)!important;
 }
 .highcharts-tooltip p[style*="rgba(98, 134, 211, 0.5)"] {
-    color: fadeout(@general-txt-color, 15%)!important;
+    color: rgba(166, 166, 166, 0.8)!important;
 }
 #charts {
     border-radius: 8px;
@@ -673,7 +563,7 @@ input#filterCustomRule {
     width: 100%;
 }
 #content p[style*="red"] {
-    color: fade(saturate(lighten(@red-icons-txt-color, 5%), 10%), 90%)!important;
+    color: rgba(235, 72, 72, 0.9)!important;
 }
 .entry.validEntry, .entry.notvalidEntry {
     border-radius: 4px;
@@ -923,7 +813,7 @@ div#content:not(.entry):not(.cmGame) {
 }
 .tab-content {
     margin-left: auto;
-    max-width: ~"calc(100% - 190px)";
+    max-width: calc(100% - 190px);
 }
 .tab-content .cmGame, .form__sync-default, .form__sync-loading {
     margin-left: 0!important;
@@ -1117,7 +1007,7 @@ button.btn.dropdown-toggle.btn-inverse.btn-xs, .btn-group.open .dropdown-toggle 
     box-shadow: none!important;
 }
 .bootstrap-select.btn-group .dropdown-toggle .filter-option, .bootstrap-select.btn-group .dropdown-toggle .caret {
-    color: fadeout(@general-txt-color, 15%)!important;
+    color: rgba(166, 166, 166, 0.8)!important;
 }
 .bootstrap-select.btn-group .dropdown-menu .bs-searchbox .form-control {
     color: hsl(0, 0%, 75%)!important;
@@ -1292,8 +1182,8 @@ button.btn.dropdown-toggle.btn-inverse.btn-xs, .btn-group.open .dropdown-toggle 
     margin-top: -6px;
 }
 .comment__envelope, .comment_unread {
-    background-color: desaturate(lighten(spin(@tableheading-bg-color, -5), 7%), 5%);
-    background-image: linear-gradient(desaturate(lighten(spin(@tableheading-bg-color, -5), 12%), 10%) 0%, desaturate(lighten(spin(@tableheading-bg-color, -5), 2%), 5%) 100%);
+    background-color: hsl(0, 0%, 25%);
+    background-image: linear-gradient(#4f4f4f 0%, #353535 100%);
     border: 1px solid #000;
     color: var(--SGSP-green-icons-txt-color);
     text-shadow: var(--SGSP-ts-17);
@@ -1302,7 +1192,7 @@ button.btn.dropdown-toggle.btn-inverse.btn-xs, .btn-group.open .dropdown-toggle 
     color: inherit;
 }
 .comment__parent {
-    max-width: ~"calc(100% - 50px)";
+    max-width: calc(100% - 50px);
     margin-right: -1000px;
 }
 .comment__username:not(.comment__username--op) a:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .author_name:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .form__heading__text, .form__level, .giveaway__links:not(.esgst-giveaway-links) span, .giveaway-summary__links span, .giveaway__username:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .markdown a:not(.esgst-gc), .pagination__navigation a:not(.is-selected), .pagination_navigation a, .popup__actions, .popup_actions, .popup__description__small, .table__column__secondary-link:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .comments__entity__name, .table .underline:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), #content strong a, #content td a, form .heading .name, .header_search .description .blue, .esgst-ggl-member, .esgst-form-heading-text, .patreon_reward:not(.is_locked) .patreon_reward_summary_name, .esgst-aic-source, .esgst-popup-actions, .DTEP_ACHIEVEMENTS + a > [style*="color"], .esgst-steam-api-key ~ div a, a.esgst-bold:not(.esgst-namwc-highlight) {
@@ -1366,7 +1256,7 @@ div > .table__column--width-fill > form > strong {
     color: #6db563;
 }
 .fa-envelope-o:before {
-    content: "\f0e0";
+    content: "\\f0e0";
     font-size: 16px;
 }
 .featured__container {
@@ -1404,7 +1294,7 @@ div > .table__column--width-fill > form > strong {
     color: hsla(0, 0%, 100%, 0.5)!important;
 }
 .featured__online-now {
-    color: fade(@green-icons-txt-color, 95%)!important;
+    color: rgba(120, 167, 73, 0.95)!important;
 }
 .featured__outer-wrap {
     max-width: 96%;
@@ -1551,7 +1441,7 @@ form .heading {
     opacity: 0.4;
 }
 .form__row__error {
-    color: fade(saturate(lighten(@red-icons-txt-color, 5%), 10%), 90%);
+    color: rgba(235, 72, 72, 0.9);
 }
 .form__row__indent, form .indent, .esgst-form-row-indent {
     border-left: 1px solid var(--SGSP-separator-light-color)!important;
@@ -1569,7 +1459,7 @@ form .heading {
     filter: hue-rotate(10deg) saturate(0.9) brightness(1.05);
 }
 .giveaway__column--negative, .negative, .negative i {
-    color: fade(saturate(lighten(@red-icons-txt-color, 5%), 10%), 90%)!important;
+    color: rgba(235, 72, 72, 0.9)!important;
 }
 .giveaway__column--group, .featured__column--group {
     background-image: var(--SGSP-group-bg-color)!important;
@@ -1653,7 +1543,7 @@ form .heading {
     border: none;
 }
 .giveaway_image_thumbnail_missing i, .table_image_thumbnail_missing i, .table_image_avatar_missing i {
-    color: fadeout(@general-txt-color, 15%);
+    color: rgba(166, 166, 166, 0.8);
 }
 .giveaway__links {
     color: hsl(60, 2%, 35%);
@@ -1671,7 +1561,7 @@ form .heading {
     min-height: 175px;
 }
 .global__image-outer-wrap--missing-image i, .featured__outer-wrap .global__image-outer-wrap--missing-image i {
-    color: fadeout(@general-txt-color, 15%);
+    color: rgba(166, 166, 166, 0.8);
     box-shadow: none;
 }
 header.small, header.large, header, #header {
@@ -1736,7 +1626,7 @@ input#user, input#username, input#steamid, select#mode, select#type, select#give
     border: 1px solid;
     border-color: hsl(0, 0%, 29%);
     border-radius: 4px;
-    color: fadeout(@general-txt-color, 15%);
+    color: rgba(166, 166, 166, 0.8);
     text-indent: 5px;
     text-shadow: var(--SGSP-ts-29);
 }
@@ -1744,7 +1634,7 @@ input, textarea {
     box-shadow: none!important;
 }
 .icon_to_clipboard[style*="rgb(91, 178, 190)"] {
-    color: fade(@green-icons-txt-color, 100%)!important;
+    color: #78a749!important;
 }
 .icon-green, i.fa.fa-check-circle-o.green, .sg-icon-green, .sidebar_table > div:not(.is_warning) i, .table i.green, .author_permalink, .comment__permalink, .is_permalink, .dropdown_btn i.green, .popup.is_success .popup_icon i, #filter, .esgst-header-menu-row i.green, .tooltip_row i[style*="color: #96c468"], .sidebar__navigation__item:not(.is-selected) i.fa-chevron-circle-right, .esgst-green {
     color: var(--SGSP-green-icons-txt-color)!important;
@@ -1792,7 +1682,7 @@ input:focus, select:focus, button:focus, rect:focus, textarea:focus {
 }
 .markdown blockquote blockquote {
     border-left: 3px solid var(--SGSP-quote-border-color);
-    max-width: ~"calc(100% - 65px)";
+    max-width: calc(100% - 65px);
     opacity: 1;
     padding: 10px 25px;
 }
@@ -1866,7 +1756,7 @@ input:focus, select:focus, button:focus, rect:focus, textarea:focus {
     border: 1px solid var(--SGSP-code-border-color);
     color: var(--SGSP-code-txt-color);
     margin-right: -10000px;
-    max-width: ~"calc(100% - 33px)";
+    max-width: calc(100% - 33px);
     text-shadow: var(--SGSP-ts-27);
 }
 .markdown code {
@@ -1993,7 +1883,7 @@ nav {
     padding: 0 12px!important;
 }
 .nav__button-container--active i, .nav__button .fa-star.esgst-positive {
-    color: saturate(fade(@green-icons-txt-color, 100%), 10%)!important;
+    color: #78b33d!important;
     text-shadow: var(--SGSP-ts-13)!important;
 }
 .nav__button-container--inactive i, .sg-info {
@@ -2280,7 +2170,7 @@ nav .nav_avatar {
 .page_outer_wrap textarea, .page_outer_wrap input, .page_outer_wrap select {
     box-shadow: none;
     border-color: hsl(0, 0%, 29%);
-    color: fadeout(@general-txt-color, 15%);
+    color: rgba(166, 166, 166, 0.8);
     text-shadow: var(--SGSP-ts-29);
     background-color: var(--SGSP-input-bg-color);
 }
@@ -2292,7 +2182,7 @@ nav .nav_avatar {
 }
 .pagination.pagination--no-results, .pagination_no_results {
     box-shadow: none!important;
-    color: fade(saturate(lighten(@red-icons-txt-color, 5%), 10%), 90%);
+    color: rgba(235, 72, 72, 0.9);
     font-weight: 600;
     margin-top: 5px;
 }
@@ -2352,7 +2242,7 @@ div[style*="padding-top: 35px"] a[href*="patreon"] > span, .humble_block strong 
     color: var(--SGSP-secondary-txt-color);
 }
 .patreon_reward:not(.is_locked) .patreon_reward_icon i {
-    color: saturate(@green-icons-txt-color, 10%)!important;
+    color: rgba(120, 179, 61, 0.8)!important;
 }
 .patreon_reward:not(.is_locked) .patreon_reward_icon {
     background-image: linear-gradient(hsla(88, 65%, 44%, 0.12) 0%, hsla(88, 72%, 21%, 0.5) 100%)!important;
@@ -2479,10 +2369,10 @@ div[style*="padding-top: 35px"] a[href*="patreon"] > span, .humble_block strong 
     opacity: 0.85;
 }
 .poll__vote-button--voted > .icon-green {
-    color: saturate(fade(@green-icons-txt-color, 100%), 10%)!important;
+    color: #78b33d!important;
 }
 .poll__vote-button--voted:active > .icon-green {
-    color: saturate(fade(lighten(@green-icons-txt-color, 3%), 55%), 10%);
+    color: rgba(128, 190, 65, 0.55);
 }
 .poll__vote-results__total, .poll__description {
     color: hsl(0, 0%, 60%);
@@ -2749,7 +2639,7 @@ div.sg-info {
     background-color: var(--SGSP-input-bg-color)!important;
     border-color: var(--SGSP-input-border-color)!important;
     border-radius: 4px;
-    color: fadeout(@general-txt-color, 15%)!important;
+    color: rgba(166, 166, 166, 0.8)!important;
     text-shadow: var(--SGSP-ts-29);
 }
 .query-builder .has-error input:not(.comment__submit-button):not(.ui_tpicker_time_input):not(.sp-input):not([type="file"]):not(.sidebar__search-input), .query-builder .has-error > * {
@@ -2801,7 +2691,7 @@ a.sidebar__navigation__item__link span.bundleShop {
     padding-left: 0!important;
 }
 .sidebar__navigation.bundles_section {
-    max-width: ~"calc(100% - 10px)";
+    max-width: calc(100% - 10px);
 }
 .bundles_section .sidebar__navigation__item__name ~ .sidebar__navigation__item__count {
     margin-bottom: -10px;
@@ -2844,7 +2734,7 @@ a.sidebar__navigation__item__link.expired:not(.sidebar__navigation__item__underl
 }
 .sidebar__search-input {
     background-color: unset;
-    color: fadeout(@general-txt-color, 15%)!important;
+    color: rgba(166, 166, 166, 0.8)!important;
     text-shadow: var(--SGSP-ts-29);
 }
 .sidebar__shortcut-tooltip-absolute:not(.sgun_notes_panel) {
@@ -3301,7 +3191,7 @@ div.sgun_note:first-of-type {
     text-align: center;
 }
 .___mh_bookmark_outer_container {
-    left: ~"calc(100% - 555pt)"!important;
+    left: calc(100% - 555pt)!important;
     position: absolute;
     top: 9px!important;
     z-index: 999!important;
@@ -3351,7 +3241,7 @@ div.sgun_note:first-of-type {
     border-right: 2px solid rgba(67, 90, 95, 0.6)!important;
 }
 .__table_row_banned .fa-ban {
-    color: fade(saturate(lighten(@red-icons-txt-color, 5%), 10%), 90%);
+    color: rgba(235, 72, 72, 0.9);
 }
 .__table_row_banned a.tags, .__mh_free_games_rows .global__image-outer-wrap {
     background: hsl(0, 0%, 21%);
@@ -3768,7 +3658,7 @@ div.sgun_note:first-of-type {
     color: hsla(202, 62%, 67%, 0.9);
 }
 .ui-slider-pips [class*=i-slider-pip-selected], .ui-slider-pips .ui-slider-pip-selected-2 {
-    color: fade(saturate(lighten(@red-icons-txt-color, 5%), 10%), 90%)!important;
+    color: rgba(235, 72, 72, 0.9)!important;
 }
 .ui-slider-float .ui-slider-tip, .ui-slider-float .ui-slider-tip-label {
     background: #2f2f2f!important;
@@ -3810,7 +3700,7 @@ div.sgun_note:first-of-type {
     text-indent: 0!important;
 }
 .cb__three {
-    color: fade(@green-icons-txt-color, 100%);
+    color: #78a749;
     text-shadow: var(--SGSP-ts-54);
 }
 .comment__tools {
@@ -3842,7 +3732,7 @@ div.sgun_note:first-of-type {
     color: hsl(0, 0%, 88%)!important;
 }
 .giveaway__chance[style="color:red"] {
-    color: fade(saturate(lighten(@red-icons-txt-color, 5%), 10%), 90%)!important;
+    color: rgba(235, 72, 72, 0.9)!important;
 }
 .giveaway__chance {
     opacity: 0.65;
@@ -4152,10 +4042,10 @@ div.sidebar__entry-custom {
     font-size: 0.8em;
 }
 .SGPP_EntryComm_comment > i.fa.fa-check {
-    color: fade(@green-icons-txt-color, 100%);
+    color: #78a749;
 }
 .SGPP_EntryComm_comment > i.fa.fa-times {
-    color: fade(saturate(lighten(@red-icons-txt-color, 5%), 10%), 90%);
+    color: rgba(235, 72, 72, 0.9);
 }
 .SGPP_EntryComm_comment .fa-comment-o {
     font: 16px/1.7 FontAwesome;
@@ -4186,10 +4076,10 @@ div.sidebar__entry-custom {
     text-shadow: var(--SGSP-ts-54);
 }
 .SGPP__settings-checkbox.form__checkbox:hover, input:checked + label:before {
-    color: fade(@green-icons-txt-color, 100%);
+    color: #78a749;
 }
 input:checked + label:hover:before, input:checked + .SGPP__settings-checkbox.form__checkbox:hover {
-    color: fade(saturate(lighten(@red-icons-txt-color, 5%), 10%), 90%);
+    color: rgba(235, 72, 72, 0.9);
 }
 label.SGPP__settings-checkbox:before {
     margin-top: 1px;
@@ -4534,7 +4424,7 @@ label.SGPP__settings-checkbox:before {
     margin: 5px 0 -4px!important;
 }
 .esgst-gv-container {
-    background: linear-gradient(desaturate(lighten(overlay(@content-bg-color, @body-bg-color), 3.5%), 1%) 0%, desaturate(lighten(overlay(@content-bg-color, @body-bg-color), 3.5%), 1%) 100%)!important;
+    background: linear-gradient(#1f1f1c 0%, #1f1f1c 100%)!important;
     border-radius: 4px;
     padding: 0!important;
 }
@@ -4555,7 +4445,7 @@ label.SGPP__settings-checkbox:before {
     margin: 0 -5px 0 5px;
 }
 .esgst-popup-scrollable > .table:not(.esgst-text-left) {
-    width: ~"calc(100% - 35px)";
+    width: calc(100% - 35px);
     margin-right: auto;
 }
 .esgst-ugd-lists .esgst-ugd-table .table__column--width-small {
@@ -4762,7 +4652,7 @@ label.SGPP__settings-checkbox:before {
     color: hsl(0, 71%, 30%)!important;
 }
 .esgst-gb-highlighted.started .nav__button i {
-    color: saturate(fade(@green-icons-txt-color, 100%), 30%)!important;
+    color: #78cb25!important;
 }
 .esgst-gb-highlighted.ending.started .nav__button i {
     color: hsl(36, 78%, 38%)!important;
@@ -4776,7 +4666,7 @@ label.SGPP__settings-checkbox:before {
     width: auto!important;
 }
 .esgst-gv-icons, .esgst-popup .esgst-gv-icons {
-    filter: brightness(@grid-brightness + 0.15);
+    filter: brightness(0.85);
     position: relative;
     bottom: -1px;
 }
@@ -4822,7 +4712,7 @@ label.SGPP__settings-checkbox:before {
     color: var(--SGSP-general-txt-color)!important;
     padding: 25px 65px!important;
     text-shadow: var(--SGSP-ts-42)!important;
-    max-width: ~"calc(90% - 40px)";
+    max-width: calc(90% - 40px);
 }
 .esgst-popup-description .comments__entity {
     border-radius: 4px;
@@ -5039,7 +4929,7 @@ label.SGPP__settings-checkbox:before {
     margin: 2px!important;
 }
 .esgst-gv-popout .esgst-gwc, .esgst-gv-popout .esgst-gwr, .esgst-gv-popout .esgst-gptw, .esgst-gv-popout .esgst-ttec {
-    background-image: linear-gradient(fade(@giveaway-columns-bg-color, 10%) 0, darken(fade(@giveaway-columns-bg-color, 10%), 55%) 100%);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1) 0, rgba(115, 115, 115, 0.1) 100%);
     border: 1px solid;
     border-color: var(--SGSP-giveaway-columns-border-color);
     color: var(--SGSP-secondary-txt-color);
@@ -5102,7 +4992,7 @@ label.SGPP__settings-checkbox:before {
     margin-right: 15px!important;
 }
 .esgst-ct-count {
-    color: desaturate(darken(@red-icons-txt-color, 5%), 20%)!important;
+    color: rgba(192, 64, 64, 0.95) !important;
 }
 .esgst-toggle-switch-slider {
     background-color: var(--SGSP-input-bg-color)!important;
@@ -5129,15 +5019,15 @@ input:checked + .esgst-toggle-switch-slider {
     margin-right: 3px;
 }
 .esgst-ggl-panel a:last-child {
-    box-shadow: 0 1px 0 fade(@secondary-txt-color, 30%)!important;
-    border-color: fade(@secondary-txt-color, 60%);
+    box-shadow: 0 1px 0 rgba(120, 128, 135, 0.3)!important;
+    border-color: rgba(120, 128, 135, 0.6);
 }
 .esgst-ggl-panel .esgst-ggl-member a:last-child {
     border-color: var(--SGSP-link-txt-color)!important;
     box-shadow: 0 1px 0 hsl(0, 0%, 24%)!important;
 }
 .esgst-ggl-panel .fa-user {
-    color: fade(@green-icons-txt-color, 90%)!important;
+    color: rgba(120, 167, 73, 0.9)!important;
     text-shadow: var(--SGSP-ts-4)!important;
 }
 .esgst-gv-popout .esgst-ggl-panel .fa-user {
@@ -5447,7 +5337,7 @@ input:checked + .esgst-toggle-switch-slider {
 }
 .esgst-gf-container .esgst-gf-box {
     background-color: transparent!important;
-    background-image: linear-gradient(fade(@pinned-bg-color, 100%) 0%, darken(desaturate(fade(@pinned-bg-color, 100%), 8%), 4%) 100%);
+    background-image: var(--SGSP-pinned-bg-color);
     border: 1px solid var(--SGSP-pinned-border-color)!important;
     border-radius: 4px 4px 0 0!important;
     margin-top: -3px!important;
@@ -5827,7 +5717,7 @@ input[type="date"]:focus {
 }
 input[type=date]::-webkit-calendar-picker-indicator:hover {
     background-color: transparent;
-    color: fadeout(@general-txt-color, 15%);
+    color: rgba(166, 166, 166, 0.8);
 }
 .esgst-popup-description .esgst-text-left.esgst-float-right.table {
     padding: 5px 10px!important;
@@ -5889,7 +5779,7 @@ input[type=date]::-webkit-calendar-picker-indicator:hover {
 }
 .esgst-cl_gc-popout input:not(.comment__submit-button):not(.ui_tpicker_time_input):not(.sp-input):not([type="file"]):not(.sidebar__search-input), .esgst-ggl-popout input:not(.comment__submit-button):not(.ui_tpicker_time_input):not(.sp-input):not([type="file"]):not(.sidebar__search-input), .esgst-cl_ge-popout input:not(.comment__submit-button):not(.ui_tpicker_time_input):not(.sp-input):not([type="file"]):not(.sidebar__search-input) {
     align-self: center;
-    background: lighten(@input-bg-color, 6%)!important;
+    background: #424242!important;
     border: none;
     border-radius: 4px!important;
     box-shadow: 0 0 0 1px var(--SGSP-input-border-color)!important;
@@ -5948,7 +5838,7 @@ input[type=date]::-webkit-calendar-picker-indicator:hover {
     padding: 8px 10px 7px 10px;
 }
 .esgst-qgs-container::placeholder, .esgst-cl_gc-popout::placeholder {
-    color: fadeout(@general-txt-color, 15%)!important;
+    color: rgba(166, 166, 166, 0.8)!important;
     text-shadow: var(--SGSP-ts-42)!important;
 }
 .esgst-qgs-container i {
@@ -6243,7 +6133,7 @@ input[placeholder="Filter features..."] {
     filter: brightness(0.65) contrast(0.85);
 }
 .esgst-ged-source:before {
-    content: "\f015";
+    content: "\\f015";
     font: normal normal normal 12px/1 FontAwesome;
     margin-right: 2px;
 }
@@ -6265,10 +6155,10 @@ input[placeholder="Filter features..."] {
     box-shadow: 0 0 0 1px var(--SGSP-image-border-color), 0 0 0 1px var(--SGSP-image-border-color), currentColor 0 0 0 var(--esgst-gwr-highlight-width, 3px) inset!important;
 }
 .giveaway_image_thumbnail[style*="background-image"][style*="null"]:after {
-    content: "\f03e";
+    content: "\\f03e";
     position: relative;
     font: normal normal normal 24px/1 FontAwesome;
-    color: fadeout(@general-txt-color, 15%);
+    color: rgba(166, 166, 166, 0.8);
     top: 23px;
     left: 80px;
 }
@@ -6322,7 +6212,7 @@ input[placeholder="Filter features..."] {
 }
 .esgst-mm-popout .esgst-button-set > * {
     min-width: 50px;
-    width: ~"calc(100% - 32px)"!important;
+    width: calc(100% - 32px)!important;
 }
 .esgst-mm-popout .esgst-mm-sections > .esgst-selected > :last-child {
     width: 100px!important;
@@ -7135,7 +7025,7 @@ input[placeholder="Filter features..."] {
     margin-right: -7px;
 }
 .esgst-gv-container[style*="background-color"] {
-    background: linear-gradient(lighten(overlay(@content-bg-color, @body-bg-color), 1%) 0%, lighten(overlay(@content-bg-color, @body-bg-color), 1%) 100%)!important;
+    background: linear-gradient(#1f1f1c 0%, #1f1f1c 100%)!important;
 }
 .featured__outer-wrap.featured__outer-wrap--giveaway[style^="background-color"][style*="!important"][style$="background-image: none;"] {
     padding: 0;
@@ -7183,7 +7073,7 @@ input[placeholder="Filter features..."] {
     top: 44px;
 }
 .esgst-tds-popout {
-    background-color: lighten(@body-bg-color, 2%);
+    background-color: hsla(60, 4%, 16%, 1);
     border: solid 1px var(--SGSP-content-border-color);
 }
 .esgst-tds-item {
@@ -7307,11 +7197,11 @@ header.fixed ~ .page__outer-wrap .sidebar:not(.sidebar--wide) + div > .page__hea
 }
 header.fixed ~ .page__outer-wrap .sidebar:not(.sidebar--wide) + div > div:nth-child(3):not(.page__heading):not(.table):not(.table__heading):not(.poll), header.fixed ~ .page__outer-wrap .sidebar--wide + div > div:nth-child(4):not(.esgst-fh):not(.pagination):not(.comment--submit) {
     margin-bottom: auto!important;
-    height: ~"calc(100% - 68px)";
+    height: calc(100% - 68px);
     padding: 15px 10px 0 20px!important;
 }
 header.fixed ~ .page__outer-wrap .sidebar--wide + div > div:nth-child(4):not(.pagination):not(.comment--submit) {
-    height: ~"calc(100% - 443px)"!important;
+    height: calc(100% - 443px)!important;
 }
 header.fixed ~ .page__outer-wrap .sidebar:not(.sidebar--wide) + div > div[style*="clear"]:nth-child(3) .giveaway__row-outer-wrap, header.fixed ~ .page__outer-wrap .sidebar--wide + div > div[style*="clear"]:nth-child(4):not(.esgst-fh) .giveaway__row-outer-wrap {
     max-width: 13.4%;
@@ -7754,149 +7644,9 @@ body .esgst-gv-icons .giveaway__column--contributor-level--negative:not(.esgst-g
 body .esgst-gv-icons .esgst-elgb-button {
     background-image: var(--SGSP-green-buttons-bg-color)!important;
 }
-.backgroundimage () when not (@body-bg-image = "none") {
-    :root {
-        --SGSP-featured-giveaway-bg-gradient: linear-gradient(to right, hsla(0, 0%, 0%, 0) 2%, var(--SGSP-featured-bg-color) 25%, var(--SGSP-featured-bg-color) 85%, hsla(0, 0%, 0%, 0) 98%);
-        --SGSP-featured-home-bg-gradient: linear-gradient(to right, hsla(0, 0%, 0%, 0) 2%, var(--SGSP-featured-bg-color) 25%, var(--SGSP-featured-bg-color) 85%, hsla(0, 0%, 0%, 0) 98%);
-        --SGSP-featured-user-bg-gradient: linear-gradient(to right, hsla(0, 0%, 0%, 0) 2%, var(--SGSP-featured-bg-color) 25%, var(--SGSP-featured-bg-color) 85%, hsla(0, 0%, 0%, 0) 98%);
-    }
-    body .featured__outer-wrap.featured__outer-wrap--user, body .featured__outer-wrap.featured__outer-wrap--home, body .featured__outer-wrap.featured__outer-wrap--giveaway {
-        background-color: transparent!important;
-    }
-    html:after {
-        background: var(--SGSP-body-bg-image);
-        content: "";
-        filter: var(--SGSP-image-filters);
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: -2147483648;
-    }
-    .esgst-fmph:before, .widget-container > [data-esgst-popup] > .page__heading:before {
-        bottom: 0;
-        content: "";
-        height: 50px;
-        left: -8px;
-        position: absolute;
-        width: ~"calc(100% + 14px)";
-        background: var(--SGSP-body-bg-color) var(--SGSP-body-bg-image)!important;
-        background-size: 100%;
-        filter: var(--SGSP-image-filters);
-        z-index: -2147483648;
-    }
-    .featured__outer-wrap.featured__outer-wrap--giveaway[style^="background-color"][style~="!important;"] {
-        background: var(--SGSP-body-bg-image)!important;
-        filter: var(--SGSP-image-filters);
-    }
-}
-& when (@body-bg-image-gpu = "yes") {
-    html:after {
-        will-change: transform;
-    }
-}
-.pagewidth () when (@page-width = 1400px) {
-	.featured__outer-wrap.featured__outer-wrap--giveaway[style^="background-color"][style~="!important;"] .featured__inner-wrap {
-		justify-content: center;
-		max-width: 100%;
-    }
-	.featured__outer-wrap.featured__outer-wrap--giveaway[style^="background-color"][style~="!important;"] .featured__summary {
-        max-width: 1060px;
-    }
-}
-.backgroundimage();
-.pagewidth();
-@h: round(hue(@text-shadow-color));
-@s: round(saturation(@text-shadow-color));
-@l: round(lightness(@text-shadow-color));
-@a: round(@text-shadow-opacity, 2);
-@ts-1: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-2: 0 0 3px hsla(@h, @s, @l, @a + 1);
-@ts-3: -1px 1px hsla(@h, @s, @l, @a + 0.99), 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-4: 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1);
-@ts-5: 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1), 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1), 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1);
-@ts-6: 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1), 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1), 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1);
-@ts-7: 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1), 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1);
-@ts-8: 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1);
-@ts-9: 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1);
-@ts-10: 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1), 1px 1px hsla(@h, @s, @l, @a + 1);
-@ts-11: 0 2px hsla(@h, @s, @l, @a + 1), 0 -2px hsla(@h, @s, @l, @a + 1), 2px 0 hsla(@h, @s, @l, @a + 1), -2px 0 hsla(@h, @s, @l, @a + 1);
-@ts-12: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-13: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 1px hsla(@h, @s, @l, @a + 0.99), 1px 0 hsla(@h, @s, @l, @a + 0.99), 0 -1px hsla(@h, @s, @l, @a + 0.99), -1px 0 hsla(@h, @s, @l, @a + 0.99);
-@ts-14: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-15: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-16: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-17: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-18: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-19: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-20: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-21: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-22: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-23: 1px 1px hsla(@h, @s, @l, @a + 0.99), 1px 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-24: -1px 1px hsla(@h, @s, @l, @a + 0.99), 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-25: -1px 1px hsla(@h, @s, @l, @a + 0.99), 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-26: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-27: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-28: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-29: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-30: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-31: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-32: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-33: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-34: 1px 1px hsla(@h, @s, @l, @a + 0.7), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-35: 1px 1px hsla(@h, @s, @l, @a + 0.7), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-36: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-37: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-38: 1px 1px hsla(@h, @s, @l, @a + 1), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-39: 1px 1px hsla(@h, @s, @l, @a + 0.7);
-@ts-40: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-41: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-42: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-43: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-44: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-45: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-46: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 1px hsla(@h, @s, @l, @a + 0.99), 1px 0 hsla(@h, @s, @l, @a + 0.99), 0 -1px hsla(@h, @s, @l, @a + 0.99), -1px 0 hsla(@h, @s, @l, @a + 0.99);
-@ts-47: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 1px hsla(@h, @s, @l, @a + 0.99), 1px 0 hsla(@h, @s, @l, @a + 0.99), 0 -1px hsla(@h, @s, @l, @a + 0.99), -1px 0 hsla(@h, @s, @l, @a + 0.99);
-@ts-48: 1px 1px hsla(@h, @s, @l, @a + 0.99), 1px 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-49: 1px 1px hsla(@h, @s, @l, @a + 0.99), -1px -1px hsla(@h, @s, @l, @a + 0.99), -1px 0 hsla(@h, @s, @l, @a + 0.99), 0 -1px hsla(@h, @s, @l, @a + 0.99);
-@ts-50: 1px 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-51: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-52: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-53: 1px 1px hsla(@h, @s, @l, @a + 0.99), 1px 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-54: 1px 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-55: 1px 1px hsla(@h, @s, @l, @a + 1), 0 0 1px hsla(@h, @s, @l, @a + 1);
-@ts-56: -1px 1px hsla(@h, @s, @l, @a + 0.99), 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-57: -1px 1px hsla(@h, @s, @l, @a + 0.99), 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-58: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-59: -1px 1px hsla(@h, @s, @l, @a + 0.99), 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-60: 0 1px hsla(@h, @s, @l, @a + 0.6), 0 -1px hsla(@h, @s, @l, @a + 0.6), 1px 0 hsla(@h, @s, @l, @a + 0.6), -1px 0 hsla(@h, @s, @l, @a + 0.6);
-@ts-61: 0 1px hsla(@h, @s, @l, @a + 0.8), 0 -1px hsla(@h, @s, @l, @a + 0.8), 1px 0 hsla(@h, @s, @l, @a + 0.8), -1px 0 hsla(@h, @s, @l, @a + 0.8);
-@ts-62: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 1px hsla(@h, @s, @l, @a + 0.99), 1px 0 hsla(@h, @s, @l, @a + 0.99), 0 -1px hsla(@h, @s, @l, @a + 0.99), -1px 0 hsla(@h, @s, @l, @a + 0.99);
-@ts-63: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-64: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-65: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-66: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-67: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-68: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-69: 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1), 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1), 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1);
-@ts-70: 1px 1px hsla(@h, @s, @l, @a + 0.8);
-@ts-71: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-72: -1px 1px hsla(@h, @s, @l, @a + 0.99), 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-73: 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1), 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1), 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1);
-@ts-74: 0 1px hsla(@h, @s, @l, @a + 1), 0 -1px hsla(@h, @s, @l, @a + 1), 1px 0 hsla(@h, @s, @l, @a + 1), -1px 0 hsla(@h, @s, @l, @a + 1);
-@ts-75: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-76: 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-@ts-77: 1px 1px hsla(@h, @s, @l, @a + 0.99), 1px 1px 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99), 0 0 1px hsla(@h, @s, @l, @a + 0.99);
-}
-@-moz-document url-prefix("https://www.steamgifts.com/discussions/bookmarked") {
-.esgst-idb-highlight, .esgst-idb-highlight.table__row-outer-wrap {
-    background-color: unset!important;
-    padding: 10px 0!important;
-}
-}
-@-moz-document url-prefix("https://www.steamgifts.com/account/settings/profile?esgst") {
-.page__heading ~ div:not(.sidebar__search-container) {
+`;
+  if (window.location.pathname.match(/^\/discussions\/bookmarked/)) {
+    css += `.page__heading ~ div:not(.sidebar__search-container) {
     background-color: unset!important;
     border-color: transparent!important;
     box-shadow: none!important;
@@ -7954,9 +7704,17 @@ body .esgst-gv-icons .esgst-elgb-button {
     position: sticky;
     z-index: 998;
 }
+`;
+  };
+  if (window.location.search.match(/esgst/)) {
+    css += `.esgst-idb-highlight, .esgst-idb-highlight.table__row-outer-wrap {
+    background-color: unset!important;
+    padding: 10px 0!important;
 }
-@-moz-document domain("steamtrades.com") {
-.esgst-header-menu-button {
+`;
+  };
+  if (window.location.host == 'www.steamtrades.com') {
+    css += `.esgst-header-menu-button {
     border: none!important;
     height: 27px;
 }
@@ -8049,9 +7807,10 @@ body .esgst-gv-icons .esgst-elgb-button {
 .markdown ul > li:before {
     content: '•';
 }
-}
-@-moz-document url("https://www.steamgifts.com/sgpp") {
-body {
+`;
+  };
+  if (window.location.pathname.match(/^\/sgpp/)) {
+    css += `body {
     margin: 0;
     min-width: 1000px;
 }
@@ -8124,4 +7883,20 @@ header {
     font: italic 11px Arial, sans-serif;
     margin-top: 10px;
 }
+`;
+  };
+  var node = document.createElement('style');
+  node.setAttribute('type', 'text/css');
+  node.setAttribute('name', 'Theme SG Dark Grey');
+  node.setAttribute('id', 'SG Dark Grey');
+  node.textContent = css;
+  document.documentElement.appendChild(node);
 }
+
+var Docobserver = new MutationObserver(function() {
+    if (document.body !== null) {
+        Docobserver.disconnect();
+        addCss();
+    }
+});
+Docobserver.observe(document.documentElement, { childList: true });
