@@ -7647,6 +7647,13 @@ body .esgst-gv-icons .esgst-elgb-button {
 }
 `;
   if (window.location.pathname.match(/^\/discussions\/bookmarked/)) {
+    css += `.esgst-idb-highlight, .esgst-idb-highlight.table__row-outer-wrap {
+    background-color: unset!important;
+    padding: 10px 0!important;
+}
+`;
+  };
+  if (window.location.search.match(/esgst/)) {
     css += `.page__heading ~ div:not(.sidebar__search-container) {
     background-color: unset!important;
     border-color: transparent!important;
@@ -7704,13 +7711,6 @@ body .esgst-gv-icons .esgst-elgb-button {
     top: 38px;
     position: sticky;
     z-index: 998;
-}
-`;
-  };
-  if (window.location.search.match(/esgst/)) {
-    css += `.esgst-idb-highlight, .esgst-idb-highlight.table__row-outer-wrap {
-    background-color: unset!important;
-    padding: 10px 0!important;
 }
 `;
   };
