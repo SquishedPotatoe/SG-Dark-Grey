@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           SG Dark Grey
-// @namespace      SG Dark Grey v2.2.2
-// @version        2.2.2
+// @namespace      SG Dark Grey v2.2.3
+// @version        2.2.3
 // @description    Dark Grey style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 // @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 // @homepageURL    https://github.com/SquishedPotatoe/SG-Dark-Grey
@@ -18,8 +18,8 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SG Dark Grey v2.2.2  2020-02-29 */
- :root {
+  var css = `/* SG Dark Grey v2.2.3  2020-02-29 */
+:root {
   --SGSP-body-bg-color: #252522;
   --SGSP-body-bg-image: "none";
   --SGSP-button-hover-brightness: brightness(1.25);
@@ -7121,6 +7121,45 @@ input[placeholder="Filter features..."] {
     color: inherit;
     font-size: inherit;
 }
+.esgst-popup .esgst-popup-scrollable .comments, .esgst-popup .esgst-popup-scrollable .page__description__display-state > .markdown--resize-body, .esgst-popup .esgst-menu-layer > .esgst-menu-split {
+    background-color: var(--SGSP-content-bg-color);
+    background-image: none;
+    border: 1px solid var(--SGSP-content-border-color);
+    border-radius: 4px;
+}
+.esgst-popup .esgst-popup-scrollable .page__description__display-state > .markdown--resize-body {
+    padding: 5px 10px;
+}
+.esgst-popup .esgst-popup-scrollable .comments .comment__parent {
+    padding-left: 10px;
+}
+.esgst-popup .esgst-popup-scrollable .comments .comment__parent ~ .comment__children {
+    padding-right: 10px;
+}
+.esgst-popup .esgst-popup-scrollable .esgst-cfh-panel {
+    z-index: 999;
+}
+.esgst-popup .esgst-popup-heading + .esgst-popup-description > .page__heading {
+    margin-bottom: 5px!important;
+    min-width: 783px;
+}
+.esgst-popup .esgst-popup-description > .page__heading + .esgst-button-set {
+    left: 108px;
+    position: absolute;
+    top: 55px;
+}
+.esgst-popup .esgst-popup-description > .page__heading + .esgst-button-set + .esgst-button-set {
+    left: 262px;
+    position: absolute;
+    top: 55px;
+}
+.comment__username--op .esgst-wbh-highlight, .esgst-gv-creator .esgst-wbh-highlight-whitelisted, .esgst-gv-creator .esgst-wbh-highlight-blacklisted {
+    margin: 0 2px;
+    vertical-align: baseline;
+}
+.esgst-button-set > .btn_action > i + span:not(:empty) {
+    margin-left: 3px;
+}
 div[style*="margin-top: 25px"], div[style*="padding-top: 35px"] {
     margin: 0 0 8px!important;
     height: auto!important;
@@ -7712,7 +7751,91 @@ body .esgst-gv-icons .esgst-elgb-button {
     position: sticky;
     z-index: 998;
 }
+.widget-container > [data-esgst-popup] > *:not(:first-child) {
+    margin-left: 9px;
+    margin-right: 9px;
+    padding-left: 10px!important;
+    padding-right: 10px!important;
+}
+.widget-container > [data-esgst-popup] > .page__heading:first-child {
+    background-color: var(--SGSP-body-bg-color);
+    border-bottom: 1px solid var(--SGSP-content-border-color)!important;
+    margin-left: -1px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 8px 0;
+    top: 38px;
+    position: sticky;
+    z-index: 999;
+}
+.widget-container > [data-esgst-popup] > .page__heading:first-child ~ .page__heading {
+    border-bottom: none!important;
+}
+.widget-container > [data-esgst-popup] .esgst-gf-container {
+    top: 85px;
+}
+.widget-container > [data-esgst-popup] > .esgst-button-set:last-child .btn_action.grey {
+    margin-top: 10px;
+}
+.giveaway__row-outer-wrap:not(.esgst-gv-container) {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 var(--SGSP-separator-light-color)!important;
+}
+.widget-container > [data-esgst-popup] > div > .esgst-text-left {
+    background-color: var(--SGSP-content-bg-color)!important;
+    border: 1px solid var(--SGSP-content-border-color)!important;
+    border-radius: 4px;
+    margin-top: -5px;
+}
 `;
+    if (window.location.search.match(/esgst=ge&url/)) {
+      css += `.page__heading ~ div:not(.sidebar__search-container).esgst-text-left {
+    background-color: var(--SGSP-content-bg-color)!important;
+    border: 1px solid var(--SGSP-content-border-color)!important;
+    border-radius: 4px;
+    margin-top: 8px;
+    padding: 5px 10px;
+}
+.giveaway__row-outer-wrap:not(:last-child):not(.esgst-gv-container) {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 var(--SGSP-separator-light-color)!important;
+}
+.widget-container > [data-esgst-popup] > .page__heading:first-child + div .esgst-button-set:first-child + div {
+    margin: 10px;
+}`;
+    };
+    if (window.location.search.match(/esgst=ged/)) {
+      css += `.widget-container > div > .page__heading:first-child {
+    background-color: var(--SGSP-body-bg-color);
+    border-bottom: 1px solid var(--SGSP-content-border-color)!important;
+    margin-top: -1px;
+    padding: 8px 0;
+    top: 38px;
+    position: sticky;
+    z-index: 999;
+}
+.page__heading ~ div:not(.sidebar__search-container)[data-esgst-popup] {
+    background-color: var(--SGSP-content-bg-color)!important;
+    background-image: none;
+    border: 1px solid var(--SGSP-content-border-color)!important;
+    border-radius: 4px;
+    margin-top: -1px!important;
+}
+.page__heading ~ div:not(.sidebar__search-container)[data-esgst-popup] > .esgst-text-left {
+    background-color: var(--SGSP-content-bg-color)!important;
+    background-image: none;
+    border: 1px solid var(--SGSP-content-border-color)!important;
+    border-radius: 4px;
+    margin-top: 8px!important;
+}
+.giveaway__row-outer-wrap:not(.esgst-gv-container) {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 var(--SGSP-separator-light-color)!important;
+}
+.widget-container > div .page__heading:not(.esgst-fmph) + .esgst-gf-container {
+    top: 85px;
+}`;
+    };
   };
   if (window.location.host == 'www.steamtrades.com') {
     css += `.esgst-header-menu-button {
