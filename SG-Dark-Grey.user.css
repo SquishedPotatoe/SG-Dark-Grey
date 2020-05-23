@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SG Dark Grey
-@namespace      SG Dark Grey v2.2.4
-@version        2.2.4
+@namespace      SG Dark Grey v2.2.5
+@version        2.2.5
 @description    Dark Grey style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 @homepageURL    https://github.com/SquishedPotatoe/SG-Dark-Grey
@@ -127,7 +127,7 @@
 @var color yellow-buttons-border-color "Yellow Buttons Border" hsla(0, 0%, 0%, 1)
 ==/UserStyle== */
 @-moz-document domain("steamgifts.com"), domain("steamtrades.com"), domain("sgtools.info") {
-/* SG Dark Grey v2.2.4  2020-04-25 */
+/* SG Dark Grey v2.2.5  2020-05-22 */
 :root {
   --SGSP-body-bg-color: @body-bg-color;
   --SGSP-body-bg-image: @body-bg-image;
@@ -2693,6 +2693,9 @@ div.sg-info {
     padding: 0!important;
     max-width: 332px!important;
 }
+.sidebar.esgst-ns {
+    width: unset!important;
+}
 .sidebar.esgst-ns .sidebar__mpu {
     max-width: 206px!important;
 }
@@ -2723,6 +2726,9 @@ div.sg-info {
 }
 .sidebar__navigation__item__count {
     color: hsl(202, 14%, 55%);
+}
+.sidebar__navigation__item__link {
+    padding: 6px 0 6px 6px;
 }
 .sidebar__navigation__item__link:hover {
     background-image: var(--SGSP-sidebar-link-bg-color);
@@ -5451,19 +5457,19 @@ input:checked + .esgst-toggle-switch-slider {
     background-image: linear-gradient(fade(@pinned-bg-color, 100%) 0%, darken(desaturate(fade(@pinned-bg-color, 100%), 8%), 4%) 100%);
     border: 1px solid var(--SGSP-pinned-border-color)!important;
     border-radius: 4px 4px 0 0!important;
-    margin-top: -3px!important;
+    margin-top: 0 !important;
+    margin-bottom: -3px!important;
     padding: 0 5px!important;
 }
 .esgst-gf-button {
     border-radius: 4px!important;
     border-top: 1px solid var(--SGSP-pinned-border-color)!important;
     color: hsla(213, 19%, 63%, 0.9);
-    margin-top: -4px;
+    margin-top: 0;
 }
 .esgst-gf-container {
     background-color: transparent!important;
-    padding-top: 5px;
-    top: 85px;
+    top: 47px;
 }
 .esgst-gf-container input, .esgst-gf-category-filter select {
     height: 18px!important;
@@ -5662,6 +5668,7 @@ input:checked + .esgst-toggle-switch-slider {
     max-width: 583px;
 }
 .esgst-settings-menu .esgst-steam-api-key {
+	border:1px solid;
     max-width: 578px;
 }
 .esgst-form-heading-number {
@@ -6397,7 +6404,7 @@ input[placeholder="Filter features..."] {
     border-radius: 0;
     margin-top: -8px;
     padding: 8px 0;
-    top: 38px;
+    top: 0;
 }
 .esgst-fmph + * {
     margin-top: 0!important;
@@ -6408,8 +6415,22 @@ input[placeholder="Filter features..."] {
 .esgst-fmph + form {
     margin-top: -8px!important;
 }
-.esgst-fmph + .esgst-gf-container {
-    margin-top: -3px!important;
+.page__heading:not(.esgst-fmph) + .esgst-gf-container {
+	margin-top:5px;
+    top: 0;
+    padding: 0;
+}
+.esgst-fh ~ .page__outer-wrap .esgst-fmph {
+    top: 38px;
+}
+.esgst-fh ~ .page__outer-wrap .esgst-fmph + .esgst-gf-container {
+    top: 85px;
+}
+.esgst-fh ~ .page__outer-wrap .page__heading:not(.esgst-fmph) + .esgst-gf-container {
+    top: 40px;
+}
+.esgst-popup .page__heading:not(.esgst-fmph) + .esgst-gf-container {
+    top: unset;
 }
 .esgst-fmph:after {
     background-size: 100%;
@@ -6421,6 +6442,12 @@ input[placeholder="Filter features..."] {
     left: 0;
     position: absolute;
     width: 100%;
+}
+.esgst-popup .esgst-fmph {
+    padding: 0;
+}
+.esgst-popup .esgst-fmph:after, .esgst-popup .esgst-fmph:before {
+    display: none;
 }
 .esgst-popup-scrollable .esgst-gf-container, .esgst-popup-scrollable .page__heading {
     top: 0;
@@ -6516,13 +6543,6 @@ input[placeholder="Filter features..."] {
     margin-bottom: 8px;
     margin-top: 8px;
     text-shadow: var(--SGSP-ts-41);
-}
-.page__heading:not(.esgst-fmph) + .esgst-gf-container {
-    margin-top: 5px;
-    top: 38px;
-}
-.esgst-popup .page__heading:not(.esgst-fmph) + .esgst-gf-container {
-    top: unset;
 }
 .esgst-ns .sidebar__entry-insert[style*="border-color: rgb(147, 187, 211)"] {
     line-height: 12px;
@@ -6627,7 +6647,7 @@ input[placeholder="Filter features..."] {
     margin: 0 0 4px 0!important;
     padding-bottom: 3px!important;
 }
-.giveaway__heading [data-draggable-id="hideGame"], .giveaway__heading [data-draggable-id="egh"], [data-draggable-id].esgst-gf-hide-button i, [data-draggable-id].esgst-gf-unhide-button i, [data-draggable-id].esgst-gb-button i {
+.giveaway__heading [data-draggable-id="hideGame"], .giveaway__heading [data-draggable-id="egh"], [data-draggable-id].esgst-gf-hide-button i, [data-draggable-id].esgst-gf-unhide-button i, [data-draggable-id].esgst-gb-button i, .esgst-gv-popout .giveaway__heading [data-lightbox-id] {
     opacity: 0.55;
 }
 .esgst-gv-popout .giveaway__heading [data-draggable-id].esgst-gc {
@@ -6831,7 +6851,7 @@ input[placeholder="Filter features..."] {
 .esgst-gv-popout .esgst-giveaway-panel .giveaway__heading__name {
     max-width: 140px;
 }
-.esgst-gv-popout .giveaway__heading > [data-draggable-id], .giveaway__heading > [data-draggable-id] {
+.esgst-gv-popout .giveaway__heading > [data-draggable-id], .giveaway__heading > [data-draggable-id], .esgst-gv-popout .giveaway__heading [data-lightbox-id] {
     display: inline-block;
     line-height: 15px;
     vertical-align: middle;
@@ -6840,7 +6860,7 @@ input[placeholder="Filter features..."] {
     vertical-align: baseline;
     width: 12px;
 }
-.esgst-gv-popout .giveaway__heading [data-draggable-id] i, .esgst-gv-popout .giveaway__heading [data-draggable-id="hideGame"], .esgst-gv-popout .esgst-gv-creator [data-draggable-id] i, .esgst-gv-popout .esgst-gv-creator [data-draggable-id="hideGame"] {
+.esgst-gv-popout .giveaway__heading [data-draggable-id] i, .esgst-gv-popout .giveaway__heading [data-draggable-id="hideGame"], .esgst-gv-popout .esgst-gv-creator [data-draggable-id] i, .esgst-gv-popout .esgst-gv-creator [data-draggable-id="hideGame"], .esgst-gv-popout .giveaway__heading [data-lightbox-id] {
     font-size: 12px;
     text-shadow: var(--SGSP-ts-69);
 }
@@ -7064,7 +7084,7 @@ input[placeholder="Filter features..."] {
     margin: 5px;
     padding: 11px 5px;
 }
-.esgst-popup-layer .page__heading ~ div:not(.sidebar__search-container):not(.esgst-ugd-table), .esgst-sync-options > .form__rows, .esgst-settings-menu-feature .form__rows {
+.esgst-popup-layer .page__heading ~ div:not(.sidebar__search-container):not(.esgst-ugd-table), .esgst-popup-layer .page_heading ~ div:not(.sidebar__search-container), .esgst-sync-options > .form__rows, .esgst-settings-menu-feature .form__rows {
     background-color: unset!important;
     background-image: none;
     border: none!important;
@@ -7101,7 +7121,7 @@ input[placeholder="Filter features..."] {
 .esgst-gv-box .esgst-gv-icons [data-draggable-id="ggl"], .esgst-gv-popout .giveaway__links [data-draggable-id="ggl"] {
     display: none;
 }
-.esgst-gv-popout .giveaway__heading > [data-draggable-id]:not(:first-child):not([data-draggable-id="ggl"]):not([data-draggable-id="name"]) {
+.esgst-gv-popout .giveaway__heading > [data-draggable-id]:not(:first-child):not([data-draggable-id="ggl"]):not([data-draggable-id="name"]), .esgst-gv-popout .giveaway__heading [data-lightbox-id] {
     margin: 1px 0 1px 3px!important;
 }
 .esgst-gv-popout .giveaway__heading > [data-draggable-id="ggl"] {
@@ -7199,12 +7219,14 @@ input[placeholder="Filter features..."] {
 }
 .esgst-tds-button.page_heading_btn {
     margin: 0;
-    padding: 0;
-    position: absolute;
-    right: 8px;
+    padding: 0 0 0 8px;
 }
-.esgst-tds-sidebar-item .sidebar__navigation__item__underline {
-    margin-right: 18px;
+.page__heading .esgst-tds-button.page_heading_btn {
+    margin: 0 5px 0 0;
+    padding: 5px 10px;
+}
+.table__row-inner-wrap .esgst-tds-button i {
+    font-size: 13px;
 }
 .esgst-ns .sidebar__navigation__item.esgst-tds-sidebar-item {
     max-width: unset!important;
@@ -7839,6 +7861,7 @@ body .esgst-gv-icons .esgst-elgb-button {
         z-index: -2147483648;
     }
     .esgst-fmph:before, .widget-container > [data-esgst-popup] > .page__heading:before {
+	    animation: bugfix 5s linear reverse;
         bottom: 0;
         content: "";
         height: 50px;
@@ -7849,6 +7872,10 @@ body .esgst-gv-icons .esgst-elgb-button {
         background-size: 100%;
         filter: var(--SGSP-image-filters);
         z-index: -2147483648;
+    }
+    @keyframes bugfix {
+        from {width: calc(100% + 14px);}
+        to {width: calc(100% + 13px);}
     }
     .featured__outer-wrap.featured__outer-wrap--giveaway[style^="background-color"][style~="!important;"] {
         background: var(--SGSP-body-bg-image)!important;
@@ -7977,7 +8004,7 @@ body .esgst-gv-icons .esgst-elgb-button {
 .widget-container > [data-esgst-popup].esgst-menu-layer .esgst-settings-menu {
     margin-top: -18px;
 }
-.widget-container > [data-esgst-popup] > .page__heading + div:not(.esgst-menu-split), .esgst-sync-area {
+.widget-container > [data-esgst-popup] > .page__heading + div:not(.esgst-menu-split):not(.esgst-button-group), .esgst-sync-area {
     margin-top: 10px!important;
 }
 .widget-container > [data-esgst-popup] > .page__heading + .esgst-button-set {
@@ -8008,9 +8035,7 @@ body .esgst-gv-icons .esgst-elgb-button {
     margin-right: -1px;
     margin-top: -1px;
     padding: 8px 0;
-    position: sticky;
-    top: 38px;
-    z-index: 998;
+    top: 0;
 }
 .widget-container > [data-esgst-popup] > *:not(:first-child) {
     margin-left: 9px;
@@ -8018,22 +8043,34 @@ body .esgst-gv-icons .esgst-elgb-button {
     padding-left: 10px!important;
     padding-right: 10px!important;
 }
-.widget-container > [data-esgst-popup] > .page__heading:first-child {
-    background-color: var(--SGSP-body-bg-color);
-    border-bottom: 1px solid var(--SGSP-content-border-color)!important;
-    margin-left: -1px;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 8px 0;
+.widget-container > [data-esgst-popup] > .page__heading + .esgst-button-group {
+    background-image: var(--SGSP-pageheading-bg-color)!important;
+    border-radius: 0!important;
+    border: 1px solid var(--SGSP-content-border-color)!important;
+    border-bottom-right-radius: 4px!important;
+    border-top: none!important;
+    margin-left: -1px!important;
+    margin-right: -1px!important;
+    padding: 4px!important;
     position: sticky;
-    top: 38px;
+    top: 0;
+    width: 361px;
     z-index: 999;
+}
+.widget-container > [data-esgst-popup] > .page__heading.esgst-fmph + .esgst-button-group {
+    top: 51px;
+}
+.esgst-fh ~ .page__outer-wrap > .page__inner-wrap > .widget-container > [data-esgst-popup] > .page__heading {
+    top: 38px;
+}
+.esgst-fh ~ .page__outer-wrap > .page__inner-wrap > .widget-container > [data-esgst-popup] > .page__heading + .esgst-button-group {
+    top: 89px;
+}
+.esgst-fh ~ .page__outer-wrap > .page__inner-wrap > .widget-container > [data-esgst-popup] > .page__heading:not(.esgst-fmph) + .esgst-button-group {
+    top: 40px;
 }
 .widget-container > [data-esgst-popup] > .page__heading:first-child ~ .page__heading {
     border-bottom: none!important;
-}
-.widget-container > [data-esgst-popup] .esgst-gf-container {
-    top: 85px;
 }
 .widget-container > [data-esgst-popup] > .esgst-button-set:last-child .btn_action.grey {
     margin-top: 10px;
@@ -8216,6 +8253,28 @@ body .esgst-gv-icons .esgst-elgb-button {
 }
 .markdown ul > li:before {
     content: '•';
+}
+.page_outer_wrap .esgst-fmph + .esgst-gf-container {
+    top: 51px;
+}
+.page_outer_wrap .page_heading:not(.esgst-fmph) + .esgst-gf-container {
+    margin-top: 5px;
+    top: 0px;
+}
+.esgst-fh ~ .page_outer_wrap .esgst-fmph {
+    top: 39px;
+}
+.esgst-fh ~ .page_outer_wrap .esgst-fmph + .esgst-gf-container {
+    top: 90px;
+}
+.esgst-fh ~ .page_outer_wrap .page_heading:not(.esgst-fmph) + .esgst-gf-container {
+    top: 40px;
+}
+.large.esgst-fh ~ .page_outer_wrap .esgst-fmph, .large.esgst-fh ~ .page_outer_wrap .page_heading:not(.esgst-fmph) + .esgst-gf-container {
+    top: 150px;
+}
+.large.esgst-fh ~ .page_outer_wrap .esgst-fmph + .esgst-gf-container {
+    top: 200px;
 }
 }
 @-moz-document url("https://www.steamgifts.com/sgpp") {
