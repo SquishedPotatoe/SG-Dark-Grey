@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SG Dark Grey v2.2.5  2020-05-22 */
+  var css = `/* SG Dark Grey v2.2.5  2020-05-28 */
 :root {
   --SGSP-body-bg-color: #252522;
   --SGSP-body-bg-image: "none";
@@ -2587,6 +2587,7 @@ div.sg-info {
 }
 .sidebar.esgst-ns {
     width: unset!important;
+    min-width: 206px!important;
 }
 .sidebar.esgst-ns .sidebar__mpu {
     max-width: 206px!important;
