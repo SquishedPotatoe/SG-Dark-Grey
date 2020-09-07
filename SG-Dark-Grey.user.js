@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SG Dark Grey v2.2.6  2020-09-06 */
+  var css = `/* SG Dark Grey v2.2.6  2020-09-05 */
 :root {
   --SGSP-body-bg-color: #252522;
   --SGSP-body-bg-image: "none";
@@ -6421,7 +6421,7 @@ input[placeholder="Filter features..."] {
     text-overflow: ellipsis;
     vertical-align: middle;
     white-space: nowrap;
-    max-width: 240px;
+    max-width: 265px;
     font-size: 15px;
 }
 .sidebar.esgst-ns .esgst-adots h3 {
