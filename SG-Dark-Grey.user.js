@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           SG Dark Grey
-// @namespace      SG Dark Grey v2.2.6
-// @version        2.2.6
+// @namespace      SG Dark Grey v2.2.7
+// @version        2.2.7
 // @description    Dark Grey style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 // @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 // @homepageURL    https://github.com/SquishedPotatoe/SG-Dark-Grey
@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SG Dark Grey v2.2.6  2020-09-06 */
+  var css = `/* SG Dark Grey v2.2.7  2020-09-07 */
 :root {
   --SGSP-body-bg-color: #252522;
   --SGSP-body-bg-image: "none";
@@ -1528,7 +1528,7 @@ form .heading {
     height: inherit;
     padding-bottom: 3px;
 }
-.giveaway__heading__name, .table__column__heading, .table h3, .esgst-ugd-table ~ .esgst-text-center .esgst-bold:not(span), .esgst-gv-popout .giveaway__heading > [data-draggable-id]:not(.esgst-gc), .giveaway__heading > [data-draggable-id], .FTB-online-string {
+.giveaway__heading__name, .table__column__heading, .table h3, .esgst-ugd-table ~ .esgst-text-center .esgst-bold:not(span), .esgst-gv-popout .giveaway__heading > [data-draggable-id]:not(.esgst-gc):not(.esgst-gch-highlight), .giveaway__heading > [data-draggable-id]:not(.esgst-gch-highlight), .FTB-online-string {
     color: hsla(0, 0%, 75%, 0.8);
     text-shadow: var(--SGSP-ts-53);
 }

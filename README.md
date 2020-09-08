@@ -4,7 +4,7 @@ Dark Grey style for [steamgifts.com](https://www.steamgifts.com), [steamtrades.c
 
 ---
  
-## Current Version 2.2.6
+## Current Version 2.2.7
 
 ## Preview
 ![Preview of SG Dark Grey](./screenshots/Giveaway.png)
