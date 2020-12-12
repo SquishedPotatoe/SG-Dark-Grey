@@ -1,5 +1,5 @@
 @-moz-document domain("steamgifts.com"), domain("steamtrades.com"), domain("sgtools.info") {
-/* SG Dark Grey v2.2.7 2020-09-07 */
+/* SG Dark Grey v2.2.8 2020-12-12 */
 /* Repository: https://github.com/SquishedPotatoe/SG-Dark-Grey */
 /* License:    https://creativecommons.org/licenses/by-sa/4.0/ */
 :root {
@@ -2041,7 +2041,7 @@ nav .nav_avatar {
     border-color: var(--SGSP-notification-yellow-border-color);
     color: var(--SGSP-notification-yellow-txt-color);
 }
-.page__heading ~ div:not(.esgst-button-set):not(.row-spacer):not(.align-button-container):not(#filterControls):not(.btn_actions):not(.notification):not(.pagination):not(.page__heading):not(.table__heading):not(.widget-container):not(.form__row):not(.giveaway__row-outer-wrap):not(.leaderboard):not(.esgst-gf-container):not(.esgst-popup-actions):not(.esgst-popup-scrollable):not(.esgst-text-left):not(.esgst-gv-view):not(.esgst-form-row):not(.esgst-menu-split), .page_heading ~ div:not(.esgst-button-set):not(.row-spacer):not(.align-button-container):not(.btn_actions):not(.notification):not(.pagination):not(.page_heading):not(.table_heading):not(.widget-container):not(.form__row):not(.giveaway__row-outer-wrap):not(.leaderboard):not(.esgst-gf-container), .comments:not(.esgst-text-left), .pagination.pagination--no-results, .pagination_no_results, .esgst-glwc-results .table {
+.page__heading ~ div:not(.esgst-button-set):not(.row-spacer):not(.align-button-container):not(#filterControls):not(.btn_actions):not(.notification):not(.pagination):not(.page__heading):not(.table__heading):not(.widget-container):not(.form__row):not(.giveaway__row-outer-wrap):not(.leaderboard):not(.esgst-gf-container):not(.esgst-popup-actions):not(.esgst-popup-scrollable):not(.esgst-text-left):not(.esgst-gv-view):not(.esgst-form-row):not(.esgst-menu-split):not(.giveaway_box_hero):not(.giveaway_box_actions), .page_heading ~ div:not(.esgst-button-set):not(.row-spacer):not(.align-button-container):not(.btn_actions):not(.notification):not(.pagination):not(.page_heading):not(.table_heading):not(.widget-container):not(.form__row):not(.giveaway__row-outer-wrap):not(.leaderboard):not(.esgst-gf-container), .comments:not(.esgst-text-left), .pagination.pagination--no-results, .pagination_no_results, .esgst-glwc-results .table {
     background-color: var(--SGSP-content-bg-color);
     background-image: none;
     border: 1px solid var(--SGSP-content-border-color);
@@ -7824,6 +7824,109 @@ input#SkipEnded {
     .page__heading ~ div:not(.comments), .page_heading ~ div:not(.comments), .pinned-giveaways__outer-wrap, .page__heading ~ div:hover .table__rows, .page__heading ~ div:hover .giveaway__row-outer-wrap:not(.esgst-gv-container), .pinned-giveaways__outer-wrap:hover .giveaway__summary {
         will-change: unset!important;
     }
+}
+    /*  Holiday Gift Box Event     */
+.giveaway_box_hero {
+    background-position: center -80px!important;
+    border: 1px solid var(--SGSP-content-border-color);
+    height: 180px!important;
+}
+.giveaway_box_notification {
+    background-color: transparent!important;
+    background-image: var(--SGSP-notification-yellow-bg-color)!important;
+    border-color: var(--SGSP-notification-yellow-border-color)!important;
+    color: var(--SGSP-notification-yellow-txt-color);
+    padding: 5px 25px!important;
+    will-change: unset!important;
+}
+.giveaway_box_notification i {
+    font-size: 18px!important;
+}
+.giveaway_box_container {
+    background-color: var(--SGSP-content-bg-color);
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0)), linear-gradient( rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.03) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%)!important;
+    border: 1px solid var(--SGSP-content-border-color)!important;
+}
+.giveaway_box_notification > div a {
+    color: rgb(230, 113, 0)!important;
+}
+.giveaway_box, .giveaway_box_hero {
+    filter: var(--SGSP-image-brightness);
+}
+.giveaway_box_list .giveaway_box_container--unlocked {
+    background-color: transparent!important;
+    background-image: var(--SGSP-notification-green-bg-color)!important;
+    border-color: var(--SGSP-notification-green-border-color)!important;
+}
+.giveaway_box_container--spin-hover {
+    z-index: 997;
+}
+input:not(.comment__submit-button):not(.ui_tpicker_time_input):not(.sp-input):not([type="file"]):not(.sidebar__search-input).form__input--valid.form__input--invalid {  
+    background-color: transparent!important;
+    background-image: var(--SGSP-notification-red-bg-color);
+    border-color: var(--SGSP-notification-red-border-color)!important;
+    color: var(--SGSP-notification-red-txt-color)!important;
+    text-shadow: 1px 1px 1px hsla(0, 0%, 0%, 0.7)!important;
+}
+input:not(.comment__submit-button):not(.ui_tpicker_time_input):not(.sp-input):not([type="file"]):not(.sidebar__search-input).form__input--valid.form__input--valid {
+    background-color: transparent!important;
+    background-image: var(--SGSP-notification-green-bg-color);
+    border-color: var(--SGSP-notification-green-border-color)!important;
+    color: var(--SGSP-notification-green-txt-color)!important;
+    text-shadow: 1px 1px 1px hsla(0, 0%, 0%, 0.7)!important;
+}
+.giveaway_box_container--transition-slow + div > div[style*="flex: 2"] .form__input-description[style*="#d2d6e0"] {
+    border-bottom: 1px dotted var(--SGSP-separator-light-color)!important;
+}
+.giveaway_box_container--transition-slow + div > div[style*="flex: 2"] div[style*="border-left: 1px dotted #d2d6e0"], .giveaway_box_container--transition-slow + div > div[style*="flex: 2"][style*="border-left: 1px dotted #d2d6e0"] {
+    border-left: 1px dotted var(--SGSP-separator-light-color)!important;
+}
+.esgst-fmph + .giveaway_box_container {
+    margin-top: -5px!important;
+}
+script[src*="holiday"] + .widget-container--margin-top {
+    margin-top: 10px;
+}
+.giveaway_box_actions {
+    background: none!important;
+    border: none!important;
+    margin: 0!important;
+    padding: 0!important;
+}
+.giveaway_box_actions + div {
+    margin: 0!important;
+    will-change: unset!important;
+    border: 1px solid var(--SGSP-content-border-color) !important;
+    border-radius: 0 0 5px 5px!important;
+}
+.giveaway_box_action--peek {
+    background-color: #d2d6e0;
+    background-image: linear-gradient(#33393e 0%, #212528 100%) !important;
+    border-color: var(--SGSP-content-border-color);
+    color: hsla(0, 0%, 80%, 0.9) !important;
+    will-change: filter;
+}
+.giveaway_box_action--peek:hover:not(.giveaway_box_action--disabled) {
+    background-image: linear-gradient(#33393e 0%, #212528 100%) !important;
+    filter: brightness(1.1);
+}  
+.giveaway_box_action--open {
+    background-image: var(--SGSP-green-buttons-bg-color) !important;
+    background-color: transparent!important;
+    border-color: var(--SGSP-green-buttons-border-color) !important;
+    color: var(--SGSP-green-buttons-txt-color) !important;
+    text-shadow: var(--SGSP-ts-63) !important;
+    transition: filter 0.35s ease-in;
+    will-change: filter;
+}
+.giveaway_box_action--peeked {
+    background-color: #d2d6e0;
+    background-image: linear-gradient(#33393e 0%, #212528 100%) !important;
+    border: 1px solid var(--SGSP-content-border-color)!important;
+    border-bottom: none!important;
+    color: hsla(0, 0%, 80%, 0.9) !important;
+    text-shadow: var(--SGSP-ts-31) !important;
+    will-change: unset;
 }
 }
 @-moz-document url-prefix("https://www.steamgifts.com/discussions/bookmarked") {
