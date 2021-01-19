@@ -1,5 +1,5 @@
 @-moz-document domain("steamgifts.com"), domain("steamtrades.com"), domain("sgtools.info") {
-/* SG Dark Grey v2.2.9 2020-12-17 */
+/* SG Dark Grey v2.3.0 2021-01-18 */
 /* Repository: https://github.com/SquishedPotatoe/SG-Dark-Grey */
 /* License:    https://creativecommons.org/licenses/by-sa/4.0/ */
 :root {
@@ -7319,8 +7319,15 @@ div[style*="padding-top: 35px"] {
     margin: 15px 0 8px!important;
     padding: 0!important;
 }
-.page_inner_wrap > div[style*="padding-bottom: 25px"] {
+div[style*="padding-bottom: 25px"]:not(.notification) {
+    background-color: unset!important;
+    border: none!important;
+    box-shadow: none!important;
+    margin-top: 8px;
     padding: 0!important;
+}
+div[style*="padding-bottom: 25px"]:not(.notification) > div[data-ref="vm-preloader"] {
+    height: auto!important;
 }
 div[style*="padding-bottom: 35px"] {
     margin: 8px 0!important;
