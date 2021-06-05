@@ -1,5 +1,5 @@
 @-moz-document domain("steamgifts.com"), domain("steamtrades.com"), domain("sgtools.info") {
-/* SG Dark Grey v2.3.1 2021-06-04 */
+/* SG Dark Grey v2.3.1 2021-06-05 */
 /* Repository: https://github.com/SquishedPotatoe/SG-Dark-Grey */
 /* License:    https://creativecommons.org/licenses/by-sa/4.0/ */
 :root {
@@ -7951,7 +7951,7 @@ script[src*="holiday"] + .widget-container--margin-top {
     background-image: -webkit-linear-gradient(hsl(300deg 76% 45%) 0%, hsl(300deg 76% 32%) 100%);
     border-color: #000!important;
     color: hsl(300deg 100% 80%);
-    text-shadow: 1px 1px 1px rgb(0 0 0 / 80%);   
+    text-shadow: 1px 1px 1px hsla(0, 0%, 0%, 0.8);   
 }
 .birthday_event {
     background-color: var(--SGSP-content-bg-color);

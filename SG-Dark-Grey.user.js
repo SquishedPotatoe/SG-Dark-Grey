@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SG Dark Grey v2.3.1  2021-06-04 */
+  var css = `/* SG Dark Grey v2.3.1  2021-06-05 */
 :root {
   --SGSP-body-bg-color: #252522;
   --SGSP-body-bg-image: "none";
@@ -7968,7 +7968,7 @@ script[src*="holiday"] + .widget-container--margin-top {
     background-image: -webkit-linear-gradient(hsl(300deg 76% 45%) 0%, hsl(300deg 76% 32%) 100%);
     border-color: #000!important;
     color: hsl(300deg 100% 80%);
-    text-shadow: 1px 1px 1px rgb(0 0 0 / 80%);   
+    text-shadow: 1px 1px 1px hsla(0, 0%, 0%, 0.8);   
 }
 .birthday_event {
     background-color: var(--SGSP-content-bg-color);
