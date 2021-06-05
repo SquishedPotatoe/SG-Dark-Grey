@@ -1,5 +1,5 @@
 @-moz-document domain("steamgifts.com"), domain("steamtrades.com"), domain("sgtools.info") {
-/* SG Dark Grey v2.3.0 2021-01-18 */
+/* SG Dark Grey v2.3.1 2021-06-04 */
 /* Repository: https://github.com/SquishedPotatoe/SG-Dark-Grey */
 /* License:    https://creativecommons.org/licenses/by-sa/4.0/ */
 :root {
@@ -251,7 +251,7 @@ body {
     background-color: transparent!important;
     background-image: none;
 }
-.sidebar__entry-insert, .sidebar__action-button, .nav__sits, .form__submit-button, .form__sync-default, .featured__action-button, #content button[type="submit"], #content #activated_send, #content #real_cv_send, #content #multiple_wins_send, #content #giveaway_Create, .entry.validEntry, #content .rulePassed, .btn_action.green, #content .manageGa a, #content #gaurl a, #content .back-guide a, #content .gaButton, .giveaway__column--contributor-level--positive:not(.esgst-glh-highlight), .featured__column--contributor-level--positive:not(.esgst-glh-highlight), .cmGame:not(.notFound), .cmGame.whitelisted, #content .showBundledDeals, #content #giveaway_filters_Update, .page__heading__button--green, .page_heading_btn.green, .sale-savings--high, .offer__discount, #content .deal_game_discount, .btn-success, #btn-get, .esgst-sttb-button, .esgst-stbb-button, .show-hide-giveaway-list.small-colored, .table__column__key__redeem {
+.sidebar__entry-insert, .sidebar__action-button, .nav__sits, .form__submit-button, .form__sync-default, .featured__action-button, #content button[type="submit"], #content #activated_send, #content #real_cv_send, #content #multiple_wins_send, #content #giveaway_Create, .entry.validEntry, #content .rulePassed, .btn_action.green, #content .manageGa a, #content #gaurl a, #content .back-guide a, #content .gaButton, .giveaway__column--contributor-level--positive:not(.esgst-glh-highlight), .featured__column--contributor-level--positive:not(.esgst-glh-highlight), .cmGame:not(.notFound), .cmGame.whitelisted, #content .showBundledDeals, #content #giveaway_filters_Update, .page__heading__button--green, .page_heading_btn.green, .sale-savings--high, .offer__discount, #content .deal_game_discount, .btn-success, #btn-get, .esgst-sttb-button, .esgst-stbb-button, .show-hide-giveaway-list.small-colored, .table__column__key__redeem, .birthday_event_btn--light {
     background-image: var(--SGSP-green-buttons-bg-color)!important;
     background-color: transparent!important;
     border: 1px solid #000!important;
@@ -1202,7 +1202,7 @@ button.btn.dropdown-toggle.btn-inverse.btn-xs, .btn-group.open .dropdown-toggle 
     max-width: calc(100% - 50px);
     margin-right: -1000px;
 }
-.comment__username:not(.comment__username--op) a:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .author_name:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .form__heading__text, .form__level, .giveaway__links:not(.esgst-giveaway-links) span, .giveaway-summary__links span, .giveaway__username:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .markdown a:not(.esgst-gc), .pagination__navigation a:not(.is-selected), .pagination_navigation a, .popup__actions, .popup_actions, .popup__description__small, .table__column__secondary-link:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .comments__entity__name, .table .underline:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), #content strong a, #content td a, form .heading .name, .header_search .description .blue, .esgst-ggl-member, .esgst-form-heading-text, .patreon_reward:not(.is_locked) .patreon_reward_summary_name, .esgst-aic-source, .esgst-popup-actions, .DTEP_ACHIEVEMENTS + a > [style*="color"], .esgst-steam-api-key ~ div a, a.esgst-bold:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight-whitelisted):not(.esgst-wbh-highlight-blacklisted) {
+.comment__username:not(.comment__username--op) a:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .author_name:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .form__heading__text, .form__level, .giveaway__links:not(.esgst-giveaway-links) span, .giveaway-summary__links span, .giveaway__username:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .markdown a:not(.esgst-gc), .pagination__navigation a:not(.is-selected), .pagination_navigation a, .popup__actions, .popup_actions, .popup__description__small, .table__column__secondary-link:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened):not(.table__column__select), .comments__entity__name, .table .underline:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), #content strong a, #content td a, form .heading .name, .header_search .description .blue, .esgst-ggl-member, .esgst-form-heading-text, .patreon_reward:not(.is_locked) .patreon_reward_summary_name, .esgst-aic-source, .esgst-popup-actions, .DTEP_ACHIEVEMENTS + a > [style*="color"], .esgst-steam-api-key ~ div a, a.esgst-bold:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight-whitelisted):not(.esgst-wbh-highlight-blacklisted) {
     color: var(--SGSP-link-txt-color)!important;
     text-shadow: var(--SGSP-ts-76);
 }
@@ -1269,7 +1269,7 @@ div > .table__column--width-fill > form > strong {
 .featured__container {
     background-color: transparent;
 }
-.featured__column {
+.featured__column:not(.featured__column--birthday) {
     color: hsl(0, 0%, 65%);
     background-color: hsla(0, 0%, 0%, 0.09);
     border: 1px solid hsla(0, 0%, 0%, 0.4);
@@ -1498,7 +1498,7 @@ form .heading {
 .giveaway__column--positive, .author_small .is_positive, .table .reputation .is_positive, .rating_checkbox.is_positive.is_selected, .positive, .positive i {
     color: var(--SGSP-green-icons-txt-color)!important;
 }
-.giveaway__columns:not(.esgst-gv-icons):not(.esgst-giveaway-panel) > *:not(.giveaway__column--group):not(.giveaway__column--whitelist):not(.giveaway__column--invite-only):not(.giveaway__column--community-voted):not(.giveaway__column--contributor-level):not(.giveaway__column--region-restricted):not(form):not(.mt-more-like-this):not(.esgst-elgb-button):not(.giveaway__column--new):not(.giveaway__column--wish):not(.esgst-button-set):not(.esgst-gc):not([data-draggable-id="sgTools"]), #help ~ .featured__outer-wrap .featured__inner-wrap .featured__column:not(.featured__column--contributor-level--positive):not(.esgst-gwc):not(.esgst-gwr) {
+.giveaway__columns:not(.esgst-gv-icons):not(.esgst-giveaway-panel) > *:not(.giveaway__column--group):not(.giveaway__column--whitelist):not(.giveaway__column--invite-only):not(.giveaway__column--community-voted):not(.giveaway__column--contributor-level):not(.giveaway__column--region-restricted):not(form):not(.mt-more-like-this):not(.esgst-elgb-button):not(.giveaway__column--new):not(.giveaway__column--wish):not(.esgst-button-set):not(.esgst-gc):not([data-draggable-id="sgTools"]):not(.giveaway__column--birthday), #help ~ .featured__outer-wrap .featured__inner-wrap .featured__column:not(.featured__column--contributor-level--positive):not(.esgst-gwc):not(.esgst-gwr) {
     background-image: var(--SGSP-giveaway-columns-bg-color);
     border-color: var(--SGSP-giveaway-columns-border-color)!important;
     box-shadow: 1px 1px 0 var(--SGSP-giveaway-columns-boxshadow-color) inset!important;
@@ -2041,7 +2041,7 @@ nav .nav_avatar {
     border-color: var(--SGSP-notification-yellow-border-color);
     color: var(--SGSP-notification-yellow-txt-color);
 }
-.page__heading ~ div:not(.esgst-button-set):not(.row-spacer):not(.align-button-container):not(#filterControls):not(.btn_actions):not(.notification):not(.pagination):not(.page__heading):not(.table__heading):not(.widget-container):not(.form__row):not(.giveaway__row-outer-wrap):not(.leaderboard):not(.esgst-gf-container):not(.esgst-popup-actions):not(.esgst-popup-scrollable):not(.esgst-text-left):not(.esgst-gv-view):not(.esgst-form-row):not(.esgst-menu-split):not(.giveaway_box_hero):not(.giveaway_box_actions), .page_heading ~ div:not(.esgst-button-set):not(.row-spacer):not(.align-button-container):not(.btn_actions):not(.notification):not(.pagination):not(.page_heading):not(.table_heading):not(.widget-container):not(.form__row):not(.giveaway__row-outer-wrap):not(.leaderboard):not(.esgst-gf-container), .comments:not(.esgst-text-left), .pagination.pagination--no-results, .pagination_no_results, .esgst-glwc-results .table {
+.page__heading ~ div:not(.esgst-button-set):not(.row-spacer):not(.align-button-container):not(#filterControls):not(.btn_actions):not(.notification):not(.pagination):not(.page__heading):not(.table__heading):not(.widget-container):not(.form__row):not(.giveaway__row-outer-wrap):not(.leaderboard):not(.esgst-gf-container):not(.esgst-popup-actions):not(.esgst-popup-scrollable):not(.esgst-text-left):not(.esgst-gv-view):not(.esgst-form-row):not(.esgst-menu-split):not(.giveaway_box_hero):not(.giveaway_box_actions):not(.esgst-button):not(.esgst-button-group):not(.esgst-toggle-switch-container), .page_heading ~ div:not(.esgst-button-set):not(.row-spacer):not(.align-button-container):not(.btn_actions):not(.notification):not(.pagination):not(.page_heading):not(.table_heading):not(.widget-container):not(.form__row):not(.giveaway__row-outer-wrap):not(.leaderboard):not(.esgst-gf-container), .comments:not(.esgst-text-left), .pagination.pagination--no-results, .pagination_no_results, .esgst-glwc-results .table {
     background-color: var(--SGSP-content-bg-color);
     background-image: none;
     border: 1px solid var(--SGSP-content-border-color);
@@ -2569,7 +2569,7 @@ div.sg-info {
     border: 1px solid #000!important;
     color: hsl(185, 50%, 80%)!important;
 }
-.sidebar__entry-loading, .comment__action-button, .page__description__save, .poll__vote-button, .form__add-answer-button, .form__sync-loading, .form__verify-default, .tab-links li.active a, .btn_action.grey, .btn_action.white, .sale-savings--medium, .comment__action-button, .form__verify-default, .comment__submit-button, .form__saving-button, .mt-more-like-this, .sp-container button, .view_key_btn, .sidebar__shortcut-inner-wrap > *:not(.sidebar__search-container), .btn_action + .esgst-sgpb-button, #DTEP_SteamApiKey + input, .esgst-chfl-panel i {
+.sidebar__entry-loading, .comment__action-button, .page__description__save, .poll__vote-button, .form__add-answer-button, .form__sync-loading, .form__verify-default, .tab-links li.active a, .btn_action.grey, .btn_action.white, .sale-savings--medium, .comment__action-button, .form__verify-default, .comment__submit-button, .form__saving-button, .mt-more-like-this, .sp-container button, .view_key_btn, .sidebar__shortcut-inner-wrap > *:not(.sidebar__search-container), .btn_action + .esgst-sgpb-button, #DTEP_SteamApiKey + input, .esgst-chfl-panel i, .birthday_event_btn--dark {
     background-image: var(--SGSP-silver-buttons-bg-color)!important;
     border: 1px solid hsla(0, 0%, 0%, 0.9)!important;
     border-color: var(--SGSP-silver-buttons-border-color)!important;
@@ -2827,7 +2827,7 @@ strong {
     filter: brightness(1.18);
     text-shadow: var(--SGSP-ts-46)!important;
 }
-.table__column__secondary-link:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .pagination__navigation a:not(.is-selected) span, .pagination_navigation a:not(.is_selected) span, .comment__cancel-button span, .page__description__cancel span, .form__edit-button span, .form__logout-button span, .comment__username a:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), a.author_name:not(.is_op):not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .comment__actions__button, .page__description__edit, .giveaway__username, .giveaway__links span, .action_list a, .popup__actions > *, .popup__description__small a, .esgst-popup-actions a, .DTEP_ACHIEVEMENTS + a > [style*="color"] {
+.table__column__secondary-link:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened):not(.table__column__select), .pagination__navigation a:not(.is-selected) span, .pagination_navigation a:not(.is_selected) span, .comment__cancel-button span, .page__description__cancel span, .form__edit-button span, .form__logout-button span, .comment__username a:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), a.author_name:not(.is_op):not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .comment__actions__button, .page__description__edit, .giveaway__username, .giveaway__links span, .action_list a, .popup__actions > *, .popup__description__small a, .esgst-popup-actions a, .DTEP_ACHIEVEMENTS + a > [style*="color"] {
     border-bottom: 1px dotted;
     box-shadow: 0 1px 0 hsl(0, 0%, 24%)!important;
 }
@@ -7310,6 +7310,13 @@ body .esgst-button-container {
 .esgst-ns.sidebar .esgst-button {
     width: 174px!important;
 }
+.esgst-sync-options .esgst-button-group {
+    margin: 0!important;
+    padding: 8px 0;
+}
+.esgst-sync-options .form__row__indent > div {
+    margin-bottom: 3px;
+}
 div[style*="margin-top: 25px"], div[style*="padding-top: 35px"] {
     margin: 0 0 8px!important;
     height: auto!important;
@@ -7906,36 +7913,89 @@ script[src*="holiday"] + .widget-container--margin-top {
 .giveaway_box_actions + div:not(.giveaway_box_message) {
     margin: 0!important;
     will-change: unset!important;
-    border: 1px solid var(--SGSP-content-border-color) !important;
+    border: 1px solid var(--SGSP-content-border-color)!important;
     border-radius: 0 0 5px 5px!important;
 }
 .giveaway_box_action--peek {
-    background-image: linear-gradient(#33393e 0%, #212528 100%) !important;
+    background-image: linear-gradient(#33393e 0%, #212528 100%)!important;
     background-repeat: no-repeat;
     border-color: var(--SGSP-content-border-color);
-    color: hsla(0, 0%, 80%, 0.9) !important;
+    color: hsla(0, 0%, 80%, 0.9)!important;
     will-change: filter;
 }
 .giveaway_box_action--peek:hover:not(.giveaway_box_action--disabled) {
-    background-image: linear-gradient(#33393e 0%, #212528 100%) !important;
+    background-image: linear-gradient(#33393e 0%, #212528 100%)!important;
     filter: brightness(1.1);
 }  
 .giveaway_box_action--open {
-    background-image: var(--SGSP-green-buttons-bg-color) !important;
+    background-image: var(--SGSP-green-buttons-bg-color)!important;
     background-color: transparent!important;
-    border-color: var(--SGSP-green-buttons-border-color) !important;
-    color: var(--SGSP-green-buttons-txt-color) !important;
-    text-shadow: var(--SGSP-ts-63) !important;
+    border-color: var(--SGSP-green-buttons-border-color)!important;
+    color: var(--SGSP-green-buttons-txt-color)!important;
+    text-shadow: var(--SGSP-ts-63)!important;
     transition: filter 0.35s ease-in;
     will-change: filter;
 }
 .giveaway_box_action--peeked {
-    background-image: linear-gradient(#33393e 0%, #212528 100%) !important;
+    background-image: linear-gradient(#33393e 0%, #212528 100%)!important;
     border: 1px solid var(--SGSP-content-border-color)!important;
     border-bottom: none!important;
-    color: hsla(0, 0%, 80%, 0.9) !important;
-    text-shadow: var(--SGSP-ts-31) !important;
+    color: hsla(0, 0%, 80%, 0.9)!important;
+    text-shadow: var(--SGSP-ts-31)!important;
     will-change: unset;
+}
+    /*  Ten years of Space Cat Event     */
+.giveaway__column--birthday, .featured__column--birthday {  
+    background-image: linear-gradient(hsl(300deg 76% 40%) 0%, hsl(300deg 76% 32%) 100%);
+    background-image: -moz-linear-gradient(hsl(300deg 76% 40%) 0%, hsl(300deg 76% 32%) 100%);
+    background-image: -webkit-linear-gradient(hsl(300deg 76% 45%) 0%, hsl(300deg 76% 32%) 100%);
+    border-color: #000!important;
+    color: hsl(300deg 100% 80%);
+    text-shadow: 1px 1px 1px rgb(0 0 0 / 80%);   
+}
+.birthday_event {
+    background-color: var(--SGSP-content-bg-color);
+    background-image: none;
+    border: 1px solid var(--SGSP-content-border-color);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    padding: 5px 10px;
+    text-shadow: var(--SGSP-ts-41);
+}
+.birthday_event_img {
+    filter: var(--SGSP-image-brightness) contrast(0.9) saturate(1.4);
+}
+.birthday_event_text, .birthday_event_btn i.fa-long-arrow-right {
+    color: hsla(300, 53%, 50%, 1)!important;
+}
+.birthday_event_text del {
+    color: hsla(0, 0%, 75%, 0.8);
+}
+.birthday_event_btn--light {
+    border-color: #DBDBDB;
+    color: #697080;
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.3);
+}
+.table__column__select {
+    background-color: hsla(210, 85%, 36%, 0.9)!important;
+    background-image: linear-gradient(hsla(210, 75%, 45%, 0.9) 0%, hsla(210, 85%, 36%, 0.9) 100%);
+    border: 1px solid #000;
+    box-shadow: none;
+    color: hsla(0, 0%, 80%, 0.95)!important;
+    text-shadow: var(--SGSP-ts-41)!important;
+}
+.table__column__select:hover {
+    background-image: none!important;
+}
+.esgst-gv-popout .giveaway__columns .giveaway__column--birthday {
+    color: #d21cd2;
+    left: 0;
+    padding: 11px 3px 0 5px;
+    position: absolute;
+}
+.esgst-gv-popout .giveaway__columns .giveaway__column--birthday i {
+    font-size: 12px;
 }
 }
 @-moz-document url-prefix("https://www.steamgifts.com/discussions/bookmarked") {
@@ -7945,13 +8005,10 @@ script[src*="holiday"] + .widget-container--margin-top {
 }
 }
 @-moz-document url-prefix("https://www.steamgifts.com/account/settings/profile?esgst") {
-.page__heading ~ div:not(.sidebar__search-container) {
+.page__heading ~ div:not(.sidebar__search-container):not(.esgst-button) {
     background-color: unset!important;
     border-color: transparent!important;
     box-shadow: none!important;
-}
-.esgst-sync-options .form__row__indent > div {
-    margin-bottom: 3px;
 }
 .widget-container > [data-esgst-popup].esgst-menu-layer .esgst-settings-menu {
     margin-top: -18px;
@@ -8003,7 +8060,9 @@ script[src*="holiday"] + .widget-container--margin-top {
     padding: 4px!important;
     position: sticky;
     top: 0;
-    width: 361px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
     z-index: 999;
 }
 .widget-container > [data-esgst-popup] > .page__heading.esgst-fmph + .esgst-button-group {

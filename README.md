@@ -1,10 +1,10 @@
 # SG-Dark-Grey
 
-Dark Grey style for [steamgifts.com](https://www.steamgifts.com), [steamtrades.com](https://www.steamtrades.com), [sgtools.info](https://www.sgtools.info). Compatible with most scripts found in the [addon registry](https://www.steamgifts.com/discussion/Zevqn/)
+Dark Grey style for [steamgifts.com](https://www.steamgifts.com), [steamtrades.com](https://www.steamtrades.com), [sgtools.info](https://www.sgtools.info). Compatible with most scripts found in the [addon registry](https://gist.github.com/Sighery/99add4143d03eab994efc03776d13c03#file-sg-addons-thread-md)
 
 ---
  
-## Current Version 2.3.0
+## Current Version 2.3.1
 
 ## Preview
 ![Preview of SG Dark Grey](./screenshots/Giveaway.png)
