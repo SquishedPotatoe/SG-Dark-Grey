@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           SG Dark Grey
-// @namespace      SG Dark Grey v2.3.1
-// @version        2.3.1
+// @namespace      SG Dark Grey v2.3.2
+// @version        2.3.2
 // @description    Dark Grey style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 // @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 // @homepageURL    https://github.com/SquishedPotatoe/SG-Dark-Grey
@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SG Dark Grey v2.3.1  2021-06-05 */
+  var css = `/* SG Dark Grey v2.3.2  2021-06-07 */
 :root {
   --SGSP-body-bg-color: #252522;
   --SGSP-body-bg-image: "none";
@@ -1286,7 +1286,7 @@ div > .table__column--width-fill > form > strong {
 .featured__container {
     background-color: transparent;
 }
-.featured__column:not(.featured__column--birthday) {
+.featured__column {
     color: hsl(0, 0%, 65%);
     background-color: hsla(0, 0%, 0%, 0.09);
     border: 1px solid hsla(0, 0%, 0%, 0.4);

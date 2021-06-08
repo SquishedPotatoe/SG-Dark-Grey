@@ -1,5 +1,5 @@
 @-moz-document domain("steamgifts.com"), domain("steamtrades.com"), domain("sgtools.info") {
-/* SG Dark Grey v2.3.1 2021-06-05 */
+/* SG Dark Grey v2.3.2 2021-06-07 */
 /* Repository: https://github.com/SquishedPotatoe/SG-Dark-Grey */
 /* License:    https://creativecommons.org/licenses/by-sa/4.0/ */
 :root {
@@ -1269,7 +1269,7 @@ div > .table__column--width-fill > form > strong {
 .featured__container {
     background-color: transparent;
 }
-.featured__column:not(.featured__column--birthday) {
+.featured__column {
     color: hsl(0, 0%, 65%);
     background-color: hsla(0, 0%, 0%, 0.09);
     border: 1px solid hsla(0, 0%, 0%, 0.4);
