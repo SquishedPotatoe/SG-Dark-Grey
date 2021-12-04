@@ -1,5 +1,5 @@
 @-moz-document domain("steamgifts.com"), domain("steamtrades.com"), domain("sgtools.info") {
-/* SG Dark Grey v2.3.2 2021-06-07 */
+/* SG Dark Grey v2.3.3 2021-12-03 */
 /* Repository: https://github.com/SquishedPotatoe/SG-Dark-Grey */
 /* License:    https://creativecommons.org/licenses/by-sa/4.0/ */
 :root {
@@ -7825,7 +7825,7 @@ input#SkipEnded {
 .wiki-gh-content .markdown-body .highlight > pre {
     color: var(--SGSP-general-txt-color);
 }
-.page__heading ~ div:not(.comments):not(.esgst-rbot):not(.esgst-popup-actions):not(.esgst-fmph), .page_heading ~ div:not(.comments):not(.esgst-rbot):not(.esgst-fmph), .pinned-giveaways__outer-wrap {
+.page__heading ~ div:not(.comments):not(.esgst-rbot):not(.esgst-popup-actions):not(.esgst-fmph):not(.giveaway_box_actions), .page_heading ~ div:not(.comments):not(.esgst-rbot):not(.esgst-fmph), .pinned-giveaways__outer-wrap {
     will-change: transform;
 }
 .page__heading ~ div:hover:not(.sg2o-gridview-container), .page_heading ~ div:hover, .pinned-giveaways__outer-wrap:hover {
@@ -7916,14 +7916,14 @@ script[src*="holiday"] + .widget-container--margin-top {
     border: 1px solid var(--SGSP-content-border-color)!important;
     border-radius: 0 0 5px 5px!important;
 }
-.giveaway_box_action--peek {
+.giveaway_box_action--peek, .giveaway_box_action--like:not(.is-selected) {
     background-image: linear-gradient(#33393e 0%, #212528 100%)!important;
     background-repeat: no-repeat;
     border-color: var(--SGSP-content-border-color);
     color: hsla(0, 0%, 80%, 0.9)!important;
     will-change: filter;
 }
-.giveaway_box_action--peek:hover:not(.giveaway_box_action--disabled) {
+.giveaway_box_action--peek:hover:not(.giveaway_box_action--disabled), .giveaway_box_action--like:hover:not(.is-selected) {
     background-image: linear-gradient(#33393e 0%, #212528 100%)!important;
     filter: brightness(1.1);
 }  
@@ -7943,6 +7943,19 @@ script[src*="holiday"] + .widget-container--margin-top {
     color: hsla(0, 0%, 80%, 0.9)!important;
     text-shadow: var(--SGSP-ts-31)!important;
     will-change: unset;
+}
+.giveaway_box_action--like.is-selected {
+    background-color: hsla(210, 85%, 36%, 0.9);
+    background-image: linear-gradient(hsla(210, 75%, 45%, 0.9) 0%, hsla(210, 85%, 36%, 0.9) 100%);
+    border: 1px solid #000!important;
+    color: hsla(0, 0%, 80%, 0.95);
+    text-shadow: var(--SGSP-ts-41);
+}
+.giveaway_box_action--like.is-selected:hover {
+    background-image: none!important;
+}
+.page__heading__button.page__heading__button--green.page__heading__button--is-dropdown.is-selected .page__heading__absolute-dropdown[style*='-190px'] {
+    top: 22px;
 }
     /*  Ten years of Space Cat Event     */
 .giveaway__column--birthday, .featured__column--birthday {  
