@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           SG Dark Grey
-// @namespace      SG Dark Grey v2.3.5
-// @version        2.3.5
+// @namespace      SG Dark Grey v2.3.6
+// @version        2.3.6
 // @description    Dark Grey style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 // @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 // @homepageURL    https://github.com/SquishedPotatoe/SG-Dark-Grey
@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SG Dark Grey v2.3.5  2022-12-04 */
+  var css = `/* SG Dark Grey v2.3.6  2022-12-24 */
 :root {
   --SGSP-body-bg-color: #252522;
   --SGSP-body-bg-image: "none";
@@ -2078,7 +2078,7 @@ nav .nav_avatar {
 .dropdown_btn:not(:last-child), .esgst-header-menu-row:not(:last-child) {
     border-bottom: none;
 }
-.nav__row:hover .nav__row__summary__name, .nav__row:hover i:not(.__mh_bookmark_item_remove_btn), .page__heading__row:hover .page__heading__row__name, .page__heading__row:hover i, .dropdown:hover .dropdown_btn:not(.nav__row):not(:hover) i, .dropdown:hover .esgst-header-menu-row:not(.nav__row):not(:hover) i, nav a:focus, nav a:hover, .esgst-header-menu-row:not(.esgst-version-row):hover i:not(.esgst-chfl-edit-button):not(.esgst-chfl-remove-button), .esgst-header-menu-row:not(.esgst-version-row):hover .esgst-header-menu-name, .header_inner_wrap .esgst-header-menu-absolute-dropdown:hover .esgst-header-menu-row:not(.esgst-version-row):not(.nav__row):not(:hover) i {
+.nav__row:hover .nav__row__summary__name, .nav__row:hover i:not(.__mh_bookmark_item_remove_btn), .page__heading__row:hover .page__heading__row__name, .page__heading__row:hover i, .dropdown:hover .dropdown_btn:not(.nav__row):not(:hover) i, .dropdown:hover .esgst-header-menu-row:not(.nav__row):not(:hover) i, nav a:focus, nav a:hover, .esgst-header-menu-row:not(.esgst-version-row):hover i:not(.esgst-chfl-edit-button):not(.esgst-chfl-remove-button), .esgst-header-menu-row:not(.esgst-version-row):hover .esgst-header-menu-name, .header_inner_wrap .esgst-header-menu-absolute-dropdown:hover .esgst-header-menu-row:not(.esgst-version-row):not(.nav__row):not(:hover) i, .block_header_text, .block_header_link {
     color: var(--SGSP-nav-txt-color)!important;
 }
 .nav__row:hover .nav__row__summary__description {
@@ -2479,15 +2479,15 @@ div[style*="padding-top: 35px"] a[href*="patreon"] > span, .humble_block strong 
 .pinned-giveaways__inner-wrap:not(.esgst-gv-view) * .giveaway__heading__thin:not(.copies__tagged) {
     color: hsl(205, 56%, 71%);
 }
-.poll, .homepage_heading + .table {
+.poll, .block_header + .table {
     background-color: var(--SGSP-poll-bg-color)!important;
     border: 1px solid var(--SGSP-poll-border-color)!important;
 }
-.poll__answer-container--negative .poll__vote-graph {
+.poll__answer-container .poll__vote-graph {
     background-image: linear-gradient(to left, hsl(220, 3%, 35%) 0%, hsl(220, 3%, 20%) 100%);
     border: 1px solid #000;
 }
-.poll__answer-container--positive .poll__vote-graph {
+.poll__answer-container.is-selected .poll__vote-graph {
     background-image: linear-gradient(to left, hsl(98, 40%, 30%) 0%, hsl(110, 45%, 18%) 100%);
     border: 1px solid #000;
 }
@@ -5258,7 +5258,7 @@ input:checked + .esgst-toggle-switch-slider {
 .esgst-popup .featured_giveaway_image_avatar {
     margin-left: 0;
 }
-.homepage_heading, .patreon_hero_step_name {
+.block_header, .patreon_hero_step_name {
     background-image: var(--SGSP-header-footer-bg-color);
     border: 1px solid;
     border-color: var(--SGSP-header-footer-border-color);
@@ -5267,12 +5267,12 @@ input:checked + .esgst-toggle-switch-slider {
     padding: 5px 15px;
     text-shadow: var(--SGSP-ts-31)!important;
 }
-.homepage_heading + .poll, .homepage_heading + .table {
+.block_header + .poll, .block_header + .table {
     border-radius: 4px;
     margin-bottom: 8px;
     padding: 0 10px;
 }
-.homepage_heading + .poll .table__heading {
+.block_header + .poll .table__heading {
     margin: 0 -10px 5px;
 }
 .homepage_table_column_heading {
@@ -6046,9 +6046,10 @@ input[type=date]::-webkit-calendar-picker-indicator:hover {
     padding: 0 2px;
     vertical-align: top;
 }
-.esgst-radb-button.homepage_heading {
-    margin-right: unset!important;
+.esgst-radb-button.block_header {
+	border-bottom: 1px solid var(--SGSP-header-footer-border-color);
     float: right;
+    margin: 0 0 0 5px!important;
 }
 .esgst-popup-icon {
     color: var(--SGSP-headings-txt-color);
@@ -7481,13 +7482,10 @@ div[style*="padding-bottom: 35px"] {
 .suspicion__content a, .suspicion__content a.fa, .suspicion__content a:hover, .suspicion__content a.fa:hover {
     color: var(--SGSP-link-txt-color)!important;
 }
-.suspicion__content a:hover, .suspicion__content a.fa:hover {
-    filter: var(--SGSP-nav-button-hover-brightness);
-}
 .suspicion__content a.local, .suspicion__content a.local:hover {
     color: #AF4AD4!important;
 }
-.suspicion__content a.local:hover {
+.suspicion__content a.local:hover, .suspicion__content a:hover, .suspicion__content a.fa:hover, .block_header_link:hover:not(.esgst-radb-button), .block_header_link:hover i {
     filter: var(--SGSP-nav-button-hover-brightness);
 }
 .suspicion__content .form__checkbox {
