@@ -1,5 +1,5 @@
 @-moz-document domain("steamgifts.com"), domain("steamtrades.com"), domain("sgtools.info") {
-/* SG Dark Grey v2.3.9 2023-03-16 */
+/* SG Dark Grey v2.4.0 2024-01-12 */
 /* Repository: https://github.com/SquishedPotatoe/SG-Dark-Grey */
 /* License:    https://creativecommons.org/licenses/by-sa/4.0/ */
 :root {
@@ -308,23 +308,7 @@ a.featured__column.featured__column--group {
 .sg2o-modal-dialog {
     background-color: var(--esgst-modal-bg-color)!important;
 }
-.sidebar div[style*="margin-top: 35px;"]{
-    background-color: transparent!important;
-    border: none!important;
-    box-shadow: none!important;
-    margin-top: 10px!important;
-    padding: 0!important;
-}
-.sidebar div[style*="margin-top: 35px;"] > a[href*="fanatical"] > img {
-    border: 1px solid var(--SGSP-sidebar-border-color);
-    border-radius: 4px;
-    filter: var(--SGSP-image-brightness);
-    max-width: 298px;
-}
-.esgst-ns div[style*="margin-top: 35px;"] > a[href*="fanatical"] > img {
-    max-width: 204px;
-}
-.block_header + a[href*="fanatical"] > img, .esgst-ns div[style*="margin-top: 35px;"] img {
+.block_header + a[href*="fanatical"] > img {
     border: 1px solid;
     border: 1px solid var(--SGSP-content-border-color);
     border-radius: 4px;
@@ -1286,6 +1270,28 @@ img[src="https://cdn.steamgifts.com/img/logo.png"], img[src="https://cdn.steamtr
 div > .table__column--width-fill > form > strong {
     color: #6db563;
 }
+.fanatical_name {
+    color: var(--SGSP-sidebar-link-txt-color);
+}
+.fanatical_date {
+    color: var(--SGSP-secondary-txt-color);
+}
+.fanatical_container .fanatical_img, .fanatical_icon {
+    filter: var(--SGSP-image-brightness);
+}
+.fanatical_container {
+    border: 1px solid;
+    border-radius: 4px;
+}
+.fanatical_container {
+    background-image: var(--SGSP-pageheading-bg-color);
+    border-color: var(--SGSP-pageheading-border-color);
+}
+.sidebar .fanatical_container {
+    background: var(--SGSP-sidebar-bg-color);
+    border-color: var(--SGSP-sidebar-border-color);
+    margin-top: 0px!important;
+}
 .fa-envelope-o:before {
     content: "\f0e0";
     font-size: 16px;
@@ -1541,7 +1547,7 @@ form .heading {
     height: inherit;
     padding-bottom: 3px;
 }
-.giveaway__heading__name, .table__column__heading, .table h3, .esgst-ugd-table ~ .esgst-text-center .esgst-bold:not(span), .esgst-gv-popout .giveaway__heading > [data-draggable-id]:not(.esgst-gc):not(.esgst-gch-highlight), .giveaway__heading > [data-draggable-id]:not(.esgst-gch-highlight), .FTB-online-string {
+.giveaway__heading__name, .table__column__heading, .table h3, .esgst-ugd-table ~ .esgst-text-center .esgst-bold:not(span), .esgst-gv-popout .giveaway__heading > [data-draggable-id]:not(.esgst-gc):not(.esgst-gch-highlight), .giveaway__heading > [data-draggable-id]:not(.esgst-gch-highlight), .FTB-online-string, .giveaway__heading > [data-ui-tooltip] {
     color: hsla(0, 0%, 75%, 0.8);
     text-shadow: var(--SGSP-ts-53);
 }
@@ -1959,6 +1965,9 @@ tbody tr:last-child td:last-child {
 .want hr {
     border-bottom: 1px solid var(--SGSP-trade-want-border-color)!important;
 }
+#np_steamgifts_homepage_top_responsive > * {
+    padding-top: 0px!important;
+}
 .navigation .pagination > .page-item > .page-link {
     background-image: var(--SGSP-pageheading-bg-color);
     border: 1px solid var(--SGSP-pageheading-border-color)!important;
@@ -1974,7 +1983,7 @@ tbody tr:last-child td:last-child {
     background-color: hsl(0, 0%, 21%)!important;
     box-shadow: 0 0 0 1px var(--SGSP-nav-dropdown-border-color)!important;
 }
-.nav__avatar-inner-wrap, .global__image-outer-wrap--game-large img, .global__image-outer-wrap--game-xlarge img, .featured__column.featured__column--width-fill.text-right > a, .profile_avatar, .nav_avatar, .table .avatar, .author_avatar, [data-google-query-id], .adsbygoogle, .giveaway_image_thumbnail, .giveaway_image_thumbnail_missing, .giveaway_image_avatar, .featured_giveaway_image_avatar, .table_image_avatar, .table_image_thumbnail, .table_image_flag, .gridview-avatar {
+.nav__avatar-inner-wrap, .global__image-outer-wrap--game-large img, .global__image-outer-wrap--game-xlarge img, .featured__column.featured__column--width-fill.text-right > a, .profile_avatar, .nav_avatar, .table .avatar, .author_avatar, .giveaway_image_thumbnail, .giveaway_image_thumbnail_missing, .giveaway_image_avatar, .featured_giveaway_image_avatar, .table_image_avatar, .table_image_thumbnail, .table_image_flag, .gridview-avatar {
     filter: var(--SGSP-image-brightness);
 }
 .nav__avatar-outer-wrap {
@@ -3460,7 +3469,7 @@ div.sgun_note:first-of-type {
 .esgst-hidden + .row-spacer, .comment.comment--submit + .row-spacer, .esgst-cfh-panel + .pagination, .esgst-cfh-panel + .pagination + .row-spacer, .ESCommentBox .pagination, .ESContext, .esgst-gv-icons [data-draggable-id="gt"] span, .featured__container .featured__inner-wrap > .esgst-gm-checkbox {
     display: none;
 }
-.giveaway__row-outer-wrap + div[style*="border-bottom"] {
+.giveaway__row-outer-wrap + div[style*="border-bottom"], .comments > div[style*="border-bottom"] {
     border: none!important;
     box-shadow: none!important;
 }
@@ -3834,7 +3843,7 @@ div.sgun_note:first-of-type {
 .ui-slider-float .ui-slider-tip:after, .ui-slider-float .ui-slider-pip .ui-slider-tip-label:after {
     border-top-color: #2f2f2f!important;
 }
-.sidebar__navigation:last-of-type + div:not(.floating-pagination):not(.sidebar__mpu):not(.sidebar__subscribed) {
+.sidebar__navigation:last-of-type + div:not(.floating-pagination):not(.sidebar__subscribed) + div:not(.floating-pagination):not(.sidebar__subscribed) {
     background-color: var(--SGSP-sidebar-bg-color);
     border: 1px solid var(--SGSP-sidebar-border-color);
     border-radius: 4px;
@@ -3849,7 +3858,10 @@ div.sgun_note:first-of-type {
     box-shadow: none;
     margin-top: 0;
 }
-.sidebar__navigation:last-of-type + div > div {
+.sidebar__navigation:last-of-type + div:not(.floating-pagination), .sidebar__subscribed, .sidebar__unsubscribed {
+    padding-top: 15px;
+}
+.sidebar__navigation:last-of-type + div > div:not(#np_steamgifts_giveaway_top_responsive):not(#np_steamgifts_homepage_top_responsive) {
     text-indent: 10px;
 }
 .sidebar__navigation:last-of-type + div:not(.sidebar__subscribed) h3 {
@@ -5041,7 +5053,7 @@ label.SGPP__settings-checkbox:before {
     flex-direction: column;
     padding: 0!important;
 }
-.esgst-cl_gc-popout .table, .esgst-ggl-popout .table, .esgst-cl_ge-popout .table, .footer_lower .footer_inner_wrap {
+.esgst-cl_gc-popout .table, .esgst-ggl-popout .table, .esgst-cl_ge-popout .table, .footer_lower {
     border-top: 1px solid var(--SGSP-separator-light-color);
     box-shadow: 0 -1px 0 var(--SGSP-separator-dark-color);
 }
@@ -6897,16 +6909,16 @@ input[placeholder="Filter features..."] {
 .esgst-gv-popout .esgst-giveaway-panel .giveaway__heading__name {
     max-width: 140px;
 }
-.esgst-gv-popout .giveaway__heading > [data-draggable-id], .giveaway__heading > [data-draggable-id], .esgst-gv-popout .giveaway__heading [data-lightbox-id] {
+.esgst-gv-popout .giveaway__heading > [data-draggable-id], .giveaway__heading > [data-draggable-id], .esgst-gv-popout .giveaway__heading [data-lightbox-id], .giveaway__heading > [data-ui-tooltip] i {
     display: inline-block;
     line-height: 15px;
     vertical-align: middle;
 }
-.esgst-gv-popout .giveaway__heading [data-draggable-id]:not(.esgst-gc) i {
+.esgst-gv-popout .giveaway__heading [data-draggable-id]:not(.esgst-gc) i, .esgst-gv-popout .giveaway__heading > [data-ui-tooltip] i {
     vertical-align: baseline;
     width: 12px;
 }
-.esgst-gv-popout .giveaway__heading [data-draggable-id] i, .esgst-gv-popout .giveaway__heading [data-draggable-id="hideGame"], .esgst-gv-popout .esgst-gv-creator [data-draggable-id] i, .esgst-gv-popout .esgst-gv-creator [data-draggable-id="hideGame"], .esgst-gv-popout .giveaway__heading [data-lightbox-id] {
+.esgst-gv-popout .giveaway__heading [data-draggable-id] i, .esgst-gv-popout .giveaway__heading [data-draggable-id="hideGame"], .esgst-gv-popout .esgst-gv-creator [data-draggable-id] i, .esgst-gv-popout .esgst-gv-creator [data-draggable-id="hideGame"], .esgst-gv-popout .giveaway__heading [data-lightbox-id], .esgst-gv-popout .giveaway__heading > [data-ui-tooltip] i {
     font-size: 12px;
     text-shadow: var(--SGSP-ts-69);
 }
@@ -7167,7 +7179,7 @@ input[placeholder="Filter features..."] {
 .esgst-gv-box .esgst-gv-icons [data-draggable-id="ggl"], .esgst-gv-popout .giveaway__links [data-draggable-id="ggl"] {
     display: none;
 }
-.esgst-gv-popout .giveaway__heading > [data-draggable-id]:not(:first-child):not([data-draggable-id="ggl"]):not([data-draggable-id="name"]), .esgst-gv-popout .giveaway__heading [data-lightbox-id] {
+.esgst-gv-popout .giveaway__heading > [data-draggable-id]:not(:first-child):not([data-draggable-id="ggl"]):not([data-draggable-id="name"]), .esgst-gv-popout .giveaway__heading [data-lightbox-id], .esgst-gv-popout .giveaway__heading > [data-ui-tooltip] {
     margin: 1px 0 1px 3px!important;
 }
 .esgst-gv-popout .giveaway__heading > [data-draggable-id="ggl"] {
@@ -8183,6 +8195,69 @@ script[src*="holiday"] + .widget-container--margin-top {
 .esgst-text-left.markdown[style*="border-right"] + .esgst-text-left.table .table__column--width-small {
     text-align: center;
 }
+    /*  Fanatical Coupon Find Space Cat Event     */
+.guess_game {
+    will-change: unset!important;
+}
+.guess_game_card {
+    border: 1px solid var(--SGSP-content-inner-border-color);
+}
+.guess_game_card_front, .guess_game_card_back, .guess_game_card:not(.guess_game_card--winner):not(.guess_game_card--selected) .guess_game_card_back {
+    background-color: var(--SGSP-chart-head-bg-color);
+}
+.guess_game_card:not(.guess_game_card_revealed) .guess_game_card_front {
+    background-color: var(--SGSP-chart-head-bg-color);
+}
+.guess_game:not([data-state="ready"]) .guess_game_submit, .guess_box_notification {
+    background-image: var(--SGSP-notification-yellow-bg-color);
+    border-color: var(--SGSP-notification-yellow-border-color);
+    color: var(--SGSP-notification-yellow-txt-color);
+    text-shadow: var(--SGSP-ts-38);
+}
+.guess_box_notification svg {
+    fill: var(--SGSP-notification-yellow-txt-color);
+    text-shadow: var(--SGSP-ts-38);
+}
+.guess_game[data-state="ready"] .guess_game_submit {
+    background-image: var(--SGSP-green-buttons-bg-color);
+    border: 1px solid #000;
+    border-color: var(--SGSP-green-buttons-border-color);
+    color: var(--SGSP-green-buttons-txt-color);
+    text-shadow: var(--SGSP-ts-63);
+    transition: filter 0.35s ease-in;
+    will-change: filter;
+}
+.guess_game[data-state="ready"] .guess_game_submit:hover {
+    background-image: var(--SGSP-green-buttons-bg-color);
+    color: var(--SGSP-green-buttons-txt-color);
+    filter: var(--SGSP-button-hover-brightness);
+}
+.guess_game[data-state="ready"] .guess_game_submit:active {
+    background-image: var(--SGSP-green-buttons-bg-color);
+    border: 1px solid;
+    text-shadow: var(--SGSP-ts-21);
+    border-color: hsla(0, 0%, 0%, 0.75) hsla(0, 0%, 55%, 0.5) hsla(0, 0%, 55%, 0.5) hsla(0, 0%, 0%, 0.75);
+    box-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.5) inset, 7px 7px 10px hsla(0, 0%, 5%, 0.5) inset;
+    filter: brightness(0.37);
+}
+.guess_game_card--selected .guess_game_card_front, .guess_game_card--selected .guess_game_card_back {
+    background-color: hsl(195, 60%, 50%)!important;
+}
+.guess_game[data-state="progress"] .guess_game_card:hover {
+    border-color: hsl(195, 60%, 50%);
+}
+.guess_game_card:not(.guess_game_card--winner):not(.guess_game_card--selected) .guess_game_card_back {
+    opacity: 0.25;
+}
+.guess_game_card--winner .guess_game_card_back {
+    filter: var(--SGSP-image-brightness);
+}
+.guess_game:not([data-state="ready"]) .guess_game_submit--error {
+    color: hsla(0, 90%, 60%, 0.95);
+    background-color: hsla(0, 65%, 44%, 0);
+    border-color: #800;
+    background-image: linear-gradient(hsla(0, 65%, 44%, 0.23) 0%, hsla(0, 74%, 24%, 0.9) 100%);
+}
 }
 @-moz-document url-prefix("https://www.steamgifts.com/discussions/bookmarked") {
 .esgst-idb-highlight, .esgst-idb-highlight.table__row-outer-wrap {
@@ -8436,6 +8511,18 @@ script[src*="holiday"] + .widget-container--margin-top {
 .page__heading__breadcrumbs i {
     line-height: 22px;
     margin: 0px 10px;
+}
+.page_inner_wrap > div:last-of-type {
+    background: none!important;
+    border: none!important;
+}
+.footer_lower {
+    border: none;
+    box-shadow: none;
+}
+.footer_lower .footer_inner_wrap {
+    border-top: 1px solid var(--SGSP-separator-light-color);
+    box-shadow: 0 -1px 0 var(--SGSP-separator-dark-color);
 }
 .form__row__indent {
     padding: 3px 0 3px 20px;
