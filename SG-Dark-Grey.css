@@ -1,5 +1,5 @@
 @-moz-document domain("steamgifts.com"), domain("steamtrades.com"), domain("sgtools.info") {
-/* SG Dark Grey v2.4.0 2024-01-12 */
+/* SG Dark Grey v2.4.1 2024-11-19 */
 /* Repository: https://github.com/SquishedPotatoe/SG-Dark-Grey */
 /* License:    https://creativecommons.org/licenses/by-sa/4.0/ */
 :root {
@@ -88,6 +88,7 @@
   --SGSP-notification-yellow-txt-color: rgba(230, 233, 165, 0.9) !important;
   --SGSP-page-width: 100%;
   --SGSP-page-width-st: 100%;
+  --SGSP-page-width-sgt: 100%;
   --SGSP-pageheading-bg-color: linear-gradient(#3b3b3b 0%, #2e2e2e 100%);
   --SGSP-pageheading-border-color: rgba(0, 0, 0, 0.7);
   --SGSP-pageheading-txt-color: rgba(119, 185, 223, 0.9);
@@ -544,7 +545,7 @@ button[type="submit"]#giveaway_filters_Update {
 #content .modal-body .featured__outer-wrap--giveaway {
     margin-bottom: 10px;
 }
-::-webkit-input-placeholder {
+::placeholder {
     color: hsla(0, 0%, 70%, 0.5)!important;
     text-shadow: var(--SGSP-ts-39);
 }
@@ -1210,6 +1211,16 @@ button.btn.dropdown-toggle.btn-inverse.btn-xs, .btn-group.open .dropdown-toggle 
     max-width: calc(100% - 50px);
     margin-right: -1000px;
 }
+.comment__child {
+    min-width: 600px;
+    width: fit-content;
+    max-width: 85%;
+}
+@media screen and (max-width: 1280px) {
+    .comment__child {
+        min-width: unset;
+    }
+}
 .comment__username:not(.comment__username--op) a:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .author_name:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .form__heading__text, .form__level, .giveaway__links:not(.esgst-giveaway-links) span, .giveaway-summary__links span, .giveaway__username:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .markdown a:not(.esgst-gc), .pagination__navigation a:not(.is-selected), .pagination_navigation a, .popup__actions, .popup_actions, .popup__description__small, .table__column__secondary-link:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened):not(.table__column__select), .comments__entity__name, .table .underline:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), #content strong a, #content td a, form .heading .name, .header_search .description .blue, .esgst-ggl-member, .esgst-form-heading-text, .patreon_reward:not(.is_locked) .patreon_reward_summary_name, .esgst-aic-source, .esgst-popup-actions, .DTEP_ACHIEVEMENTS + a > [style*="color"], .esgst-steam-api-key ~ div a, a.esgst-bold:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight-whitelisted):not(.esgst-wbh-highlight-blacklisted) {
     color: var(--SGSP-link-txt-color)!important;
     text-shadow: var(--SGSP-ts-76);
@@ -1290,7 +1301,7 @@ div > .table__column--width-fill > form > strong {
 .sidebar .fanatical_container {
     background: var(--SGSP-sidebar-bg-color);
     border-color: var(--SGSP-sidebar-border-color);
-    margin-top: 0px!important;
+    margin-top: 15px!important;
 }
 .fa-envelope-o:before {
     content: "\f0e0";
@@ -1636,6 +1647,11 @@ header.small, header.large, header, #header {
 .header_search input {
     border: 1px solid;
 }
+@media screen and (max-width: 700px) {
+    .header_search {
+        gap: 10px;
+    }
+}
 #header input[type="image"] {
     box-shadow: 0 0 0 1px hsl(0, 0%, 0%)!important;
     margin-bottom: -3px;
@@ -1661,6 +1677,23 @@ header.small, header.large, header, #header {
 }
 h3.sidebar__heading {
     margin-top: 8px;
+}
+:is(:autofill) {
+    box-shadow: 0 0 0px 40rem #333 inset !important;
+    caret-color: hsla(0, 0%, 65%, 0.8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: hsla(0, 0%, 65%, 0.8) !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+input {
+    caret-color: hsla(0, 0%, 65%, 0.8);
+}
+input::-webkit-calendar-picker-indicator {
+    filter: invert(0.7);
+}
+input::-webkit-inner-spin-button {
+    filter: invert(0.8);
 }
 input[type="checkbox"], .sgun__checkbox, input[id*="Checkbox"], input[id*="Endless"], input[id*="Merge"] {
     filter: invert(0.9);
@@ -2165,7 +2198,7 @@ nav .nav_avatar {
     border-color: var(--SGSP-notification-yellow-border-color);
     color: var(--SGSP-notification-yellow-txt-color);
 }
-.page__heading ~ div:not(.esgst-button-set):not(.row-spacer):not(.align-button-container):not(#filterControls):not(.btn_actions):not(.notification):not(.pagination):not(.page__heading):not(.table__heading):not(.widget-container):not(.form__row):not(.giveaway__row-outer-wrap):not(.leaderboard):not(.esgst-gf-container):not(.esgst-popup-actions):not(.esgst-popup-scrollable):not(.esgst-text-left):not(.esgst-gv-view):not(.esgst-form-row):not(.esgst-menu-split):not(.giveaway_box_hero):not(.giveaway_box_actions):not(.esgst-button):not(.esgst-button-group):not(.esgst-toggle-switch-container), .page_heading ~ div:not(.esgst-button-set):not(.row-spacer):not(.align-button-container):not(.btn_actions):not(.notification):not(.pagination):not(.page_heading):not(.table_heading):not(.widget-container):not(.form__row):not(.giveaway__row-outer-wrap):not(.leaderboard):not(.esgst-gf-container), .comments:not(.esgst-text-left), .pagination.pagination--no-results, .pagination_no_results, .esgst-glwc-results .table {
+.page__heading ~ div:not(.esgst-button-set):not(.row-spacer):not(.align-button-container):not(#filterControls):not(.btn_actions):not(.notification):not(.pagination):not(.page__heading):not(.table__heading):not(.widget-container):not(.form__row):not(.giveaway__row-outer-wrap):not(.leaderboard):not(.esgst-gf-container):not(.esgst-popup-actions):not(.esgst-popup-scrollable):not(.esgst-text-left):not(.esgst-gv-view):not(.esgst-form-row):not(.esgst-menu-split):not(.giveaway_box_hero):not(.giveaway_box_actions):not(.esgst-button):not(.esgst-button-group):not(.esgst-toggle-switch-container), .page_heading ~ div:not(.esgst-button-set):not(.row-spacer):not(.align-button-container):not(.btn_actions):not(.notification):not(.pagination):not(.page_heading):not(.table_heading):not(.widget-container):not(.form__row):not(.giveaway__row-outer-wrap):not(.leaderboard):not(.esgst-gf-container):not(.dont_block_me), .comments:not(.esgst-text-left), .pagination.pagination--no-results, .pagination_no_results, .esgst-glwc-results .table {
     background-color: var(--SGSP-content-bg-color);
     background-image: none;
     border: 1px solid var(--SGSP-content-border-color);
@@ -2311,11 +2344,14 @@ nav .nav_avatar {
 .page__inner-wrap--narrow .page__heading + .notification--success i {
     margin-bottom: 3px;
 }
-.page__inner-wrap:not(.page__inner-wrap--narrow), nav, #header nav, #content, .footer__inner-wrap, .featured__inner-wrap, .offer__inner-wrap {
+.page_inner_wrap, .footer_inner_wrap, .header_inner_wrap, .header_inner_wrap nav {
+    max-width: var(--SGSP-page-width-st);
+}
+.page__inner-wrap:not(.page__inner-wrap--narrow), nav, .footer__inner-wrap, .featured__inner-wrap, .offer__inner-wrap, footer > .footer_inner_wrap {
     max-width: var(--SGSP-page-width);
 }
-.page_inner_wrap, .footer_inner_wrap, .header_inner_wrap {
-    max-width: var(--SGSP-page-width-st);
+#header nav, #content, #content .featured__inner-wrap {
+    max-width: var(--SGSP-page-width-sgt);
 }
 .page__outer-wrap, .page_outer_wrap, #sg_dyepb_toolbar, .row_trade_name > h2 {
     background-color: transparent;
@@ -2762,6 +2798,9 @@ div.sg-info {
     margin-top: 5px;
     padding: 4px;
     text-shadow: var(--SGSP-ts-41);
+}
+.sidebar .esgst-adots {
+    padding: 0 4px;
 }
 .sidebar_table {
     color: inherit;
@@ -3242,10 +3281,6 @@ progress::-moz-progress-bar {
     background-image: linear-gradient(hsla(88, 65%, 44%, 0.2) 0%, hsla(88, 72%, 21%, 0.9) 100%)!important;
     border-color: hsl(88, 90%, 27%)!important;
 }
-::-moz-selection {
-    background: var(--SGSP-select-highlight-color);
-    color: var(--SGSP-select-highlight-color);
-}
 ::selection {
     background: var(--SGSP-select-highlight-bg-color);
     color: var(--SGSP-select-highlight-color);
@@ -3469,7 +3504,7 @@ div.sgun_note:first-of-type {
 .esgst-hidden + .row-spacer, .comment.comment--submit + .row-spacer, .esgst-cfh-panel + .pagination, .esgst-cfh-panel + .pagination + .row-spacer, .ESCommentBox .pagination, .ESContext, .esgst-gv-icons [data-draggable-id="gt"] span, .featured__container .featured__inner-wrap > .esgst-gm-checkbox {
     display: none;
 }
-.giveaway__row-outer-wrap + div[style*="border-bottom"], .comments > div[style*="border-bottom"] {
+.giveaway__row-outer-wrap + div[style*="border-bottom"], .comments > div[style*="border-bottom"], .page__heading ~ div div[style*="border-bottom: 1px solid #d2d6e0"] {
     border: none!important;
     box-shadow: none!important;
 }
@@ -3859,7 +3894,7 @@ div.sgun_note:first-of-type {
     margin-top: 0;
 }
 .sidebar__navigation:last-of-type + div:not(.floating-pagination), .sidebar__subscribed, .sidebar__unsubscribed {
-    padding-top: 15px;
+    margin-top: 15px;
 }
 .sidebar__navigation:last-of-type + div > div:not(#np_steamgifts_giveaway_top_responsive):not(#np_steamgifts_homepage_top_responsive) {
     text-indent: 10px;
@@ -4443,8 +4478,8 @@ label.SGPP__settings-checkbox:before {
     nav {
         padding: 0 20px;
     }
-    .nav__button {
-        padding: 0 9px;
+    .nav__button, .nav__button-container--notification .nav__button {
+        padding: 0 8px!important;
         white-space: nowrap;
     }
     .featured__outer-wrap .global__image-outer-wrap--game-xlarge, .featured__outer-wrap .global__image-outer-wrap--game-large, .featured__outer-wrap .global__image-outer-wrap--avatar-large {
@@ -4514,10 +4549,6 @@ label.SGPP__settings-checkbox:before {
     nav {
         padding: 0 15px;
     }
-    .nav__button {
-        padding: 0 8px;
-        white-space: nowrap;
-    }
     .nav__right-container {
         margin-left: 5px;
     }
@@ -4580,11 +4611,8 @@ label.SGPP__settings-checkbox:before {
 .table__row-outer-wrap:hover .table__row-inner-wrap:hover .table__column--width-fill[style*="opacity"] {
     opacity: 0.8!important;
 }
-.esgst-adots {
-    margin: 8px 0 0!important;
-}
-.widget-container.esgst-adots .table {
-    min-height: 279px;
+.esgst-adots.widget-container--margin-top {
+    margin-bottom: 0px ;
 }
 .esgst-gv-view {
     padding: 5px 0!important;
@@ -4969,7 +4997,10 @@ label.SGPP__settings-checkbox:before {
     height: 20px;
 }
 .esgst-ags-checkbox-filter {
-    margin: 5px 10px!important;
+    padding: 0px 14px;
+}
+.esgst-ns .esgst-ags-checkbox-filter {
+    padding: 0px 10px;
 }
 .esgst-ags-checkbox-filter i {
     vertical-align: baseline;
@@ -4980,9 +5011,6 @@ label.SGPP__settings-checkbox:before {
     max-width: 324px!important;
     min-height: 236px;
     border-top-left-radius: 0;
-}
-.sidebar .table.esgst-adots .table__row-outer-wrap {
-    padding: 7px 0 5px!important;
 }
 .sidebar .esgst-adots .table__row-outer-wrap:not(:last-of-type) {
     box-shadow: 0 1px 0 var(--SGSP-separator-light-color)!important;
@@ -5001,12 +5029,6 @@ label.SGPP__settings-checkbox:before {
     display: unset;
     font-size: 12px!important;
     max-width: unset;
-}
-.sidebar .esgst-adots .table__row-outer-wrap {
-    padding: 5px 0!important;
-}
-.sidebar .esgst-adots .table__row-outer-wrap:first-of-type {
-    margin-top: -3px;
 }
 .sidebar .esgst-adots .table__row-inner-wrap > *:last-child {
     margin: 0 2px 0 5px!important;
@@ -5761,13 +5783,13 @@ input:checked + .esgst-toggle-switch-slider {
     font-size: 12px;
     padding: 0 10px;
 }
-.esgst-popup input[type="file"], .esgst-tab-menu input[type="file"], .esgst-form-row + input[type="file"] {
+.esgst-popup input[type="file"], .esgst-tab-menu input[type="file"], .esgst-form-row + input[type="file"], .esgst-menu-layer input[type="file"] {
     background-color: transparent;
     border: none!important;
     color: hsl(0, 0%, 42%)!important;
     padding: 5px 2px;
 }
-.esgst-popup input[type="file"]::-webkit-file-upload-button, .esgst-tab-menu input[type="file"]::-webkit-file-upload-button, .esgst-form-row + input[type="file"]::-webkit-file-upload-button {
+::file-selector-button {
     background-image: var(--SGSP-silver-buttons-bg-color)!important;
     border: 1px solid hsla(0, 0%, 0%, 0.9)!important;
     border-color: var(--SGSP-silver-buttons-border-color)!important;
@@ -5781,10 +5803,10 @@ input:checked + .esgst-toggle-switch-slider {
     transition: filter 0.35s ease-in;
     will-change: filter;
 }
-.esgst-popup input[type="file"]::-webkit-file-upload-button:hover, .esgst-tab-menu input[type="file"]::-webkit-file-upload-button:hover {
+::file-selector-button:hover {
     filter: var(--SGSP-button-hover-brightness);
 }
-.esgst-popup input[type="file"]::-webkit-file-upload-button:active, .esgst-tab-menu input[type="file"]::-webkit-file-upload-button:active {
+::file-selector-button:active {
     border-color: hsla(0, 0%, 0%, 0.75) hsla(0, 0%, 55%, 0.5) hsla(0, 0%, 55%, 0.5) hsla(0, 0%, 0%, 0.75)!important;
     border: 1px solid;
     box-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.5) inset, 7px 7px 10px hsla(0, 0%, 5%, 0.5) inset!important;
@@ -6082,9 +6104,14 @@ input[type=date]::-webkit-calendar-picker-indicator:hover {
     vertical-align: top;
 }
 .esgst-radb-button.block_header {
-	border-bottom: 1px solid var(--SGSP-header-footer-border-color);
+    border-bottom: 1px solid var(--SGSP-header-footer-border-color);
     float: right;
+    line-height: 33px;
     margin: 0 0 0 5px!important;
+}
+.esgst-radb-button + .block_header {
+    display: flex;
+    width: unset;
 }
 .esgst-popup-icon {
     color: var(--SGSP-headings-txt-color);
@@ -6179,6 +6206,7 @@ input[placeholder="Filter features..."] {
 }
 .dropdown > div {
     margin-top: 34px;
+    z-index: 1000;
 }
 .esgst-qiv-popout {
     background-color: var(--SGSP-body-bg-color)!important;
@@ -7214,11 +7242,9 @@ input[placeholder="Filter features..."] {
     background-image: var(--SGSP-featured-giveaway-bg-gradient);
     padding: 20px 25px;
 }
-.esgst-gv-box.is-faded:not(:hover) .esgst-gv-popout, .esgst-fs::-webkit-scrollbar, .sidebar .esgst-adots::-webkit-scrollbar {
-    display: none;
-}
-.esgst-gv-box.is-faded:not(:hover) .esgst-gv-popout, .esgst-fs::-webkit-scrollbar, .sidebar .esgst-adots {
+.esgst-gv-box.is-faded:not(:hover) .esgst-gv-popout, .sidebar .esgst-adots, .sidebar {
     scrollbar-width: none;
+    overscroll-behavior: contain;
 }
 .esgst-version-row div {
     max-width: 215px;
@@ -7965,7 +7991,7 @@ input#SkipEnded {
 .page__heading ~ div:not(.comments):not(.esgst-rbot):not(.esgst-popup-actions):not(.esgst-fmph):not(.giveaway_box_actions), .page_heading ~ div:not(.comments):not(.esgst-rbot):not(.esgst-fmph), .pinned-giveaways__outer-wrap {
     will-change: transform;
 }
-.page__heading ~ div:hover:not(.sg2o-gridview-container), .page_heading ~ div:hover, .pinned-giveaways__outer-wrap:hover {
+.page__heading ~ div:hover:not(.sg2o-gridview-container), .page_heading ~ div:hover, .pinned-giveaways__outer-wrap:hover, .page_inner_wrap.medium .page_heading ~ div {
     will-change: unset!important;
 }
 .page__heading ~ div:hover .table__rows, .page__heading ~ div:hover .giveaway__row-outer-wrap:not(.esgst-gv-container), .pinned-giveaways__outer-wrap:hover .giveaway__summary {
@@ -8569,6 +8595,12 @@ script[src*="holiday"] + .widget-container--margin-top {
 .large.esgst-fh ~ .page_outer_wrap .esgst-fmph + .esgst-gf-container {
     top: 200px;
 }
+.esgst-fh ~ .esgst-popup-layer {
+    z-index: 1001!important;
+}
+.footer_lower .footer_inner_wrap, .footer_lower .footer_inner_wrap .footer_sites {
+    flex-direction: row;
+}
 nav {
     padding: 1px 20px 0;
 }
@@ -8600,8 +8632,11 @@ header[data-esgst-parsed] .nav_btns {
     header[data-esgst-parsed] nav .nav_btn_container#esgst {
         grid-area: 1/1/2/2;
         justify-self: flex-end;
-        margin: 0 -10px 0 34px;
+        margin: 0 -10px 0 -10px;
         width: 116px;
+    }
+    header[data-esgst-parsed] nav .nav_btns .nav_btn_container#esgst {
+        margin: 0px 0px 0 -10px;
     }
     header[data-esgst-parsed] .nav_btns {
         flex-direction: row;
