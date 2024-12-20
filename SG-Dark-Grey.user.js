@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           SG Dark Grey
-// @namespace      SG Dark Grey v2.4.1
-// @version        2.4.1
+// @namespace      SG Dark Grey v2.4.2
+// @version        2.4.2
 // @description    Dark Grey style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 // @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 // @homepageURL    https://github.com/SquishedPotatoe/SG-Dark-Grey
@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SG Dark Grey v2.4.1  2024-11-19 */
+  var css = `/* SG Dark Grey v2.4.2  2024-12-19 */
 :root {
   --SGSP-body-bg-color: #252522;
   --SGSP-body-bg-image: "none";
@@ -270,7 +270,7 @@ body {
     background-color: transparent!important;
     background-image: none;
 }
-.sidebar__entry-insert, .sidebar__action-button, .nav__sits, .form__submit-button, .form__sync-default, .featured__action-button, #content button[type="submit"], #content #activated_send, #content #real_cv_send, #content #multiple_wins_send, #content #giveaway_Create, .entry.validEntry, #content .rulePassed, .btn_action.green, #content .manageGa a, #content #gaurl a, #content .back-guide a, #content .gaButton, .giveaway__column--contributor-level--positive:not(.esgst-glh-highlight), .featured__column--contributor-level--positive:not(.esgst-glh-highlight), .cmGame:not(.notFound), .cmGame.whitelisted, #content .showBundledDeals, #content #giveaway_filters_Update, .page__heading__button--green, .page_heading_btn.green, .sale-savings--high, .offer__discount, #content .deal_game_discount, .btn-success, #btn-get, .esgst-sttb-button, .esgst-stbb-button, .show-hide-giveaway-list.small-colored, .table__column__key__redeem, .birthday_event_btn--light, .fanatical_savings, .fanatical_pricing {
+.sidebar__entry-insert, .sidebar__action-button, .nav__sits, .form__submit-button, .form__sync-default, .featured__action-button, #content button[type="submit"], #content #activated_send, #content #real_cv_send, #content #multiple_wins_send, #content #giveaway_Create, .entry.validEntry, #content .rulePassed, .btn_action.green, #content .manageGa a, #content #gaurl a, #content .back-guide a, #content .gaButton, .giveaway__column--contributor-level--positive:not(.esgst-glh-highlight), .featured__column--contributor-level--positive:not(.esgst-glh-highlight), .cmGame:not(.notFound), .cmGame.whitelisted, #content .showBundledDeals, #content #giveaway_filters_Update, .page__heading__button--green, .page_heading_btn.green, .sale-savings--high, .offer__discount, #content .deal_game_discount, .btn-success, #btn-get, .esgst-sttb-button, .esgst-stbb-button, .show-hide-giveaway-list.small-colored, .table__column__key__redeem, .birthday_event_btn--light, .fanatical_savings, .fanatical_pricing, .bundle_pricing {
     background-image: var(--SGSP-green-buttons-bg-color)!important;
     background-color: transparent!important;
     border: 1px solid #000!important;
@@ -829,7 +829,7 @@ div#content:not(.entry):not(.cmGame) {
     text-align: center;
     padding-right: 0;
 }
-#content td, #content .left .list li, .container img, .description, .description a, .ascii, .comment_body_default, .comment_body_delete, .comment_body_collapse, .page__heading__breadcrumbs i, .sidebar .last_updated, .popup_heading_h2, .sgun_note_date, .SGPP_EntryComm > i {
+#content td, #content .left .list li, .container img, .description, .description a, .ascii, .comment_body_default, .comment_body_delete, .comment_body_collapse, .page__heading__breadcrumbs i, .page_heading_breadcrumbs i, .sidebar .last_updated, .popup_heading_h2, .sgun_note_date, .SGPP_EntryComm > i {
     color: var(--SGSP-general-txt-color);
 }
 #content .legend {
@@ -1298,22 +1298,23 @@ img[src="https://cdn.steamgifts.com/img/logo.png"], img[src="https://cdn.steamtr
 div > .table__column--width-fill > form > strong {
     color: #6db563;
 }
-.fanatical_name {
+.fanatical_name, .bundle_container .bundle_name {
     color: var(--SGSP-sidebar-link-txt-color);
 }
-.fanatical_date {
+.fanatical_date, .bundle_container .bundle_date, .table.is_bundles [data-timestamp] {
     color: var(--SGSP-secondary-txt-color);
 }
-.fanatical_container .fanatical_img, .fanatical_icon {
+.fanatical_container .fanatical_img, .fanatical_icon, .bundle_icon, .bundle_img {
     filter: var(--SGSP-image-brightness);
 }
-.fanatical_container {
+.fanatical_container, .bundle_container {
+    background-image: var(--SGSP-pageheading-bg-color);
     border: 1px solid;
     border-radius: 4px;
-}
-.fanatical_container {
-    background-image: var(--SGSP-pageheading-bg-color);
     border-color: var(--SGSP-pageheading-border-color);
+    font-size: 12px;
+    text-align: left;
+    text-shadow: var(--SGSP-ts-41);
 }
 .sidebar .fanatical_container {
     background: var(--SGSP-sidebar-bg-color);
@@ -1585,7 +1586,7 @@ form .heading {
 .giveaway__hide, .giveaway__icon {
     opacity: 0.55;
 }
-.giveaway_image_thumbnail, .giveaway_image_avatar, .giveaway_image_thumbnail_missing, .featured_giveaway_image_avatar, .table_image_avatar, .table_image_avatar_missing, .table_image_thumbnail, .table_image_thumbnail_missing, .table_image_flag, .table_image_flag_missing, .esgst-popup .global__image-outer-wrap, .profile_avatar, .nav_avatar, .table .avatar, .author_avatar, .nav__avatar-inner-wrap {
+.giveaway_image_thumbnail, .giveaway_image_avatar, .giveaway_image_thumbnail_missing, .featured_giveaway_image_avatar, .table_image_avatar, .table_image_avatar_missing, .table_image_thumbnail:not([style*="fanatical_icon"]):not([style*="humble_bundle_icon"]), .table_image_thumbnail_missing, .table_image_flag, .table_image_flag_missing, .esgst-popup .global__image-outer-wrap, .profile_avatar, .nav_avatar, .table .avatar, .author_avatar, .nav__avatar-inner-wrap, .table.is_bundles .bundle_img {
     box-shadow: 0 0 0 1px var(--SGSP-image-border-color), 0 0 0 1px var(--SGSP-image-border-color);
 }
 .giveaway_image_thumbnail:not([style*="null"]):not(.esgst-ib-game):not([class*="border"]):not([class*="whitelist"]) {
@@ -1748,7 +1749,7 @@ input, textarea {
 .esgst-ged-icon[class*=esgst-red], .esgst-ged-icon[class*=esgst-yellow] {
     opacity: 0.7;
 }
-#content i.fa.fa-check-circle-o.orange, .fanatical_new {
+#content i.fa.fa-check-circle-o.orange, .fanatical_new, .bundle_new {
     filter: brightness(82%);
 }
 input:focus, select:focus, textarea:focus {
@@ -1894,7 +1895,7 @@ input:focus, select:focus, button:focus, rect:focus, textarea:focus {
 .markdown h3, #content h3:not(.sidebar__heading) {
     color: var(--SGSP-headings-size3-txt-color);
 }
-.markdown hr, hr {
+.markdown hr, hr, .esgst-sync-warning ~ .esgst-text-left hr {
     border-top: 1px solid var(--SGSP-separator-dark-color);
     border-bottom: 1px solid var(--SGSP-separator-light-color);
     border-left: none;
@@ -2033,7 +2034,7 @@ tbody tr:last-child td:last-child {
     background-color: hsl(0, 0%, 21%)!important;
     box-shadow: 0 0 0 1px var(--SGSP-nav-dropdown-border-color)!important;
 }
-.nav__avatar-inner-wrap, .global__image-outer-wrap--game-large img, .global__image-outer-wrap--game-xlarge img, .featured__column.featured__column--width-fill.text-right > a, .profile_avatar, .nav_avatar, .table .avatar, .author_avatar, .giveaway_image_thumbnail, .giveaway_image_thumbnail_missing, .giveaway_image_avatar, .featured_giveaway_image_avatar, .table_image_avatar, .table_image_thumbnail, .table_image_flag, .gridview-avatar {
+.nav__avatar-inner-wrap, .global__image-outer-wrap--game-large img, .global__image-outer-wrap--game-xlarge img, .featured__column.featured__column--width-fill.text-right > a, .profile_avatar, .nav_avatar, .table .avatar, .author_avatar, .giveaway_image_thumbnail, .giveaway_image_thumbnail_missing, .giveaway_image_avatar, .featured_giveaway_image_avatar, .table_image_avatar, .table_image_thumbnail, .table_image_flag, .gridview-avatar, [id*="np_steamgifts"], [id*="np_steamtrades"] {
     filter: var(--SGSP-image-brightness);
 }
 .nav__avatar-outer-wrap {
@@ -2370,7 +2371,7 @@ nav .nav_avatar {
 #header nav, #content, #content .featured__inner-wrap {
     max-width: var(--SGSP-page-width-sgt);
 }
-.page__outer-wrap, .page_outer_wrap, #sg_dyepb_toolbar, .row_trade_name > h2 {
+.page__outer-wrap, .page_outer_wrap, #sg_dyepb_toolbar, .row_trade_name > h2, .table .bundle_name {
     background-color: transparent;
     color: var(--SGSP-general-txt-color);
     text-shadow: var(--SGSP-ts-41);
@@ -3075,7 +3076,7 @@ strong {
 .table__row-inner-wrap.is-faded:hover, .giveaway__row-inner-wrap:not(.esgst-gv-box).is-faded:hover {
     opacity: 0.5;
 }
-.table__row-inner-wrap:hover .table__column__heading, .table__row-inner-wrap:hover .homepage_table_column_heading, .table .row_outer_wrap:hover h3, .giveaway__row-inner-wrap:hover .giveaway__heading__name {
+.table__row-inner-wrap:hover .table__column__heading, .table__row-inner-wrap:hover .homepage_table_column_heading, .table .row_outer_wrap:hover h2, .table .bundle_name:hover, .giveaway__row-inner-wrap:hover .giveaway__heading__name {
     filter: var(--SGSP-row-hover-color)!important;
 }
 @supports (-ms-ime-align: auto) {
@@ -4975,7 +4976,7 @@ label.SGPP__settings-checkbox:before {
 .esgst-gm-giveaway.connected {
     opacity: 1;
 }
-.esgst-gv-icons > *:not(.esgst-button-set):not(.esgst-button-container):not(.esgst-ge-sgt-button) {
+.esgst-gv-icons > *:not(.esgst-button-set):not(.esgst-button-container):not(.esgst-ge-sgt-button), .esgst-gv-box .esgst-gv-icons .esgst-gp-button [data-draggable-id] {
     border: none!important;
     border-radius: 5px 0 0 0!important;
     box-shadow: 0 0 0 1px #000, 0 0 0 1px #000!important;
@@ -5067,7 +5068,7 @@ label.SGPP__settings-checkbox:before {
     margin: 0 2px 0 -14px!important;
 }
 .esgst-gv-icons .fa {
-    font-size: 11.1px;
+    font-size: 11.1px!important;
     vertical-align: baseline;
 }
 .esgst-panel-flexbox .esgst-giveaway-panel {
@@ -6523,6 +6524,12 @@ input[placeholder="Filter features..."] {
 .esgst-fmph + form {
     margin-top: -8px!important;
 }
+.esgst-fmph .page_heading_btn_container {
+    z-index: 1000;
+}
+.page_heading.esgst-fmph +* + .esgst-fmph {
+    z-index: 997;
+}
 .page__heading:not(.esgst-fmph) + .esgst-gf-container {
     margin-top:5px;
     top: 0;
@@ -7303,6 +7310,7 @@ input[placeholder="Filter features..."] {
     border-radius: 4px;
     border: 1px solid var(--SGSP-content-inner-border-color);
     background-color: var(--SGSP-content-inner-bg-color);
+    gap: 5px;
 }
 .esgst-tds-item-active {
     background-color: var(--esgst-discussion-highlight-bg-color);
@@ -7318,14 +7326,6 @@ input[placeholder="Filter features..."] {
     font-weight: bold;
     text-shadow: var(--SGSP-ts-76);
 }
-.esgst-tds-button.page_heading_btn {
-    margin: 0;
-    padding: 0 0 0 8px;
-}
-.page__heading .esgst-tds-button.page_heading_btn {
-    margin: 0 5px 0 0;
-    padding: 5px 10px;
-}
 .table__row-inner-wrap .esgst-tds-button i {
     font-size: 13px;
 }
@@ -7335,11 +7335,15 @@ input[placeholder="Filter features..."] {
 .esgst-adots .esgst-tds-button i {
     font-size: 12px;
 }
-.esgst-adots .esgst-tds-button {
-    margin-left: 0!important;
+.esgst-tds-button, .esgst-gdttt-button {
+    margin: 0 0 0 3px !important;
 }
-.sidebar .esgst-adots .esgst-tds-button, .esgst-oadd.esgst-adots .esgst-tds-button {
+.esgst-tds-button.page_heading_btn, .esgst-gdttt-button.page_heading_btn {
     margin: 0!important;
+}
+.page__heading .esgst-tds-button.page_heading_btn, .page__heading .esgst-gdttt-button.page_heading_btn {
+    margin: 0 5px 0 0!important;
+    padding: 5px 10px;
 }
 .esgst-tds-button.page_heading_btn i {
     color: inherit;
@@ -7423,13 +7427,14 @@ input[placeholder="Filter features..."] {
 .esgst-gm-section .esgst-button:not(:nth-of-type(2)) {
     margin: 5px 0 5px 5px;
 }
-.esgst-gv-icons [data-draggable-id="elgb"]:not(.esgst-button-set):not(.esgst-button-container) {
+.esgst-gv-box .esgst-gv-icons [data-draggable-id="elgb"]:not(.esgst-button-set):not(.esgst-button-container) {
     border: none!important;
+    border-radius: 5px 0 0 0;
     box-shadow: 0 0 0 1px #000, 0 0 0 1px #000!important;
     display: block;
-    line-height: 14px;
+    line-height: 16px;
     margin: 0;
-    padding: 0 4px 2px 3px!important;
+    padding: 0 4px!important;
     text-shadow: var(--SGSP-ts-4)!important;
     width: 12px;
 }
@@ -7438,6 +7443,7 @@ input[placeholder="Filter features..."] {
     padding: 0px 2px;
 }
 body .esgst-button-container {
+    background-color: transparent!important;
     background-image: none!important;
     border: 0;
     box-shadow: none!important;
@@ -7493,6 +7499,18 @@ body .esgst-button-container {
 }
 .esgst-sync-options .form__row__indent > div {
     margin-bottom: 3px;
+}
+.esgst-gf-container .esgst-gf-box.warning, .esgst-gf-container .esgst-gf-button.warning {
+    background-image: var(--SGSP-notification-yellow-bg-color)!important;
+    background-color: unset;
+    border-color: var(--SGSP-notification-yellow-border-color)!important;
+    color: var(--SGSP-notification-yellow-txt-color);
+    text-shadow: var(--SGSP-ts-38);
+}
+.esgst-gf-box.warning {
+    margin: 8px!important;
+    border-radius: 4px!important;
+    padding: 5px 15px!important;
 }
 div[style*="margin-top: 25px"], div[style*="padding-top: 35px"] {
     margin: 0 0 8px!important;
@@ -8634,7 +8652,6 @@ header[data-esgst-parsed] .nav_btns {
 }
  header[data-esgst-parsed] nav .nav_btn_container#esgst {
     grid-area: 3/1/3/4;
-    margin-top: -10px;
 }
  header[data-esgst-parsed] nav .nav_btn_container#esgst .dropdown > div {
     width: 205px;
@@ -8665,6 +8682,15 @@ header[data-esgst-parsed] .nav_btns {
     line-height: 21px;
     padding: 0 5px;
 }
+header[data-esgst-parsed] nav .nav_btns .nav_btn_container + .nav_btn_container#esgst {
+    margin-left: 0px;
+}
+header ~ .esgst-popup-layer .esgst-popup .esgst-button i:nth-of-type(2) {
+    margin-left: 3px;
+}   
+header ~ .esgst-popup-layer .esgst-menu-layer .esgst-button-group i {
+    margin-right: 3px;
+} 
 `;
   };
   if (window.location.pathname.match(/^\/sgpp/)) {
