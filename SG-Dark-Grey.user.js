@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           SG Dark Grey
-// @namespace      SG Dark Grey v2.4.2
-// @version        2.4.2
+// @namespace      SG Dark Grey v2.4.3
+// @version        2.4.3
 // @description    Dark Grey style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 // @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 // @homepageURL    https://github.com/SquishedPotatoe/SG-Dark-Grey
@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SG Dark Grey v2.4.2  2024-12-19 */
+  var css = `/* SG Dark Grey v2.4.3  2025-03-02 */
 :root {
   --SGSP-body-bg-color: #252522;
   --SGSP-body-bg-image: "none";
@@ -1938,6 +1938,7 @@ input:focus, select:focus, button:focus, rect:focus, textarea:focus {
 .markdown .spoiler:not(:hover) {
     background-color: var(--SGSP-spoiler-bg-color);
     box-shadow: 0 0 1px 0 hsla(0, 0%, 0%, 0.5);
+    text-shadow: none;
 }
 .markdown .spoiler:not(:hover) * {
     color: transparent!important;
@@ -8319,6 +8320,25 @@ script[src*="holiday"] + .widget-container--margin-top {
     border-color: #800;
     background-image: linear-gradient(hsla(0, 65%, 44%, 0.23) 0%, hsla(0, 74%, 24%, 0.9) 100%);
 }
+    /*  GG-Deals-Everywhere     */
+.lightbox-content-image > img[src="null"], .lightbox-content-image > .swi-block, .lightbox-content-image > .swi-block + .ggdeals-price-container, .lightbox-thumbnail.swi + .swi-block, .lightbox-thumbnail.swi + .swi-block + .ggdeals-price-container, .table_image_thumbnail.swi  + .swi-block, .table_image_thumbnail.swi  + .swi-block + .ggdeals-price-container, .global__image-outer-wrap.swi + .swi-block + .ggdeals-price-container, .global__image-outer-wrap.swi + .swi-block, .global__image-outer-wrap > .swi + .swi-block + .ggdeals-price-container, .global__image-outer-wrap > .swi + .swi-block, .giveaway_image_thumbnail.swi + .swi-block, .giveaway_image_thumbnail.swi + .swi-block + .ggdeals-price-container, .sidebar__shortcut-inner-wrap .swi-block, .sidebar__shortcut-inner-wrap .ggdeals-price-container, tr td .swi-block, tr td .ggdeals-price-container {
+    display:none!important;
+}
+.ggdeals-price-container {
+    margin: auto 3px auto 3px!important;
+}
+i.swi {
+    text-shadow: none !important;
+}
+[id*="ggdeals_app_btn"] img {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    vertical-align: middle;
+}    
+tr td:first-of-type .swi-block,  tr td:first-of-type .ggdeals-price-container {
+    display: inline-block!important;
+} 
 `;
   if (window.location.pathname.match(/^\/discussions\/bookmarked/)) {
     css += `.esgst-idb-highlight, .esgst-idb-highlight.table__row-outer-wrap {
