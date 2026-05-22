@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           SG Dark Grey
-// @namespace      SG Dark Grey v2.4.4
-// @version        2.4.4
+// @namespace      SG Dark Grey v2.4.5
+// @version        2.4.5
 // @description    Dark Grey style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 // @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 // @homepageURL    https://github.com/SquishedPotatoe/SG-Dark-Grey
@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SG Dark Grey v2.4.4  2026-04-05 */
+  var css = `/* SG Dark Grey v2.4.5  2026-05-22 */
 :root {
   --SGSP-body-bg-color: #252522;
   --SGSP-body-bg-image: "none";
@@ -111,6 +111,7 @@ function addCss() {
   --SGSP-pageheading-txt-color: rgba(119, 185, 223, 0.9);
   --SGSP-pinned-bg-color: linear-gradient(#212f3b 0%, #1d242b 100%);
   --SGSP-pinned-border-color: rgba(0, 0, 0, 0.45);
+  --SGSP-pinned-tab-bg-color: #212f3b;
   --SGSP-poll-bg-color: rgba(24, 24, 22, 0.3);
   --SGSP-poll-border-color: var(--SGSP-content-border-color);
   --SGSP-poll-heading-bg-color: #303030;
@@ -2537,29 +2538,21 @@ div[style*="padding-top: 35px"] a[href*="patreon"] > span, .humble_block strong 
 .patreon_reward_gif_option.is_selected > div {
     background-color: hsla(144, 87%, 22%, 0.9);
 }
-.pinned-giveaways__outer-wrap {
-    border-radius: 4px;
-    margin-top: 8px;
-}
-.pinned-giveaways__button, .pinned-giveaways__inner-wrap {
-    background-color: transparent;
+.pinned-giveaways {
+    border-radius: 0 4px;
     background-image: var(--SGSP-pinned-bg-color);
     border: 1px solid var(--SGSP-pinned-border-color);
-    border-bottom: 1px solid var(--SGSP-pinned-border-color);
 }
-.pinned-giveaways__inner-wrap > .giveaway__row-outer-wrap:not(:last-child) {
-    border-bottom: 1px solid hsl(208, 18%, 5%);
-    box-shadow: 0 1px 0 hsla(208, 18%, 26%, 0.8);
+.pinned-giveaways-tab {
+    background-color: var(--SGSP-pinned-tab-bg-color);
+    border: 1px solid var(--SGSP-pinned-border-color);
+    border-bottom: 0;
+    color: var(--SGSP-headings-txt-color);
 }
-.pinned-giveaways__button {
-    border-top: none;
-    background-color: var(--SGSP-body-bg-color);
+.pinned-giveaways-expand {
+    color: var(--SGSP-link-txt-color);
 }
-.pinned-giveaways__button:hover, .esgst-pgb-button:hover, .esgst-gf-button:hover {
-    background-image: var(--SGSP-pinned-bg-color)!important;
-    filter: brightness(1.1);
-}
-.pinned-giveaways__inner-wrap:not(.esgst-gv-view) * .giveaway__heading__thin:not(.copies__tagged) {
+.pinned-giveaways:not(.esgst-gv-view) * .giveaway__heading__thin:not(.copies__tagged) {
     color: hsl(205, 56%, 71%);
 }
 .poll, .block_header + .table {
@@ -4100,9 +4093,6 @@ div.sidebar__entry-custom {
 .popup__desc-error.popup .fa-exclamation-circle {
     padding: 6px 10px;
 }
-.pinned-giveaways__button[collapsed="1"] {
-    margin-top: -15px!important;
-}
 .nav__right-container .nav__button[style*="box-shadow"] + .nav__button--is-dropdown-arrow:not(.is-selected) {
     box-shadow: 1px 1px 0 0 hsl(0, 0%, 0%)!important;
 }
@@ -4468,22 +4458,6 @@ label.SGPP__settings-checkbox:before {
     box-shadow: none;
     border-radius: 0 0 4px 4px;
     margin-top: -1px;
-}
-.esgst-gv-view.pinned-giveaways__inner-wrap--minimized {
-    max-height: 142px;
-    overflow: hidden;
-    padding-bottom: 15px!important;
-}
-.esgst-gv-view.pinned-giveaways__inner-wrap--minimized .giveaway__row-outer-wrap:not(.esgst-hidden) {
-    display: inline-block!important;
-}
-.esgst-gv-view.pinned-giveaways__inner-wrap .giveaway__row-outer-wrap {
-    margin-bottom: 4px!important;
-    margin-top: 4px!important;
-}
-.esgst-gv-view.pinned-giveaways__inner-wrap:not(.pinned-giveaways__inner-wrap--minimized) {
-    min-height: 89px;
-    padding-bottom: 3px!important;
 }
 @media screen and (max-width: 1280px) {
     nav {
@@ -4944,7 +4918,7 @@ label.SGPP__settings-checkbox:before {
     margin: 2px 5px 2px 0;
     text-indent: 5px;
 }
-.esgst-gm-section .pinned-giveaways__inner-wrap, .esgst-element-ordering-box {
+.esgst-gm-section .esgst-mgc-giveaways, .esgst-element-ordering-box {
     background-color: hsla(0, 0%, 18%, 0.55)!important;
     border: none;
     background-image: none;
@@ -5036,6 +5010,7 @@ label.SGPP__settings-checkbox:before {
 }
 .sidebar .esgst-adots .table__row-inner-wrap > *:last-child {
     margin: 0 2px 0 5px!important;
+    width: calc(100% - 52px);
 }
 .sidebar.esgst-ns .esgst-adots .table__row-inner-wrap > *:last-child {
     max-width: 155px
@@ -5305,10 +5280,7 @@ input:checked + .esgst-toggle-switch-slider {
 .popup_summary + .esgst-popup-description > .esgst-button-set {
     margin: 10px;
 }
-.pinned-giveaways__inner-wrap.esgst-pgb-container {
-    border-radius: 4px 4px 0 0!important;
-}
-.esgst-pgb-button, .esgst-gf-button {
+.esgst-gf-button {
     background-color: var(--SGSP-body-bg-color);
     background-image: var(--SGSP-pinned-bg-color)!important;
     border-color: var(--SGSP-pinned-border-color)!important;
@@ -6096,7 +6068,7 @@ input[type=date]::-webkit-calendar-picker-indicator:hover {
 .esgst-stbb-button:not(.esgst-hidden) + .esgst-sttb-button {
     bottom: 59px;
 }
-.pinned-giveaways__outer-wrap.esgst-hidden + .page__heading:not(.esgst-fmph) {
+.pinned-giveaways.esgst-hidden + .page__heading:not(.esgst-fmph) {
     margin-top: 8px;
 }
 .esgst-aic-carousel > :last-child {
@@ -6638,7 +6610,7 @@ input[placeholder="Filter features..."] {
 .table__row-inner-wrap .fa-paint-brush {
     font-size: 12px;
 }
-.esgst-gv-view:not(.pinned-giveaways__inner-wrap) {
+.esgst-gv-view:not(.pinned-giveaways) {
     background-color: var(--SGSP-content-bg-color);
     background-image: none;
     border: 1px solid var(--SGSP-content-border-color);
@@ -6669,6 +6641,7 @@ input[placeholder="Filter features..."] {
 }
 .esgst-ns .esgst-ags-panel {
     max-width: 196px!important;
+    min-width: 196px;
 }
 .esgst-gv-popout .giveaway__heading .esgst-tag-button {
     margin-left: 3px!important;
@@ -7411,7 +7384,7 @@ input[placeholder="Filter features..."] {
 .esgst-popup .esgst-tag.global__image-outer-wrap.author_avatar.is_icon {
     margin-bottom: 1px;
 }
-.esgst-gm-section .pinned-giveaways__outer-wrap {
+.esgst-gm-section .pinned-giveaways {
     box-shadow: none;
 }
 .esgst-button + .esgst-notification-bar.notification--margin-top-small {
