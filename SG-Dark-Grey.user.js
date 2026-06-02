@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           SG Dark Grey
-// @namespace      SG Dark Grey v2.4.5
-// @version        2.4.5
+// @namespace      SG Dark Grey v2.4.6
+// @version        2.4.6
 // @description    Dark Grey style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 // @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 // @homepageURL    https://github.com/SquishedPotatoe/SG-Dark-Grey
@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SG Dark Grey v2.4.5  2026-05-22 */
+  var css = `/* SG Dark Grey v2.4.6  2026-06-02 */
 :root {
   --SGSP-body-bg-color: #252522;
   --SGSP-body-bg-image: "none";
@@ -1572,10 +1572,6 @@ form .heading {
 .giveaway__columns .fa-clock-o {
     margin-bottom: 2px;
 }
-.giveaway__heading {
-    height: inherit;
-    padding-bottom: 3px;
-}
 .giveaway__heading__name, .table__column__heading, .table h3, .esgst-ugd-table ~ .esgst-text-center .esgst-bold:not(span), .esgst-gv-popout .giveaway__heading > [data-draggable-id]:not(.esgst-gc):not(.esgst-gch-highlight), .giveaway__heading > [data-draggable-id]:not(.esgst-gch-highlight), .FTB-online-string, .giveaway__heading > [data-ui-tooltip] {
     color: hsla(0, 0%, 75%, 0.8);
     text-shadow: var(--SGSP-ts-53);
@@ -2194,7 +2190,7 @@ nav .nav_avatar {
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
 }
-.notification--info, .notification.blue {
+.notification--info, .notification.blue, .user-notifications {
     background-color: transparent;
     background-image: var(--SGSP-notification-blue-bg-color);
     border-color: var(--SGSP-notification-blue-border-color);
@@ -8289,7 +8285,87 @@ i.swi {
 }    
 tr td:first-of-type .swi-block,  tr td:first-of-type .ggdeals-price-container {
     display: inline-block!important;
-} 
+}
+    /*  GG-Deals-Everywhere End   */
+.user-notification:not(:last-child) {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 var(--SGSP-separator-light-color);
+}
+.user-notification-icon {
+    color: var(--SGSP-notification-blue-txt-color);
+    text-shadow: var(--SGSP-ts-76);
+}
+.user-notification-name {
+    color: var(--SGSP-notification-blue-txt-color);
+    text-shadow: var(--SGSP-ts-53);
+}
+.user-notification-description, .user-notification-dismiss {
+    color: var(--SGSP-notification-blue-txt-color);
+    filter: grayscale(0.65);
+}
+.user-notification-link {
+    border: 1px solid var(--SGSP-notification-blue-border-color);
+    text-shadow: var(--SGSP-ts-53);
+    color: var(--SGSP-notification-blue-txt-color);
+    background: var(--SGSP-notification-blue-bg-color);
+    filter: brightness(1.10);
+}
+.user-notification-link:hover {
+    background: var(--SGSP-notification-blue-bg-color);
+    color: var(--SGSP-notification-blue-txt-color);
+    filter: brightness(1.35);
+}
+.user-notification-dismiss:hover {
+	--color-pink-3: var(--SGSP-red-icons-txt-color);
+    filter: unset;
+}
+.giveaway__quick-entry-wrap, .giveaway__quick-entry-loading  {
+   background-image: var(--SGSP-giveaway-columns-bg-color);
+}
+.giveaway__quick-entry-btn--description, .giveaway__quick-entry-loading, .giveaway__quick-entry-btn--insert.is-locked {
+    color: var(--SGSP-secondary-txt-color);
+}
+.giveaway__quick-entry-form, .giveaway__quick-entry-btn--description {
+    background-image: none;
+    border-color: var(--SGSP-giveaway-columns-border-color);
+    box-shadow: 1px 1px 0 var(--SGSP-giveaway-columns-boxshadow-color) inset;
+}
+.giveaway__row-inner-wrap.has-description .giveaway__quick-entry-btn--insert, .giveaway__row-inner-wrap.has-description .giveaway__quick-entry-btn--delete, .giveaway__row-inner-wrap.has-description .giveaway__quick-entry-loading, .giveaway__quick-entry-wrap {
+    border-color: var(--SGSP-giveaway-columns-border-color);
+}
+.giveaway__quick-entry-btn--delete:hover {
+    background-image: none;
+    backdrop-filter: brightness(1.5);
+    color: hsl(48, 89%, 42%);
+}
+.giveaway__quick-entry-btn--description:hover, .giveaway__quick-entry-btn--description.is-active {
+    background-image: none;
+    backdrop-filter: brightness(1.65);
+    color: hsl(195, 60%, 50%);
+}
+.giveaway__quick-entry-btn--insert:hover:not(.is-locked) {
+    background-image: none;
+    color: var(--SGSP-green-icons-txt-color);
+    backdrop-filter: brightness(1.5);
+}
+.tooltip_row i, .giveaway__quick-entry-btn--insert, .giveaway__quick-entry-btn--delete  {
+  --color-yellow-3: hsl(48, 89%, 42%);
+  --color-green-3: var(--SGSP-green-icons-txt-color);
+  --color-blue-3: hsla(195, 60%, 50%, 1);
+}
+.giveaway__quick-entry-error {
+    --color-red-3: var(--SGSP-red-icons-txt-color); 
+    background-image: var(--SGSP-giveaway-columns-bg-color);
+    border-color: var(--SGSP-giveaway-columns-border-color);
+    box-shadow: 1px 1px 0 var(--SGSP-giveaway-columns-boxshadow-color) inset;
+}
+.giveaway__description-panel {
+    border: 1px solid var(--SGSP-content-inner-border-color);
+    background-color: var(--SGSP-content-inner-bg-color);
+}
+header[data-esgst-parsed] ~ .page__outer-wrap .giveaway__quick-entry-wrap {
+    margin-bottom: 4px;
+}
 `;
   if (window.location.pathname.match(/^\/discussions\/bookmarked/)) {
     css += `.esgst-idb-highlight, .esgst-idb-highlight.table__row-outer-wrap {
