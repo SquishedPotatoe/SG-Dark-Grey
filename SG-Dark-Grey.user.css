@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SG Dark Grey
-@namespace      SG Dark Grey v2.4.6
-@version        2.4.6
+@namespace      SG Dark Grey v2.4.7
+@version        2.4.7
 @description    Dark Grey style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 @homepageURL    https://github.com/SquishedPotatoe/SG-Dark-Grey
@@ -145,7 +145,7 @@
 @var color yellow-buttons-border-color "Yellow Buttons Border" hsla(0, 0%, 0%, 1)
 ==/UserStyle== */
 @-moz-document domain("steamgifts.com"), domain("steamtrades.com"), domain("sgtools.info") {
-/* SG Dark Grey v2.4.6  2026-06-02 */
+/* SG Dark Grey v2.4.7  2026-06-10 */
 :root {
   --SGSP-body-bg-color: @body-bg-color;
   --SGSP-body-bg-image: @body-bg-image;
@@ -2386,7 +2386,7 @@ nav .nav_avatar {
     box-shadow: none;
     z-index: 2;
 }
-.page__heading__button--red, .header__error, #infraction, .btn_action.red, .page_heading_btn.red, .sidebar__error, .sidebar__suspension, #content button#check[style*="rgb(204, 184, 188)"], .ruleFailed, .giveaway__column--contributor-level--negative:not(.esgst-glh-highlight), .featured__column--contributor-level--negative:not(.esgst-glh-highlight), .cmGame.bundled, .btn-danger {
+.page__heading__button--red, .header__error, #infraction, .btn_action.red, .page_heading_btn.red, .sidebar__error, .sidebar__suspension, #content button#check[style*="rgb(204, 184, 188)"], .ruleFailed, .giveaway__column--contributor-level--negative:not(.esgst-glh-highlight), .featured__column--contributor-level--negative:not(.esgst-glh-highlight), .cmGame.bundled, .btn-danger, .esgst-gv-popout .giveaway__links .esgst-button-container [data-draggable-id="elgb"].sidebar__error {
     background-image: var(--SGSP-red-buttons-bg-color)!important;
     border: 1px solid #000!important;
     border-color: var(--SGSP-red-buttons-border-color)!important;
@@ -2848,7 +2848,7 @@ div.sg-info {
     box-shadow: none;
     color: hsl(0, 68%, 80%)!important;
 }
-.sidebar__entry-delete, #content button#check[style*="rgb(219, 219, 160)"] {
+.sidebar__entry-delete, #content button#check[style*="rgb(219, 219, 160)"], .esgst-gv-popout .giveaway__links .esgst-button-container [data-draggable-id="elgb"].sidebar__entry-delete {
     background-image: var(--SGSP-yellow-buttons-bg-color)!important;
     border: 1px solid hsl(0, 0%, 0%)!important;
     border-color: var(--SGSP-yellow-buttons-border-color)!important;
@@ -2869,7 +2869,7 @@ div.sg-info {
     border: 1px solid #000!important;
     color: hsl(185, 50%, 80%)!important;
 }
-.sidebar__entry-loading, .comment__action-button, .page__description__save, .poll__vote-button, .form__add-answer-button, .form__sync-loading, .form__verify-default, .tab-links li.active a, .btn_action.grey, .btn_action.white, .sale-savings--medium, .comment__action-button, .form__verify-default, .comment__submit-button, .form__saving-button, .mt-more-like-this, .sp-container button, .view_key_btn, .sidebar__shortcut-inner-wrap > *:not(.sidebar__search-container), .btn_action + .esgst-sgpb-button, #DTEP_SteamApiKey + input, .esgst-chfl-panel i, .birthday_event_btn--dark {
+.sidebar__entry-loading, .comment__action-button, .page__description__save, .poll__vote-button, .form__add-answer-button, .form__sync-loading, .form__verify-default, .tab-links li.active a, .btn_action.grey, .btn_action.white, .sale-savings--medium, .comment__action-button, .form__verify-default, .comment__submit-button, .form__saving-button, .mt-more-like-this, .sp-container button, .view_key_btn, .sidebar__shortcut-inner-wrap > *:not(.sidebar__search-container), .btn_action + .esgst-sgpb-button, #DTEP_SteamApiKey + input, .esgst-chfl-panel i, .birthday_event_btn--dark, .esgst-gv-popout .giveaway__links .esgst-button-container [data-draggable-id="elgb"].is-disabled {
     background-image: var(--SGSP-silver-buttons-bg-color)!important;
     border: 1px solid hsla(0, 0%, 0%, 0.9)!important;
     border-color: var(--SGSP-silver-buttons-border-color)!important;
@@ -5199,7 +5199,7 @@ label.SGPP__settings-checkbox:before {
 .giveaway__row-inner-wrap:hover .esgst-gv-popout .giveaway__heading__name:hover {
     filter: brightness(1.2)!important;
 }
-.esgst-gv-popout .esgst-giveaway-links [data-draggable-id="egh"]:hover, .esgst-gv-popout .esgst-giveaway-links [data-draggable-id="elgb"]:hover, .esgst-gv-popout .esgst-giveaway-links [data-draggable-id="search"]:hover, .esgst-gv-popout [data-draggable-id="ut"]:hover, .esgst-gv-popout .esgst-giveaway-links [data-draggable-id="gt"]:hover, .esgst-gv-popout .esgst-giveaway-links [data-draggable-id="gf"]:hover, .esgst-gv-popout .esgst-giveaway-links [data-draggable-id="hideGame"]:hover, .esgst-gv-popout .giveaway__heading .esgst-egh-button:hover, .esgst-gv-popout .giveaway__heading .esgst-gb-button:hover, .esgst-gv-popout .giveaway__heading .esgst-tag-button:hover, .esgst-gv-popout .giveaway__heading .esgst-gf-hide-button:hover, .esgst-gv-popout .giveaway__heading .giveaway__icon:hover, .esgst-gv-popout .esgst-giveaway-links .esgst-gb-button:hover, .esgst-gv-popout .esgst-giveaway-links .esgst-tag-button:hover, .esgst-gv-popout .esgst-giveaway-links .esgst-gf-hide-button:hover, .esgst-gv-popout .esgst-giveaway-links .giveaway__icon:hover {
+.esgst-gv-popout .esgst-giveaway-links [data-draggable-id="egh"]:hover, .esgst-gv-popout .esgst-giveaway-links [data-draggable-id="search"]:hover, .esgst-gv-popout [data-draggable-id="ut"]:hover, .esgst-gv-popout .esgst-giveaway-links [data-draggable-id="gt"]:hover, .esgst-gv-popout .esgst-giveaway-links [data-draggable-id="gf"]:hover, .esgst-gv-popout .esgst-giveaway-links [data-draggable-id="hideGame"]:hover, .esgst-gv-popout .giveaway__heading .esgst-egh-button:hover, .esgst-gv-popout .giveaway__heading .esgst-gb-button:hover, .esgst-gv-popout .giveaway__heading .esgst-tag-button:hover, .esgst-gv-popout .giveaway__heading .esgst-gf-hide-button:hover, .esgst-gv-popout .giveaway__heading .giveaway__icon:hover, .esgst-gv-popout .esgst-giveaway-links .esgst-gb-button:hover, .esgst-gv-popout .esgst-giveaway-links .esgst-tag-button:hover, .esgst-gv-popout .esgst-giveaway-links .esgst-gf-hide-button:hover, .esgst-gv-popout .esgst-giveaway-links .giveaway__icon:hover {
     filter: brightness(1.4)!important;
 }
 .esgst-gc-panel {
@@ -5472,7 +5472,7 @@ input:checked + .esgst-toggle-switch-slider {
     background-image: linear-gradient(hsl(208, 24%, 35%) 0%, hsl(208, 16%, 25%) 100%)!important;
     color: hsl(210, 6%, 78%)!important;
     letter-spacing: 1ch;
-    max-width: 8px;
+    max-width: 10px;
     padding: 0 6px 0 3px!important;
 }
 .esgst-gv-icons .giveaway__column--invite-only, .esgst-gv-icons .giveaway__column--group {
@@ -7242,7 +7242,7 @@ input[placeholder="Filter features..."] {
 .esgst-giveaway-links .giveaway__heading [data-draggable-id].esgst-gc i {
     font-size: 11px;
 }
-.esgst-giveaway-links [data-draggable-id] .btn_action, .esgst-giveaway-links [data-draggable-id] .btn_action:hover, .esgst-giveaway-links [data-draggable-id] .btn_action:active, .giveaway__links .esgst-button, .giveaway__links .esgst-button:hover, .giveaway__links .esgst-button:active {
+.esgst-giveaway-links [data-draggable-id] .btn_action, .esgst-giveaway-links [data-draggable-id] .btn_action:hover, .esgst-giveaway-links [data-draggable-id] .btn_action:active, .giveaway__links .esgst-button, .giveaway__links .esgst-button:not([data-draggable-id="elgb"]):hover, .giveaway__links .esgst-button:active {
     background: none!important;
     border: none!important;
     box-shadow: none!important;
@@ -7573,6 +7573,11 @@ body .esgst-button-container {
     line-height: 16px;
     margin: 0 5px;
     vertical-align: middle;
+    width: auto;
+}
+.giveaway__heading .esgst-button-container.esgst-elgb-button [data-draggable-id="elgb"] {
+    padding :0 6px;
+    width: unset;
 }
 .esgst-gv-popout .esgst-panel-flexbox + div .esgst-button-container.esgst-elgb-button {
     margin-top: 5px;
@@ -8446,51 +8451,106 @@ tr td:first-of-type .swi-block,  tr td:first-of-type .ggdeals-price-container {
     filter: unset;
 }
 .giveaway__quick-entry-wrap, .giveaway__quick-entry-loading  {
-   background-image: var(--SGSP-giveaway-columns-bg-color);
+    background-image: linear-gradient(hsl(0 0% 27%) 0%, hsl(0 0% 21%) 100%);
 }
-.giveaway__quick-entry-btn--description, .giveaway__quick-entry-loading, .giveaway__quick-entry-btn--insert.is-locked {
-    color: var(--SGSP-secondary-txt-color);
+.giveaway__quick-entry-form, .giveaway__quick-entry-btn--description, .giveaway__quick-entry-loading, .giveaway__quick-entry-btn--insert.is-locked {
+    color: hsl(0, 0%, 62%);
 }
-.giveaway__quick-entry-form, .giveaway__quick-entry-btn--description {
-    background-image: none;
-    border-color: var(--SGSP-giveaway-columns-border-color);
-    box-shadow: 1px 1px 0 var(--SGSP-giveaway-columns-boxshadow-color) inset;
+.giveaway__quick-entry-btn--insert, .giveaway__quick-entry-form, .giveaway__quick-entry-btn--description, .giveaway__quick-entry-btn--delete {
+    background-image: linear-gradient(hsl(0 0% 27%) 0%, hsl(0 0% 21%) 100%);
+    border-color:var(--SGSP-giveaway-columns-border-color);
+    transition: filter 0.35s ease-in, color 0.35s ease-in;
+    will-change: filter, color;
 }
-.giveaway__row-inner-wrap.has-description .giveaway__quick-entry-btn--insert, .giveaway__row-inner-wrap.has-description .giveaway__quick-entry-btn--delete, .giveaway__row-inner-wrap.has-description .giveaway__quick-entry-loading, .giveaway__quick-entry-wrap {
+.giveaway__row-inner-wrap.has-description .giveaway__quick-entry-btn--insert, .giveaway__row-inner-wrap.has-description .giveaway__quick-entry-btn--delete, .giveaway__row-inner-wrap.has-description .giveaway__quick-entry-loading, .giveaway__quick-entry-wrap, .giveaway__quick-entry-error {
     border-color: var(--SGSP-giveaway-columns-border-color);
 }
 .giveaway__quick-entry-btn--delete:hover {
-    background-image: none;
-    backdrop-filter: brightness(1.5);
-    color: hsl(48, 89%, 42%);
+    background-image: linear-gradient(hsl(0 0% 27%) 0%, hsl(0 0% 21%) 100%);
+    color: var( --SGSP-yellow-buttons-txt-color);
+    filter: var(--SGSP-button-hover-brightness);
 }
 .giveaway__quick-entry-btn--description:hover, .giveaway__quick-entry-btn--description.is-active {
-    background-image: none;
-    backdrop-filter: brightness(1.65);
-    color: hsl(195, 60%, 50%);
+    background-image: linear-gradient(hsl(0 0% 27%) 0%, hsl(0 0% 21%) 100%);
+    color: var(--SGSP-link-txt-color);
+    filter: var(--SGSP-button-hover-brightness);
 }
 .giveaway__quick-entry-btn--insert:hover:not(.is-locked) {
-    background-image: none;
+    background-image: linear-gradient(hsl(0 0% 27%) 0%, hsl(0 0% 21%) 100%);
     color: var(--SGSP-green-icons-txt-color);
-    backdrop-filter: brightness(1.5);
+    filter: var(--SGSP-button-hover-brightness);
 }
 .tooltip_row i, .giveaway__quick-entry-btn--insert, .giveaway__quick-entry-btn--delete  {
-  --color-yellow-3: hsl(48, 89%, 42%);
-  --color-green-3: var(--SGSP-green-icons-txt-color);
-  --color-blue-3: hsla(195, 60%, 50%, 1);
+    --color-yellow-3: var( --SGSP-yellow-buttons-txt-color);
+    --color-green-3: var(--SGSP-green-icons-txt-color);
+    --color-blue-3: var(--SGSP-link-txt-color);
 }
 .giveaway__quick-entry-error {
     --color-red-3: var(--SGSP-red-icons-txt-color); 
-    background-image: var(--SGSP-giveaway-columns-bg-color);
-    border-color: var(--SGSP-giveaway-columns-border-color);
-    box-shadow: 1px 1px 0 var(--SGSP-giveaway-columns-boxshadow-color) inset;
 }
 .giveaway__description-panel {
-    border: 1px solid var(--SGSP-content-inner-border-color);
     background-color: var(--SGSP-content-inner-bg-color);
+    border: 1px solid var(--SGSP-content-inner-border-color);
 }
 header[data-esgst-parsed] ~ .page__outer-wrap .giveaway__quick-entry-wrap {
     margin-bottom: 4px;
+}
+.esgst-elgb-desc-shortcut + [data-draggable-id="elgb"]:not(.esgst-hidden) {
+    display: inline-block !important;
+}
+.esgst-gv-box .esgst-gv-icons.giveaway__columns .esgst-elgb-desc-shortcut {
+    background-image: linear-gradient(hsl(0 0% 33%) 0%, hsl(0, 0%, 25%) 100%)!important;
+    border: none!important;
+    border-radius: 5px 0 0 0;
+    box-shadow: 0 0 0 1px #000, 0 0 0 1px #000!important;
+    line-height: 16px;
+    margin: 0;
+    padding: 0 4px!important;
+    text-shadow: var(--SGSP-ts-4)!important;
+    transition: filter 0.35s ease-in, color 0.35s ease-in;
+    will-change: filter, color;
+    width: 12px;
+}
+.esgst-gv-popout .giveaway__links .esgst-button-container [data-draggable-id="elgb"] {
+    border: 1px solid #000!important;
+    border-color: var(--SGSP-green-buttons-border-color)!important;
+    display: inline-block!important;
+    font-size: 12px;
+    padding: 0px 4px 2px;
+}
+.esgst-gv-popout .giveaway__links .esgst-button-container [data-draggable-id="elgb"], .esgst-gv-popout .giveaway__links .esgst-button-container [data-draggable-id="elgb"] i {
+    color: var(--SGSP-enter-green-buttons-txt-color)!important;
+}
+.esgst-gv-popout .giveaway__links .esgst-button-container [data-draggable-id="elgb"].is-disabled i {
+    color: var(--SGSP-silver-buttons-txt-color)!important;
+}
+.esgst-gv-popout .giveaway__links .esgst-button-container [data-draggable-id="elgb"].sidebar__entry-delete i {
+    color: var(--SGSP-enter-yellow-buttons-txt-color)!important;
+}
+.esgst-gv-popout .giveaway__links .esgst-button-container [data-draggable-id="elgb"].sidebar__error i {
+    color: var(--SGSP-enter-red-buttons-txt-color)!important;
+}
+.esgst-gv-popout .esgst-giveaway-links .esgst-button-container.esgst-elgb-button {
+    display: inline-block!important;
+}
+.esgst-gv-popout .giveaway__heading .esgst-button-container .esgst-elgb-desc-shortcut {
+    background-image: linear-gradient(hsl(0 0% 33%) 0%, hsl(0 0% 25%) 100%);
+    padding: 1px 6px 0;
+}
+.esgst-gv-popout .esgst-giveaway-links .esgst-elgb-desc-shortcut {
+    background-image: linear-gradient(hsl(0 0% 33%) 0%, hsl(0 0% 25%) 100%);
+    padding: 0 6px;
+}
+.esgst-gv-popout .esgst-panel-flexbox + div .esgst-elgb-desc-shortcut {
+    background-image: linear-gradient(hsl(0 0% 33%) 0%, hsl(0 0% 25%) 100%);
+}
+.esgst-gv-popout .giveaway__heading .esgst-button-container.esgst-elgb-button [data-draggable-id="elgb"] {
+    padding: 1px 6px;
+    line-height: 15px;
+}
+.esgst-gv-popout .giveaway__heading [data-draggable-id="elgb"].form__saving-button.is-disabled, .esgst-gv-popout .esgst-giveaway-links [data-draggable-id="elgb"].form__saving-button.is-disabled {
+    overflow: clip;
+    max-width: 8.5ch;
 }
 .backgroundimage () when not (@body-bg-image = "none") {
     :root {
